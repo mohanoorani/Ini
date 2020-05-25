@@ -1,0 +1,25 @@
+<div class="tm-section shop-page-area bg-white tm-padding-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sd-12">
+                <div class="tm-blog tm-blog-details sticky-sidebar">
+                    <div class="tm-blog-image">
+
+                        <img src="{{ item?.ImageUrl }}" alt="{{ item?.Title }}" height="481px">
+
+                    </div>
+                    <div class="tm-blog-content">
+                        <div class="tm-blog-meta">
+                            <span><i class="fa fa-user-o"></i>توسط {{ item?.Writer }} </span>
+                            <span><i class="fa fa-calendar-o"></i>{{ item?.CreateDate }}</span>
+                        </div>
+                        <h3> {{ item?.Title }} </h3>
+                        <p [innerHTML]="item?.Description"></p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

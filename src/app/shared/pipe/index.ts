@@ -1,0 +1,1 @@
+export {GetErrorPipe} from './get-error.pipe'

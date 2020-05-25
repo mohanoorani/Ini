@@ -1,0 +1,44 @@
+<div class="tm-section shop-page-area bg-white tm-padding-section">
+    <div class="container">
+        <div class="tm-shop-productsarea">
+
+            <div class="tm-shop-products">
+                
+                <div class="row" *ngIf="ProductList.length > 0">
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-10" *ngFor="let product of ProductList">
+                        <div class="tm-product wow fadeInUp">
+                            <app-single-product [product]="product" (openQuickView)="quickView($event)">
+                            </app-single-product>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" *ngIf="ProductList.length == 0 && showEmptyRow">
+                    <div style="width: 94%;margin-right:3%; padding:15px; color:white;background-color: royalblue">
+                        محصولی یافت نشد.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" id="openModalButton" [hidden]="true" data-toggle="modal"
+    data-target="#tm-product-quickview"></button>
+
+<!-- Quick View Popup -->
+<div class="tm-quickview-popup modal fade" id="tm-product-quickview" role="dialog" aria-hidden="true">
+    <div class="container">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="row justify-content-center">
+                    <div class="col-xl-10 col-lg-12">
+                        <app-product-detail #productDetail></app-product-detail>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--// Quick View Popup -->

@@ -1,0 +1,18 @@
+<div class="blog-slider-item">
+    <div class="tm-blog wow fadeInUp">
+        <div class="tm-blog-image">
+            <a *ngIf="item" [routerLink]="['/blog/detail', item?.Id, item?.Url]">
+                <img src="{{item?.ThumbImageUrl}}" alt="{{item?.Title}}">
+            </a>
+        </div>
+        <div class="tm-blog-content">
+            <div class="tm-blog-meta">
+                <span><i class="fa fa-user-o"></i>توسط {{ item?.Writer}} </span>
+                <span><i class="fa fa-calendar-o"></i> {{ item?.CreateDate }} </span>
+            </div>
+            <h5><a *ngIf="item" [routerLink]="['/blog/detail', item?.Id, item?.Url]"> {{ item?.Title }}</a></h5>
+            <p [innerHtml]="item?.Description.substring(0,50)" class="tm-blog-desc"></p>
+            <a class="tm-readmore" *ngIf="item" [routerLink]="['/blog/detail', item?.Id, item?.Url]">ادامه مطلب...</a>
+        </div>
+    </div>
+</div>

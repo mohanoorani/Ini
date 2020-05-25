@@ -1,0 +1,7 @@
+user-agent: *
+Sitemap: http://Inisito.com/sitemap.xml
+Disallow: /sitemap/
+Allow: /product/
+Allow: /blog/
+Allow: /category/
+Allow: /contactus/

@@ -1,0 +1,78 @@
+<div class="tm-prodetails">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" *ngIf="showCloseModalButton">
+        <i class="fa fa-times"></i>
+    </button>
+
+    <div class="row">
+        <div class="col-lg-5 col-md-6 col-12">
+
+            <!-- Product Details Images -->
+            <div class="tm-prodetails-images" *ngIf="!showCloseModalButton">
+                <div class="tm-prodetails-largeimages">
+                    <div class="tm-prodetails-largeimage">
+                        <a href="{{product?.ImageUrl}}">
+                            <img src="{{product?.ImageUrl}}" alt="{{product?.Title}}">
+                        </a>
+                    </div>
+                    <div class="tm-prodetails-largeimage" *ngFor="let productImage of product?.ProductImages">
+                        <a href="{{productImage.ImageUrl}}">
+                            <img src="{{productImage.ImageUrl}}" alt="{{product.Title}}">
+                        </a>
+                    </div>
+
+                </div>
+                <div class="tm-prodetails-thumbnails">
+                    <div class="tm-prodetails-thumbnail">
+                        <img src="{{product?.ThumbImageUrl}}" alt="{{product?.Title}}">
+                    </div>
+                    <div class="tm-prodetails-thumbnail" *ngFor="let productImage of product?.ProductImages">
+                        <img src="{{productImage.ThumbImageUrl}}" alt="{{product.Title}}">
+                    </div>
+                </div>
+            </div>
+            <!--// Product Details Images -->
+
+            <div class="tm-prodetails-images" *ngIf="showCloseModalButton">
+                <div class="tm-prodetails-largeimages">
+                    <div class="tm-prodetails-largeimage">
+                        <img src="{{product?.ImageUrl}}" alt="{{product?.Title}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-7 col-md-6 col-12">
+            <div class="tm-prodetails-content">
+                <h1 class="tm-prodetails-title">{{product?.Title}}</h1>
+
+
+                <p><i><b>قیمت هر گرم طلا:</b></i> {{product?.GoldPrice | number:0}} تومان</p>
+                <p><i><b>قیمت دلار:</b></i> {{product?.Dollar | number:0}} تومان</p>
+
+                <p><i><b>قیمت:</b></i></p>
+                <p [innerHTML]="product?.Price"></p>
+
+                <div class="tm-prodetails-categories">
+                    <h6>دسته بندی :</h6>
+
+                    <a *ngIf="product" [routerLink]="['/category/', product?.CategoryId , product?.CategoryTitleUrl]" style="color: #007bff">
+                        {{product?.CategoryTitle}}
+                    </a>
+                </div>
+
+                <div class="tm-prodetails-tags" *ngIf="product?.TagList">
+                    <span style="font-size: 13px">برچسب ها :</span>
+                    <ul>
+                        <li *ngFor="let tag of product?.TagList">
+                            <a href="/product/tags/{{product?.Id}}/{{tag.url}}" target="_blank">{{ tag.name }}</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!-- <p *ngIf="product?.Description"><i><b>توضیحات:</b></i></p>
+                <p [innerHTML]="product?.Description"></p> -->
+            </div>
+        </div>
+    </div>
+</div>

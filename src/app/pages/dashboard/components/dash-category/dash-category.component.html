@@ -1,0 +1,39 @@
+<div class="tm-section shop-page-area bg-white">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-7 col-md-10 col-12">
+                <div class="tm-section-title text-center mb-3">
+                    <h2>دسته بندی</h2>
+                    <span class="divider animateon"><i class="fa fa-superpowers"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="tm-shop-productsarea">
+
+            <div class="tm-shop-products">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-10" *ngFor="let category of categoryList">
+                        <div class="tm-product wow fadeInUp">
+                            <div class="card cardsbig card-product">
+                                <div class="card-header card-header-image animated" data-header-animation="true">
+                                    <a [routerLink]="['/category', category.Id, category.Url]" style="padding:90px 0">
+                                        <img class="img" src="{{category.ImageUrl}}" alt="{{category.Title}}">
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-actions text-center">
+
+                                        <a [routerLink]="['/category', category.Id, category.Url]">{{category.Title}}</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

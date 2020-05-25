@@ -1,0 +1,28 @@
+<div class="heroslider">
+    <div class="heroslider-slider heroslider-animted tm-slider-arrow">
+
+        <div class="heroslider-wrapper" *ngFor="let item of rotatorList">
+            <div class="heroslider-single" [attr.data-bgimage]="item.ImageUrl" data-black-overlay="8">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-8 col-lg-10">
+                            <div class="heroslider-content">
+                                <div class="heroslider-animatebox">
+                                    <h1>
+                                        <span>{{ item.Title }}</span>
+                                    </h1>
+                                </div>
+                                <div class="heroslider-animatebox">
+                                    <p>{{ item.Description }}</p>
+                                </div>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="heroslider-slidecounter"></div>
+</div>
