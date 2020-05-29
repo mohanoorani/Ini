@@ -39,7 +39,7 @@ function showAccountModal(targetSlide, returnUrl, email) {
 		refreshCaptcha('imgCaptchaEmployer');
 	}
 
-	$('#AccountModal').modal('show');
+	$('#AccountModal').modal({"backdrop": "static"});
 	//$('#AccountModal').carousel(targetSlide);
 	navigateToPage(targetSlide);
 	//refreshCaptcha('imgCaptchaEmployee');

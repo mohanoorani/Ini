@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AlertifyService } from './shared/services';
 import { FormsModule } from '@angular/forms';
 import { DashboardCachingService } from './pages/dashboard/services/dashboard.cache';
+import { SharedModule } from './shared/shared.module';
+import { ContactUsService } from './pages/contactus/services/contactus.service';
 
 @NgModule({
   declarations: [
@@ -17,11 +19,13 @@ import { DashboardCachingService } from './pages/dashboard/services/dashboard.ca
     AppRoutingModule,
     HttpClientModule,
     NgbModule.forRoot(),
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers: [
     AlertifyService,
-    DashboardCachingService
+    DashboardCachingService,
+    ContactUsService
   ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

@@ -15,11 +15,10 @@ export class AlertifyService {
     alertify.defaults.theme.cancel = 'btn btn-warning';
 
     alertify.defaults.notifier.position = 'bottom-left';
-    alertify.defaults.notifier.delay = 5;
+    alertify.defaults.notifier.delay = 20;
     //alertify.defaults.notifier.closeButton = true;
    }
 
-  //this.alertify.prompt('با موفقیت ذخیره شد.','aaa' , ()=> {} , () => {});
   prompt(title, value, successCallBack, errorCallBack) {
     alertify.prompt(title, value,
       function (evt, value) {

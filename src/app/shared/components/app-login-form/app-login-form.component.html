@@ -1,0 +1,79 @@
+
+<!-- مودال ورود و ثبت نام -->
+<div class="modal fade" id="AccountModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="accountLoading"
+                style="position: absolute;top: 0;bottom: 0;left: 0;right: 0;background: #ffffff85;z-index: 1;display:none;">
+            </div>
+            <div class="modal-header"
+                style="background-color: #ffffff !important;border-bottom-width: 0px; display:block;">
+                <button style="color:red" type="button" class="close" data-dismiss="modal"
+                    aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body" style="padding:0;">
+                <div id="AccountCarousel" data-interval="false" style="margin-top:5px;">
+                    <div class="carousel-inner" role="listbox">
+                        <div id="modal-carousel-item-id-0" class="item active">
+                            <div class="account-page" id="loginBox">
+                                
+                                <div style="width:100%;">
+                                    <div class="row">
+                                        <div class="col-xs-12 text-center">
+                                            <img class="loginregisterlogo" data-href="/"
+                                                src="../assets/Content/Images/logo-job-vision.png" />
+                                        </div>
+                                        <div class="col-xs-12 text-center">
+                                            <span class="loginregisterlogo"
+                                                style="font-size: 21px; font-weight: bold;color:dodgerblue;line-height: 45px;">
+                                                ورود / ثبت نام</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" *ngIf="!isCodeView">
+                                        <div class="col-xs-12 col-sm-6 text-right">
+                                            <label class="control-label" for="mobileNumber">تلفن همراه</label>
+                                        </div>
+                                        <div class="col-xs-12 ">
+                                            <input class="form-control" data-val="true" name="mobileNumber"
+                                                type="text" [(ngModel)]="mobileNumber" />
+                                        </div>
+                                        <br />
+                                    </div>
+                                    <div class="form-group" *ngIf="!isCodeView">
+                                        <div class="text-center">
+                                            <input type="button" value="ورود" class="btn btn-activity"
+                                                style="margin-top: 15px; min-width: 140px;" (click)="login()" />
+                                        </div>
+                                    </div>
+
+
+                                    
+                                    <div class="form-group" *ngIf="isCodeView">
+                                        <div class="col-xs-12 col-sm-6 text-right">
+                                            <label class="control-label" for="verifyCode">کد ارسالی</label>
+                                        </div>
+                                        <div class="col-xs-12 ">
+                                            <input class="form-control" data-val="true" name="verifyCode"
+                                                type="text" [(ngModel)]="verifyCode" />
+                                        </div>
+                                        <br />
+                                    </div>
+                                    <div class="form-group" *ngIf="isCodeView">
+                                        <div class="text-center">
+                                            <input type="button" value="ورود" class="btn btn-activity"
+                                                style="margin-top: 15px; min-width: 70px;" (click)="codeCheck()" />
+                                                <input type="button" value="تغییر شماره همراه" class="btn btn-success"
+                                                    style="margin-top: 15px; min-width: 70px;margin-right: 10px" 
+                                                    (click)="changeMobileNumber()" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

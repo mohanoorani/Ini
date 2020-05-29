@@ -39,32 +39,12 @@ export class AuthService {
   }
 
   getRole() {
-
-    //return this.user.profile.role;
     return this.decodedToken().Role;
   }
-
 
   signOut(): void {
 
     localStorage.removeItem('token');
 
   }
-
-
 }
-
-// export function getClientSettings(): UserManagerSettings {
-//   return {
-//     authority: 'http://localhost:5000/',
-//     client_id: 'angular_spa',
-//     redirect_uri: 'http://localhost:4300/auth-callback',
-//     post_logout_redirect_uri: 'http://localhost:4300/logout',
-//     response_type: "id_token token",
-//     scope: "openid profile api1",
-//     filterProtocolClaims: true,
-//     loadUserInfo: false,
-//     automaticSilentRenew: false,
-//     silent_redirect_uri: 'http://localhost:4300/silent-refresh.html'
-//   };
-// }

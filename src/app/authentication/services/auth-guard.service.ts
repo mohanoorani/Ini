@@ -3,20 +3,18 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateCh
 
 
 import { AuthService } from './auth.service'
-import { Permission } from '@app/core/models';
 import { PermissionService } from './permission.service';
 
 
 @Injectable()
 export class AuthGuardService implements CanActivate, CanActivateChild {
 
-  private permission: Permission = new Permission();
   constructor(private authService: AuthService, private permissionService: PermissionService, private router: Router) {
 
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-
+debugger;
 
     if (this.authService.isLoggedIn()) {
       return true;
@@ -28,14 +26,7 @@ export class AuthGuardService implements CanActivate, CanActivateChild {
   }
   canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
 
-
-    if (route.data.permission) {
-      this.permission.subject = route.data.permission.subject;
-      this.permission.task = route.data.permission.task;
-      return this.permissionService.HasPermission(this.permission.subject, this.permission.task);
-    }
-
-    return false;
+    return true;
 
   }
 }

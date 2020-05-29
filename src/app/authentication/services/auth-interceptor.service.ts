@@ -15,7 +15,7 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private auth: AuthService, private alertify: AlertifyService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    
+    debugger;
     if (this.auth.isLoggedIn()) {
       this.authToken = this.auth.getAuthorizationHeaderValue();
     }

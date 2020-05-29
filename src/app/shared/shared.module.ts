@@ -6,6 +6,8 @@ import { AppGridComponent, BreadCrumbComponent, AppContactUsDetailComponent } fr
 import { SharedServiceModule } from './services/shared-service.module';
 import { CrudComponent } from './components/Crud/crud.component';
 import { FormsModule } from '@angular/forms';
+import { AppLoginFormComponent } from './components/app-login-form/app-login-form.component';
+import { LoginService } from './components/app-login-form/Services/LoginService';
 
 @NgModule({
   imports: [
@@ -21,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     AppGridComponent,
     BreadCrumbComponent,
     CrudComponent,
-    AppContactUsDetailComponent
+    AppContactUsDetailComponent,
+    AppLoginFormComponent
   ]
   ,
   exports: [
@@ -30,9 +33,10 @@ import { FormsModule } from '@angular/forms';
     BreadCrumbComponent,
     CrudComponent,
     AppGridComponent,
-    AppContactUsDetailComponent
+    AppContactUsDetailComponent,
+    AppLoginFormComponent
   ],
-  providers: [SharedServiceModule]
+  providers: [SharedServiceModule, LoginService]
 })
 
 

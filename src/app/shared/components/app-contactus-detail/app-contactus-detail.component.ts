@@ -15,14 +15,6 @@ export class AppContactUsDetailComponent {
   saveProcessStart: boolean = false;
 
   constructor(private contactusService: ContactUsService, private alertifyService: AlertifyService) { }
-
-  fileChange(files: FileList) {
-    if (files && files[0].size > 0) {
-      this.selectedFile = files[0];
-    }
-  }
-
-
   save() {
     if (!this.contactItem.FullName || !this.contactItem.MobileNumber) {
       this.alertifyService.error("نام و شماره همراه خود را وارد نمایید.")
