@@ -1,0 +1,42 @@
+<div class="card card-influencer">
+    <div class="card-header card-header-image animated" data-header-animation="true">
+        <a *ngIf="influencer" [routerLink]="['/influencer/detail', influencer?.Id , influencer?.Url]" style="padding:90px 0">
+            <img class="img" src="{{influencer?.ThumbImageUrl}}" alt="{{influencer?.Title}}">
+        </a>
+    </div>
+    <div class="card-body">
+        <div class="card-actions text-center">
+
+            <button type="button" class="btn btn-primary" style="font-size: 12px;height: 32px;margin: 6px;"
+                (click)="quickView(influencer?.Id)">
+
+                <i class="fa fa-eye"></i>
+                نمایش سریع
+
+            </button>
+
+        </div>
+        <h4 class="card-title">
+            <a *ngIf="influencer" [routerLink]="['/influencer/detail', influencer?.Id , influencer?.Url]">
+                {{influencer?.Title}}
+            </a>
+        </h4>
+    </div>
+    <div class="card-footer">
+        <div class="price graycolor">
+            <span style="font-size:12px">
+                کد: {{ influencer?.Code}}
+            </span>
+        </div>
+        <div class="stats">
+            <p class="card-category graycolor">
+                دسته بندی: 
+                <a *ngIf="influencer" style="    color: #0056b3;" 
+                    [routerLink]="['/category/', influencer?.CategoryId , influencer?.CategoryTitleUrl]">
+                    
+                    {{influencer?.CategoryTitle}}
+                </a>
+            </p>
+        </div>
+    </div>
+</div>

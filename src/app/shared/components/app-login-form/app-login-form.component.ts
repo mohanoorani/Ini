@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AlertifyService } from '@app/shared/services';
 import { LoginService } from './Services/LoginService';
+import { AuthService } from '@app/authentication/services';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -11,10 +13,14 @@ export class AppLoginFormComponent {
 
   mobileNumber: string = "";
   verifyCode: string = "";
-  tempCode: string = "";
-  isCodeView: boolean = false;
+  isCodeView: boolean;
 
-  constructor(private alertifyService: AlertifyService, private loginService: LoginService) { }
+  constructor(private alertifyService: AlertifyService, private loginService: LoginService,
+    private authService: AuthService, private route: Router) { }
+
+    homePage(){
+      this.route.navigate(['profile']);
+    }
 
   login() {
     if (this.mobileNumber == "") {
@@ -34,16 +40,22 @@ export class AppLoginFormComponent {
 
     this.alertifyService.success("کد تایید تا لحظاتی دیگر برای شما ارسال می گردد");
 
-    this.tempCode = "12345";
-    this.isCodeView = true;
-    // this.loginService.Login(this.mobileNumber).subscribe((code: string) => {
-    //   this.alertifyService.success("کد ارسالی را وارد نمایید");
+    // this.tempCode = "12345";
+    // this.isCodeView = true;
+    this.loginService.Login(this.mobileNumber).subscribe((res: any) => {
+      
+      if(!res.success){
+        this.alertifyService.success("لطفا دقایقی دیگر تلاش نمایید");
+        return;
+      }
 
-    //   this.verifyCode = code;
-    // });
+      this.alertifyService.success("کد ارسالی را وارد نمایید");
+
+      this.isCodeView = true;
+    });
   }
 
-  codeCheck() {
+  ConfirmCode() {
     if (this.verifyCode == "") {
       this.alertifyService.error("کد تایید را وارد نمایید");
       return;
@@ -54,15 +66,14 @@ export class AppLoginFormComponent {
       return;
     }
 
-    if (this.verifyCode != this.tempCode) {
-      this.alertifyService.error("کد را بدرستی وارد نمایید");
-      return;
-    }
+    this.loginService.ConfirmCode(this.mobileNumber, this.verifyCode).subscribe((res: any) =>{
+        debugger;
+        this.authService.setAuthorizationHeaderValue(res.token);
+    });
   }
 
   changeMobileNumber() {
     this.verifyCode = "";
-    this.tempCode = "";
 
     this.isCodeView = false;
 

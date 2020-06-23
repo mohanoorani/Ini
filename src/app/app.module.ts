@@ -6,9 +6,9 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertifyService } from './shared/services';
 import { FormsModule } from '@angular/forms';
-import { DashboardCachingService } from './pages/dashboard/services/dashboard.cache';
 import { SharedModule } from './shared/shared.module';
 import { ContactUsService } from './pages/contactus/services/contactus.service';
+import { AuthService } from './authentication/services';
 
 @NgModule({
   declarations: [
@@ -24,8 +24,8 @@ import { ContactUsService } from './pages/contactus/services/contactus.service';
   ],
   providers: [
     AlertifyService,
-    DashboardCachingService,
-    ContactUsService
+    ContactUsService,
+    AuthService
   ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

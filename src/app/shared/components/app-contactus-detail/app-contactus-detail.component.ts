@@ -30,4 +30,6 @@ export class AppContactUsDetailComponent {
       this.saveProcessStart = false;
     })
   }
+
+  fileChange(file: any){}
 }
