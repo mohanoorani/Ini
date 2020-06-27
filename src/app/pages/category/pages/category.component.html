@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-10" *ngFor="let category of categoryList">
+        <div class="tm-product wow fadeInUp">
+            <div class="card cardsbig card-product">
+                <div class="card-header card-header-image animated" data-header-animation="true">
+                    <a [routerLink]="['/influencers', category.ID]" style="padding:90px 0">
+                        <!-- <img class="img" src="{{category.ImageUrl}}" alt="{{category.Title}}"> -->
+                    </a>
+                </div>
+                <div class="card-body">
+                    <div class="card-actions text-center">
+                        <a [routerLink]="['/influencers', category.ID]">{{category.Title}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

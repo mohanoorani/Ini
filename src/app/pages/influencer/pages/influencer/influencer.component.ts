@@ -10,14 +10,12 @@ import { AppInfluencerDetailComponent } from '../../components/app-influencer-de
   templateUrl: './influencer.component.html',
   styleUrls: ['./influencer.component.css']
 })
-export class InfluencerComponent extends CrudComponent<Influencer> implements OnInit {
+export class InfluencerComponent implements OnInit {
 
   influencerId: number;
   @ViewChild('influencerDetail') influencerDetail: AppInfluencerDetailComponent;
 
-  constructor(private influencerService: InfluencerService, route: ActivatedRoute, router: Router) {
-
-    super(influencerService, route, router);
+  constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {

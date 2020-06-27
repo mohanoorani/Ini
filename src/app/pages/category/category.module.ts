@@ -1,22 +1,22 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '@app/shared/shared.module';
 import { CategoryRoutingModule } from './category-routing.module';
-import { CategoryListComponent } from './pages/list/category-list.component';
-import { CategoryComponent } from './pages/category/category.component';
+import { CategoryComponent } from './pages/category.component';
+import { CategoryService } from './services/category.service';
 
 @NgModule({
   declarations:
     [
-      CategoryListComponent,
-      CategoryComponent,
+      CategoryComponent
     ],
   imports: [
     CommonModule,
     SharedModule,
     CategoryRoutingModule,
   ],
-  providers: [],
+  providers: [CategoryService],
 })
+
 export class CategoryModule { }

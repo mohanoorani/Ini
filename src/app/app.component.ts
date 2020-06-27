@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { Category } from './pages/category/models';
+import { Category } from './pages/category/models/category';
 
 @Component({
   selector: 'app-root',

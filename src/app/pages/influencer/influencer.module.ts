@@ -10,7 +10,6 @@ import { AppInfluencerListComponent } from './components/app-influencer-list/app
 import { AppInfluencerDetailComponent } from './components/app-influencer-detail/app-influencer-detail.component';
 import { AppSingleInfluencerComponent } from './components/app-single-influencer/app-single-influencer.component';
 import { InfluencerSearchComponent } from './pages/search/search.component';
-import { TagsComponent } from './pages/tags/tags.component';
 
 @NgModule({
   declarations:
@@ -20,8 +19,7 @@ import { TagsComponent } from './pages/tags/tags.component';
       AppInfluencerListComponent,
       AppInfluencerDetailComponent,
       AppSingleInfluencerComponent,
-      InfluencerSearchComponent,
-      TagsComponent
+      InfluencerSearchComponent
     ],
   imports: [
     CommonModule,

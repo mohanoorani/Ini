@@ -1,7 +1,5 @@
 export class Category {
-    Id: number;
+    ID: number;
     Title: string;
     ImageUrl: string; 
-    Description: string;
-    File: any;
 }
