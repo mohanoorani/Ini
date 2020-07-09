@@ -35,7 +35,8 @@
               "src/assets/Content/CustomStyles/NewLayout-css.css",
               "src/assets/Content/login-register-modal.css",
               "src/assets/Content/slick/slick-Slider-css.css",
-              "src/assets/Content/CustomStyles/Home.css"
+              "src/assets/Content/CustomStyles/Home.css",
+              "src/assets/Content/CustomStyles/box.css"
             ],
             "scripts": [
               "src/assets/Scripts/jquery.js",

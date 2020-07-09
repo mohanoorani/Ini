@@ -1,18 +1,11 @@
-<div class="row">
-    <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-10" *ngFor="let category of categoryList">
-        <div class="tm-product wow fadeInUp">
-            <div class="card cardsbig card-product">
-                <div class="card-header card-header-image animated" data-header-animation="true">
-                    <a [routerLink]="['/influencers', category.ID]" style="padding:90px 0">
-                        <!-- <img class="img" src="{{category.ImageUrl}}" alt="{{category.Title}}"> -->
-                    </a>
-                </div>
-                <div class="card-body">
-                    <div class="card-actions text-center">
-                        <a [routerLink]="['/influencers', category.ID]">{{category.Title}}</a>
-                    </div>
-                </div>
-            </div>
+<div class="global-container">
+    <div class="profile block fadeInUp" *ngFor="let category of categoryList">
+        <div class="profile-picture big-profile-picture clear">
+            <img width="150px" alt="{{category.PersianTitle}}"
+                src="../assets/Content/Images/inisito-logo.png">
         </div>
+        <h1 class="user-name" >
+            <a [routerLink]="['/influencers', category.ID]" style="color: white;">{{category.PersianTitle}}</a>
+        </h1>
     </div>
 </div>

@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Influencer } from '../../models/influencer';
-import { AppInfluencerDetailComponent } from '../app-influencer-detail/app-influencer-detail.component';
 
 @Component({
   selector: 'app-influencer-list',
@@ -10,7 +9,6 @@ import { AppInfluencerDetailComponent } from '../app-influencer-detail/app-influ
 export class AppInfluencerListComponent implements OnInit {
 
   @Input() InfluencerList: Influencer[] = []
-  @ViewChild('influencerDetail') influencerDetail: AppInfluencerDetailComponent;
   showEmptyRow: boolean = false;
   constructor() { }
 

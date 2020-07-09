@@ -1,0 +1,131 @@
+.profile {
+    width: 23%;
+    float: right;
+    margin-left: 15px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.block {
+    margin-bottom: 25px;
+    background: #646ea6;
+    border-radius: 5px;
+}
+
+.big-profile-picture {
+    margin: 0 auto;
+    border: 5px solid #50597b;
+    width: 150px;
+    height: 150px;
+}
+
+.profile-picture {
+    border-radius: 100%;
+    overflow: hidden;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.clear {
+    clear: both;
+}
+
+.user-name {
+    margin: 25px 0 16px;
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    font-size: 14px;
+}
+
+.profile-description {
+    width: 210px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.scnd-font-color {
+    color: #bdb9b9;
+}
+
+.profile-options {
+    padding-top: 23px;
+}
+
+.horizontal-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.profile-options li {
+    border-left: 1px solid #1f253d;
+    font-size: 13px;
+}
+
+.profile-options li a {
+    color: white;
+}
+
+.horizontal-list li {
+    float: left;
+    width: 33%;
+}
+
+.profile-options p {
+    margin: 0;
+}
+
+.profile-options .comments {
+    border-top: 4px solid #31b36b;
+}
+
+.profile-options a {
+    display: block;
+    line-height: 60px;
+    text-align: center;
+    -webkit-transition: background .3s;
+    transition: background .3s;
+}
+
+.profile-options p {
+    margin: 0;
+}
+
+.profile-options .icon {
+    padding-left: 10px;
+}
+
+.icon {
+    font-size: 15px;
+}
+
+.profile-options .views {
+    border-top: 4px solid #11a8ab;
+}
+
+.profile-options .likes {
+    border-top: 4px solid #e64c65;
+}
+
+.profile-options a:hover {
+    text-decoration: none;
+    background: #50597b;
+}
+
+.add-button .icon {
+    float: right;
+    line-height: 18px;
+    width: 23px;
+    font-size: 18px;
+    text-align: center;
+    margin: 0px 6px;
+}
+
+.instaverify {
+    width: 24px;
+    margin-right: 10px;
+}

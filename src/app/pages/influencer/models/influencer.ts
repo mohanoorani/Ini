@@ -9,4 +9,5 @@ export class Influencer {
     PostsCount: number
     ProfilePicUrl: string
     InstagramTypeTitle: string
+    IsVerified: boolean
 }

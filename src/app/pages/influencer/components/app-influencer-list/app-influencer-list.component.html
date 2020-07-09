@@ -1,44 +1,6 @@
-<div class="tm-section shop-page-area bg-white tm-padding-section">
-    <div class="container">
-        <div class="tm-shop-influencersarea">
-
-            <div class="tm-shop-influencers">
-                
-                <div class="row" *ngIf="InfluencerList.length > 0">
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-10" *ngFor="let influencer of InfluencerList">
-                        <div class="tm-influencer wow fadeInUp">
-                            <app-single-influencer [influencer]="influencer" (openQuickView)="quickView($event)">
-                            </app-single-influencer>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row" *ngIf="InfluencerList.length == 0 && showEmptyRow">
-                    <div style="width: 94%;margin-right:3%; padding:15px; color:white;background-color: royalblue">
-                        موردی یافت نشد.
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="global-container">
+    <div class="profile block fadeInUp" *ngFor="let influencer of InfluencerList">
+        <app-single-influencer [influencer]="influencer">
+        </app-single-influencer>
     </div>
 </div>
-
-<button type="button" id="openModalButton" [hidden]="true" data-toggle="modal"
-    data-target="#tm-influencer-quickview"></button>
-
-<!-- Quick View Popup -->
-<div class="tm-quickview-popup modal fade" id="tm-influencer-quickview" role="dialog" aria-hidden="true">
-    <div class="container">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="row justify-content-center">
-                    <div class="col-xl-10 col-lg-12">
-                        <app-influencer-detail #influencerDetail></app-influencer-detail>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--// Quick View Popup -->

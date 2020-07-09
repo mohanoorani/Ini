@@ -7,7 +7,6 @@ import { InfluencerRoutingModule } from './influencer-routing.module';
 import { InfluencerComponent } from './pages/influencer/influencer.component';
 import { InfluencerService } from './services/influencer.service';
 import { AppInfluencerListComponent } from './components/app-influencer-list/app-influencer-list.component';
-import { AppInfluencerDetailComponent } from './components/app-influencer-detail/app-influencer-detail.component';
 import { AppSingleInfluencerComponent } from './components/app-single-influencer/app-single-influencer.component';
 import { InfluencerSearchComponent } from './pages/search/search.component';
 
@@ -17,7 +16,6 @@ import { InfluencerSearchComponent } from './pages/search/search.component';
       InfluencerListComponent,
       InfluencerComponent,
       AppInfluencerListComponent,
-      AppInfluencerDetailComponent,
       AppSingleInfluencerComponent,
       InfluencerSearchComponent
     ],
@@ -30,8 +28,7 @@ import { InfluencerSearchComponent } from './pages/search/search.component';
   providers: [InfluencerService],
   exports: [
     AppInfluencerListComponent,
-    AppInfluencerDetailComponent,
-    AppSingleInfluencerComponent,
+    AppSingleInfluencerComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
