@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { UserPanelComponent } from "./pages/userPanel.component";
-import { ProfileComponent } from "./childrens/profile/Profile.component";
+import { ProfileComponent } from "./childrens/profile/profile.component";
 import { MessageComponent } from "./childrens/message/message.component";
 import { InstagramComponent } from "./childrens/instagram/instagram.component";
 

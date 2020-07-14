@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
-import { AuthService } from '@app/authentication/services';
 import { UserPanelService } from '../../services/userPanel.service';
 import { AlertifyService } from '@app/shared/services';
 
 @Component({
-  selector: 'app-Profile',
-  templateUrl: './Profile.component.html',
-  styleUrls: ['./Profile.component.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
 
