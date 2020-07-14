@@ -1,11 +1,17 @@
 <div class="global-container">
-    <div class="profile block fadeInUp" *ngFor="let category of categoryList">
-        <div class="profile-picture big-profile-picture clear">
-            <img width="150px" alt="{{category.PersianTitle}}"
-                src="../assets/Content/Images/inisito-logo.png">
+
+    <div class="parentbox fadeInUp col-md-3 col-xs-12" *ngFor="let category of categoryList">
+
+        <div class="profile">
+            <div class="profile-picture big-profile-picture clear">
+                <a [routerLink]="['/influencers', category.ID]">
+                    <img alt="{{category.PersianTitle}}" src="../assets/Content/Images/inisito-logo.png">
+                </a>
+            </div>
+            <h1 class="user-name">
+                <a [routerLink]="['/influencers', category.ID]" style="color: white;">{{category.PersianTitle}}</a>
+            </h1>
         </div>
-        <h1 class="user-name" >
-            <a [routerLink]="['/influencers', category.ID]" style="color: white;">{{category.PersianTitle}}</a>
-        </h1>
     </div>
+
 </div>

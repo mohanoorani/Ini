@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import * as deconsult from '../../../../assets/js/deconsult';
 
 @Component({
   selector: 'app-notfound',
@@ -13,7 +12,5 @@ export class NotFoundComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle("یافت نشد");
-    setTimeout(function () {  deconsult.init(); }, 200);
-
   }
 }

@@ -46,11 +46,6 @@
         height: 0px;
     }
 
-    .container {
-        /*padding-top: 50px;*/
-        margin: auto;
-    }
-
     #AccountModal .form-group {
         margin-bottom: 12px !important;
     }
@@ -87,7 +82,8 @@
         width: 100%;
         padding: 0;
         margin: 0;
-        margin-top: 15px;
+        margin-top: 10px;
+        margin: auto;
     }
 
     .global-container {

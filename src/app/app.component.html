@@ -14,8 +14,6 @@
                     <ul class="nav navbar-nav navbar-left visible-xs visible-sm">
                         <li class="active">
 
-                            <a style="cursor:pointer;" onclick="onOpenLoginAndRegisterClicked(this)" inital-page="0"
-                                return-url="https://jobvision.ir/" class="signin-btn">ورود / عضویت</a>
                         </li>
                     </ul>
                 </div>
@@ -32,14 +30,13 @@
                 </div>
             </div>
             <div class="collapse navbar-collapse guest-mode" id="jvNavbar">
-                <ul class="nav navbar-nav navbar-left hidden-xs hidden-sm">
+                <ul class="nav navbar-nav navbar-left hidden-xs hidden-sm ">
                     <li class="active">
-                        <a style="cursor:pointer;" onclick="onOpenLoginAndRegisterClicked(this)" inital-page="0"
-                            return-url="https://jobvision.ir/" class="signin-btn">ورود / عضویت</a>
+                        <app-account-manager></app-account-manager>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a [routerLink]="['/']" >صفحه نخست</a></li>
+                    <li><a [routerLink]="['/']">صفحه نخست</a></li>
                     <li><a [routerLink]="['/categories']">دسته بندی</a></li>
                     <li><a [routerLink]="['/influencers']">اینفلوئنسر</a></li>
                 </ul>
@@ -52,30 +49,10 @@
 
     <div class="container">
 
-       
-            <router-outlet></router-outlet>
-      
 
-        <div class="modal fade" id="IsPendingModal" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header" style="background-color: #ebebeb !important">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <p style="font-size: small; direction:rtl">
-                            برای ثبت اولین آگهی نیاز است تا اطلاعات شرکت شما توسط تیم جاب ویژن بررسی تایید شود.
-                            <br />
-                            این فرایند حداکثر ظرف یک روز کاری انجام خواهد شد.
-                        </p>
-                    </div>
-                    <div class="modal-footer"
-                        style="background-color: #ebebeb !important; text-align: center !important">
-                        <a class="btn btn-success btn-ok customLink" data-dismiss="modal">تایید</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <router-outlet></router-outlet>
+
+
 
         <div id="xs-Media" class="visible-xs"></div>
         <div id="overlayHomeLoading"></div>

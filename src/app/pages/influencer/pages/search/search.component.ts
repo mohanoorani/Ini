@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Influencer } from '../../models/influencer';
 import { InfluencerService } from '../../services/influencer.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import * as deconsult from '../../../../../assets/js/deconsult';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -36,7 +35,5 @@ export class InfluencerSearchComponent implements OnInit {
     else {
       this.router.navigate(['/influencer']);
     }
-
-    setTimeout(function () { deconsult.init(); }, 200);
   }
 }

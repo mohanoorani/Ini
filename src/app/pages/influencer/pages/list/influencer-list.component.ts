@@ -23,6 +23,7 @@ export class InfluencerListComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.titleService.setTitle("لیست اینفلوئنسرها");
 
     var categoryId = this.route.snapshot.params['id'];

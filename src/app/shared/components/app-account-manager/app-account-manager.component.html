@@ -1,0 +1,24 @@
+<div class="accountitems">
+    <a style="cursor:pointer;" onclick="onOpenLoginAndRegisterClicked(this)" inital-page="0" class="signin-btn menuitem"
+        *ngIf="!userDetail">ورود / عضویت</a>
+
+
+    <div class="dropdown show" *ngIf="userDetail">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" style="padding:0">
+            {{userDetail}}
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" [routerLink]="['userpanel']">
+                <span class="fa fa-user"></span>
+                پروفایل کاربری
+            </a>
+            <a class="dropdown-item" style="border-bottom: 0;cursor: pointer;" (click)="logOut()">
+                <span class="fa fa-sign-out"></span>
+                خروج
+            </a>
+        </div>
+    </div>
+
+</div>

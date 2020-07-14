@@ -8,12 +8,15 @@ import { CrudComponent } from './components/Crud/crud.component';
 import { FormsModule } from '@angular/forms';
 import { AppLoginFormComponent } from './components/app-login-form/app-login-form.component';
 import { LoginService } from './components/app-login-form/Services/LoginService';
+import { AccountManagerComponent } from './components/app-account-manager/app-account-manager.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     SharedServiceModule,
+    RouterModule
   ]
   ,
   declarations: [
@@ -24,7 +27,8 @@ import { LoginService } from './components/app-login-form/Services/LoginService'
     BreadCrumbComponent,
     CrudComponent,
     AppContactUsDetailComponent,
-    AppLoginFormComponent
+    AppLoginFormComponent,
+    AccountManagerComponent
   ]
   ,
   exports: [
@@ -34,7 +38,8 @@ import { LoginService } from './components/app-login-form/Services/LoginService'
     CrudComponent,
     AppGridComponent,
     AppContactUsDetailComponent,
-    AppLoginFormComponent
+    AppLoginFormComponent,
+    AccountManagerComponent
   ],
   providers: [SharedServiceModule, LoginService]
 })

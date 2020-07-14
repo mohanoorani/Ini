@@ -1,20 +1,25 @@
-.profile {
-    width: 23%;
-    float: right;
-    margin-left: 15px;
-    padding-top: 10px;
-    cursor: pointer;
+.parentbox {
+    margin-bottom: 20px;
 }
 
-.block {
-    margin-bottom: 25px;
+.profile {
+    width: 90%;
+    padding-top: 10px;
+    cursor: pointer;
     background: #646ea6;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.big-profile-picture img {
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .big-profile-picture {
     margin: 0 auto;
-    border: 5px solid #50597b;
+    border: 5px solid #464d79;
     width: 150px;
     height: 150px;
 }
@@ -32,9 +37,10 @@
 }
 
 .user-name {
-    margin: 25px 0 16px;
+    margin: 20px 0 0 0;
     text-align: center;
     color: white;
+    padding-bottom: 10px;
 }
 
 h1 {
@@ -73,6 +79,7 @@ h1 {
 .horizontal-list li {
     float: left;
     width: 33%;
+    background: #646ea6;
 }
 
 .profile-options p {
@@ -113,7 +120,7 @@ h1 {
 
 .profile-options a:hover {
     text-decoration: none;
-    background: #50597b;
+    background: #464d79;
 }
 
 .add-button .icon {
@@ -127,5 +134,96 @@ h1 {
 
 .instaverify {
     width: 24px;
-    margin-right: 10px;
+    position: absolute;
+    right: 20px;
+}
+
+.menu-box {
+    height: 360px;
+    width: 25%;
+    float: right;
+}
+
+.menu-box-menu .icon {
+    display: inline-block;
+    font-size: 20px;
+    width: 28px;
+    margin-right: 20px;
+    margin-left: 15px;
+}
+
+.menu-box-tab {
+    color: white;
+}
+
+.menu-box-number {
+    width: 36px;
+    line-height: 22px;
+    background: #bdb9b9;
+    text-align: center;
+    border-radius: 15px;
+    margin-top: 15px;
+    margin-left: 15px;
+    transition: all .3s;
+    float: left;
+    color: #2f2f2f;
+}
+
+.menu-box-menu li {
+    height: 60px;
+    position: relative;
+}
+
+.menu-box-tab {
+    line-height: 60px;
+    display: block;
+    border-bottom: 1px solid #1f253d;
+    -webkit-transition: background .2s;
+    transition: background .2s;
+}
+
+.menu-box-tab:hover, .activeprofilemenu {
+    background: #464d79;
+    border-top: 1px solid #1f253d;
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-box-tab:focus {
+    color: #fff;
+}
+
+.menu-box-tab:hover .icon {
+    color: #fff;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.menu-box ul {
+    padding-right: 0;
+}
+
+.userprofile {
+    float: left;
+    width: 73%;
+    padding: 10px !important;
+    box-shadow: -9px -2px #646ea6;
+    border-radius: 5px;
+}
+
+.block {
+    margin-bottom: 25px;
+    background: #646ea6;
+    border-radius: 5px;
+}
+
+.global-container {
+    font-size: 13px;
+}
+
+.navbar-left li {
+    padding: 8px 8px 8px 0;
+    text-align: center;
 }

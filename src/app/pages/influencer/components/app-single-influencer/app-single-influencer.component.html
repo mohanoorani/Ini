@@ -1,56 +1,23 @@
-<a class="add-button" *ngIf="influencer?.IsVerified">
-    <img src="../assets/Content/Images/Instagram-Verify-Icon.png" class="instaverify"/>
+<a class="add-button" >
+    <img src="../assets/Content/Images/Instagram-Verify-Icon.png" class="instaverify" *ngIf="influencer?.IsVerified" />
 </a>
-<div class="profile-picture big-profile-picture clear">
+<div class="profile-picture big-profile-picture">
     <img width="150px" alt="{{influencer?.ProfileName}}" src="{{influencer?.ProfilePicUrl}}">
 </div>
 <h1 class="user-name">{{influencer?.ProfileName}}</h1>
 <ul class="profile-options horizontal-list">
-    <li style="border-left: none;"><a class="comments">
-            <p><span class="icon fa fa-comment scnd-font-color"></span>{{influencer?.PostsCount | number}}</p>
+    <li style="border-left: none;">
+        <a class="comments">
+            <p><span class="icon fa fa-envelope-open scnd-font-color"></span>{{influencer?.PostsCount | number}}</p>
         </a></li>
-    <li><a class="views">
+    <li>
+        <a class="views">
             <p><span class="icon fa fa-user scnd-font-color"></span>{{influencer?.FollowingCount | number}}</p>
-        </a></li>
-    <li><a class="likes">
-            <p><span class="icon fa fa-envelope-open scnd-font-color"></span>{{influencer?.FollowersCount | number}}</p>
-        </a></li>
-</ul>
-
-
-
-
-<!-- 
-
-<div class="card">
-    <div class="card-header card-header-image animated" data-header-animation="true">
-        <a *ngIf="influencer" [routerLink]="['/influencer/detail', influencer?.ID , influencer?.Url]"
-            style="padding:90px 0">
-            <img class="img" src="{{influencer?.ThumbImageUrl}}" alt="{{influencer?.Title}}">
         </a>
-    </div>
-    <div class="card-body">
-        <h4 class="card-title">
-            <a *ngIf="influencer" [routerLink]="['/influencer/detail', influencer?._UserID , influencer?.Url]">
-                {{influencer?.InstagramID}}
-            </a>
-        </h4>
-    </div>
-    <div class="card-footer">
-        <div class="price graycolor">
-            <span style="font-size:12px">
-                تعداد فالوور: {{ influencer?.Code}}
-            </span>
-        </div>
-        <div class="stats">
-            <p class="card-category graycolor">
-                دسته بندی:
-                <a *ngIf="influencer" style="color: #0056b3;"
-                    [routerLink]="['/category/', influencer?.CategoryId , influencer?.CategoryTitleUrl]">
-
-                    {{influencer?.InstagramTypeTitle}}
-                </a>
-            </p>
-        </div>
-    </div>
-</div> -->
+    </li>
+    <li style="width:34%">
+        <a class="likes">
+            <p><span class="icon fa fa-user scnd-font-color"></span>{{influencer?.FollowersCount | number}}</p>
+        </a>
+    </li>
+</ul>

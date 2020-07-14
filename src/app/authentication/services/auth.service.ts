@@ -42,9 +42,19 @@ export class AuthService {
     return this.decodedToken().Role;
   }
 
+  setUserInfo(user : any){
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  getUserInfo(){
+    var user = localStorage.getItem('user');
+    if(!user) return null;
+    
+    return JSON.parse(user);
+  }
+
   signOut(): void {
-
     localStorage.removeItem('token');
-
+    localStorage.removeItem('user');
   }
 }

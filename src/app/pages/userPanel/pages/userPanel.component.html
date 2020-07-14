@@ -1,0 +1,21 @@
+<div class="global-container">
+    <div class="menu-box block">
+        <ul class="menu-box-menu">
+            <li>
+                <a class="menu-box-tab" [routerLink]="['profile']" routerLinkActive="activeprofilemenu">
+                    <span class="icon fa fa-user scnd-font-color"></span>اطلاعات کاربری
+                </a>
+                <a class="menu-box-tab" [routerLink]="['instagram']" routerLinkActive="activeprofilemenu">
+                    <span class="icon fa fa-instagram scnd-font-color"></span>حساب اینستاگرام
+                </a>
+                <a class="menu-box-tab" [routerLink]="['message']" routerLinkActive="activeprofilemenu">
+                    <span class="icon fa fa-envelope scnd-font-color"></span>پیام ها
+                    <div class="menu-box-number">24</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="userprofile">
+        <router-outlet></router-outlet>
+    </div>
+</div>

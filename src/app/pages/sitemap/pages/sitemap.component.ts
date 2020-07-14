@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import * as deconsult from '../../../../assets/js/deconsult';
 import { SitemapService } from '../services/sitemap.service';
 
 @Component({
@@ -15,7 +14,6 @@ export class SitemapComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle("sitemap");
-    setTimeout(function () {  deconsult.init(); }, 200);
 
     this.sitemapService.get().subscribe(res => {
       

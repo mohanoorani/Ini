@@ -1,0 +1,19 @@
+<div class="form-group">
+  <label for="instagramId">شناسه حساب اینتاگرام:</label>
+  <input class="form-control" id="instagramId" [(ngModel)]="instagramId"/>
+</div>
+
+<div class="form-group">
+  <input type="button" class="btn btn-success" value="دریافت کد" (click)="getCode()" />
+</div>
+
+<hr />
+
+<div class="form-group">
+  <label for="code">کد تایید:</label>
+  <input class="form-control" id="code" [(ngModel)]="code"/>
+</div>
+
+<div class="form-group">
+  <input type="button" class="btn btn-success" value="دریافت کد" (click)="verifyCode()" />
+</div>

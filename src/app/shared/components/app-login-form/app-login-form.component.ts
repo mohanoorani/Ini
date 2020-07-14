@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { AlertifyService } from '@app/shared/services';
 import { LoginService } from './Services/LoginService';
 import { AuthService } from '@app/authentication/services';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-login-form',
@@ -15,12 +16,11 @@ export class AppLoginFormComponent {
   verifyCode: string = "";
   isCodeView: boolean;
 
-  constructor(private alertifyService: AlertifyService, private loginService: LoginService,
-    private authService: AuthService, private route: Router) { }
-
-    homePage(){
-      this.route.navigate(['profile']);
-    }
+  constructor(
+    private alertifyService: AlertifyService,
+    private loginService: LoginService,
+    private authService: AuthService,
+    private route: Router) { }
 
   login() {
     if (this.mobileNumber == "") {
@@ -39,17 +39,15 @@ export class AppLoginFormComponent {
     }
 
     this.alertifyService.success("کد تایید تا لحظاتی دیگر برای شما ارسال می گردد");
+    this.isCodeView = true;
 
-    // this.tempCode = "12345";
-    // this.isCodeView = true;
     this.loginService.Login(this.mobileNumber).subscribe((res: any) => {
-      
-      if(!res.success){
-        this.alertifyService.success("لطفا دقایقی دیگر تلاش نمایید");
+
+      if (!res.success) {
+        this.alertifyService.error("خطا در ارسال کد. لطفا دقایقی دیگر تلاش نمایید");
+        this.isCodeView = false;
         return;
       }
-
-      this.alertifyService.success("کد ارسالی را وارد نمایید");
 
       this.isCodeView = true;
     });
@@ -66,16 +64,22 @@ export class AppLoginFormComponent {
       return;
     }
 
-    this.loginService.ConfirmCode(this.mobileNumber, this.verifyCode).subscribe((res: any) =>{
-        debugger;
-        this.authService.setAuthorizationHeaderValue(res.token);
+    this.loginService.ConfirmCode(this.mobileNumber, this.verifyCode).subscribe((res: any) => {
+      this.authService.setAuthorizationHeaderValue(res.token);
+      this.authService.setUserInfo(res.user);
+
+      $('#AccountModal').hide();
+      $('.modal-backdrop').remove();
+
+      this.route.navigate(['userpanel']);
+
+      this.alertifyService.success(`${res.user.name} عزیز خوش آمدید`);
+
     });
   }
 
   changeMobileNumber() {
     this.verifyCode = "";
-
     this.isCodeView = false;
-
   }
 }

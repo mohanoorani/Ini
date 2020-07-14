@@ -15,7 +15,7 @@ export class AlertifyService {
     alertify.defaults.theme.cancel = 'btn btn-warning';
 
     alertify.defaults.notifier.position = 'bottom-left';
-    alertify.defaults.notifier.delay = 20;
+    alertify.defaults.notifier.delay = 10;
     //alertify.defaults.notifier.closeButton = true;
    }
 
