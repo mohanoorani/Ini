@@ -5,6 +5,7 @@ import { ProfileComponent } from "./childrens/profile/profile.component";
 import { MessageComponent } from "./childrens/message/message.component";
 import { InstagramComponent } from "./childrens/instagram/instagram.component";
 import { BankInfoComponent } from "./childrens/bankinfo/bankinfo.component";
+import { PaymentInfoComponent } from "./childrens/paymentinfo/paymentinfo.component";
 
 const userPanelRoute: Routes = [
   {
@@ -15,7 +16,8 @@ const userPanelRoute: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'message', component: MessageComponent },
       { path: 'instagram', component: InstagramComponent },
-      { path: 'bankinfo', component: BankInfoComponent }
+      { path: 'bankinfo', component: BankInfoComponent },
+      { path: 'paymentinfo', component: PaymentInfoComponent }
     ]
   }
 ]

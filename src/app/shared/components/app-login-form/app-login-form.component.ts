@@ -72,7 +72,7 @@ export class AppLoginFormComponent {
       $('.modal-backdrop').remove();
 
       this.route.navigate(['userpanel']);
-      this.alertifyService.success(`${res.user.name} عزیز خوش آمدید`);
+      this.alertifyService.success(`${res.user.firstName} ${res.user.lastName} عزیز خوش آمدید`);
 
     });
   }

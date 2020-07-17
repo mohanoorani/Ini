@@ -7,6 +7,7 @@ import { environment } from '@env/environment.prod';
 import { Influencer } from '@app/pages/influencer/models/influencer';
 import { Bank } from '../models/bank';
 import { UserAccountInfo } from '../models/useraccountInfo';
+import { Payment } from '../models/payment';
 
 @Injectable()
 export class UserPanelService {
@@ -41,8 +42,11 @@ export class UserPanelService {
   }
 
   public GetBanks(): Observable<Bank[]> {
-    return this.httpClient.post<Bank[]>(
-      environment.baseUrl + "/sp/common/getbanks", { });
+    return this.httpClient.post<Bank[]>(environment.baseUrl + "/sp/common/getbanks", { });
+  }
+
+  public GetPaymentsInfo(): Observable<Payment[]> {
+    return this.httpClient.post<Payment[]>(environment.baseUrl + "/sp/payment/GetPayments", { UserID: this.userId });
   }
 
   public SaveUserProfile(user: User): Observable<null> {

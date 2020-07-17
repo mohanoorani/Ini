@@ -11,6 +11,7 @@ import { InstagramComponent } from './childrens/instagram/instagram.component';
 import { ProfileComponent } from './childrens/profile/profile.component';
 import { BankInfoComponent } from './childrens/bankinfo/bankinfo.component';
 import { InfluencerModule } from '../influencer/influencer.module';
+import { PaymentInfoComponent } from './childrens/paymentinfo/paymentinfo.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { InfluencerModule } from '../influencer/influencer.module';
     ProfileComponent,
     MessageComponent,
     InstagramComponent,
-    BankInfoComponent
+    BankInfoComponent,
+    PaymentInfoComponent
   ],
   providers: [
     UserPanelService
