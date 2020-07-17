@@ -21,8 +21,7 @@ export class ProfileComponent implements OnInit {
 
   submitForm() {
     this.userPanelService.SaveUserProfile(this.user).subscribe((res: any) => {
-      this.alertifyService.success("با موفقیت ذخیره شد.");
+      this.alertifyService.success("با موفقیت ذخیره شد");
     })
   }
-
 }

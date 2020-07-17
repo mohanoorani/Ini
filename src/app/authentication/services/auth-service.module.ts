@@ -1,9 +1,8 @@
 import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core';
 import{AuthService,AuthInterceptor,AuthInterceptorProviderService,AuthGuardService} from './index'
-import { PermissionService } from './permission.service';
 
 @NgModule({
-  providers:[AuthService,AuthGuardService,AuthInterceptor,AuthInterceptorProviderService,PermissionService]
+  providers:[AuthService,AuthGuardService,AuthInterceptor,AuthInterceptorProviderService]
 })
 export class AuthServiceModule {
   constructor (@Optional() @SkipSelf() parentModule: AuthServiceModule) {

@@ -5,7 +5,7 @@
         <div class="profile">
             <div class="profile-picture big-profile-picture clear">
                 <a [routerLink]="['/influencers', category.ID]">
-                    <img alt="{{category.PersianTitle}}" src="../assets/Content/Images/inisito-logo.png">
+                    <img alt="{{category.PersianTitle}}" [src]="category.LogoUrl">
                 </a>
             </div>
             <h1 class="user-name">

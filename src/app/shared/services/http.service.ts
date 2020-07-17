@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of, } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
-import { PaginationResult, Pagination } from '@app/core/models/pagination';
 import { environment } from '@env/environment';
 
 @Injectable()
@@ -47,37 +46,6 @@ export class HttpService<T> {
       catchError(this.handleError<any>('deleteCar'))
     );
   }
-
-
-  GetAllForGrid(pagination?: Pagination): Observable<PaginationResult<T>> {
-    const paginatedResult: PaginationResult<T> = new PaginationResult<T>();
-    let params = new HttpParams();
-
-    if (pagination.currentPage && pagination.itemsPerPage) {
-      params = params.append('pageNumber', pagination.currentPage.toString());
-      params = params.append('pageSize', pagination.itemsPerPage.toString());
-    }
-
-    if (pagination.orderBy) {
-      var orderByType: string = pagination.orderByType.toString();
-      params = params.append('orderBy', pagination.orderBy);
-      params = params.append('orderByType',orderByType);
-
-    }
-
-
-    return this.http.get<Array<T>>(this.url, { observe: 'response', params }).pipe(map(response => {
-      paginatedResult.result = response.body;
-      if (response.headers.get('pagination')) {
-        paginatedResult.pagination = JSON.parse(response.headers.get('pagination'));
-
-      }
-
-      return paginatedResult;
-    }));
-
-  }
-
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

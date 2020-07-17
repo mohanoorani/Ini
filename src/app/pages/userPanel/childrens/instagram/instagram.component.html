@@ -1,19 +1,36 @@
-<div class="form-group">
-  <label for="instagramId">شناسه حساب اینتاگرام:</label>
-  <input class="form-control" id="instagramId" [(ngModel)]="instagramId"/>
+<div *ngIf="isListView">
+  <input type="button" class="btn btn-info" value="افزودن حساب اینستاگرام" (click)="addAccount()">
+  <app-influencer-list [InfluencerList]="influencerList"></app-influencer-list>
 </div>
 
-<div class="form-group">
-  <input type="button" class="btn btn-success" value="دریافت کد" (click)="getCode()" />
-</div>
+<div *ngIf="!isListView">
+  <div class="form-group">
+    <input type="button" class="btn btn-info" style="display: block; margin-bottom: 10px;" value="مشاهده لیست حساب ها"
+      (click)="showList()">
+  </div>
+  <div class="form-group" *ngIf="!isCodeView">
+    <label class="label label-success" style="font-size: 12px;">
+      ارسال کد توسط اینستاگرام زمانبر میباشد. از شکیبایی شماسپاسگداریم
+    </label>
+  </div>
+  <div class="form-group" *ngIf="!isCodeView">
+    <label for="instagramId">شناسه حساب اینستاگرام:</label>
+    <input class="form-control" id="instagramId" [(ngModel)]="instagramId" />
+  </div>
 
-<hr />
+  <div class="form-group" *ngIf="!isCodeView">
+    <input type="button" class="btn btn-info" value="دریافت کد" (click)="verifyAccount()" />
+  </div>
 
-<div class="form-group">
-  <label for="code">کد تایید:</label>
-  <input class="form-control" id="code" [(ngModel)]="code"/>
-</div>
+  <div class="form-group" *ngIf="isCodeView">
+    <label for="code">کد تایید:</label>
+    <input class="form-control" id="code" [(ngModel)]="code" />
+  </div>
 
-<div class="form-group">
-  <input type="button" class="btn btn-success" value="دریافت کد" (click)="verifyCode()" />
+  <div class="form-group" *ngIf="isCodeView">
+    <input type="button" class="btn btn-info isntagrambottom" value="تایید کد" (click)="verifyCode()" />
+    <input type="button" class="btn btn-warnning isntagrambottom" value="ارسال مجدد کد" (click)="verifyAccount()" />
+    <input type="button" class="btn btn-success isntagrambottom" value="تغییر حساب اینستاگرام"
+      (click)="enterInstagramId()" />
+  </div>
 </div>

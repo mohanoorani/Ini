@@ -1,0 +1,33 @@
+<form #bankInfo="ngForm" name="bankInfo" novalidate (ngSubmit)="submitForm()">
+
+  <div class="form-group">
+    <label for="bank">بانک:</label>
+    <select class="form-control" id="bank" name="bank" [(ngModel)]="userInfo._BankID" #bank="ngModel" required
+      [ngClass]="{'alert alert-danger': bank.invalid && (bank.dirty || bank.touched)}">
+      <option *ngFor="let bank of banks" [value]="bank.ID">{{bank.Title}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="accountNo">شماره حساب:</label>
+    <input type="text" class="form-control" id="accountNo" name="accountNo" [(ngModel)]="userInfo.AccountNo"
+      #accountNo="ngModel" required
+      [ngClass]="{'alert alert-danger': accountNo.invalid && (accountNo.dirty || accountNo.touched)}" />
+  </div>
+
+  <div class="form-group">
+    <label for="cartNo">شماره کارت:</label>
+    <input type="text" class="form-control" id="cartNo" name="cartNo" [(ngModel)]="userInfo.CartNo" #cartNo="ngModel"
+      required [ngClass]="{'alert alert-danger': cartNo.invalid && (cartNo.dirty || cartNo.touched)}" />
+  </div>
+
+  <div class="form-group">
+    <label for="iban">شماره شبا:</label>
+    <input type="text" class="form-control" id="iban" name="iban" [(ngModel)]="userInfo.Iban" #iban="ngModel" required
+      [ngClass]="{'alert alert-danger': iban.invalid && (iban.dirty || iban.touched)}" />
+  </div>
+
+  <div class="form-group">
+    <input type="submit" class="btn btn-success" value="ذخیره" [disabled]="!bankInfo.valid" />
+  </div>
+</form>

@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { MessageComponent } from './childrens/message/message.component';
 import { InstagramComponent } from './childrens/instagram/instagram.component';
 import { ProfileComponent } from './childrens/profile/profile.component';
+import { BankInfoComponent } from './childrens/bankinfo/bankinfo.component';
+import { InfluencerModule } from '../influencer/influencer.module';
 
 @NgModule({
   imports: [
@@ -16,13 +18,15 @@ import { ProfileComponent } from './childrens/profile/profile.component';
     RouterModule,
     UserPanelRouteModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    InfluencerModule
   ],
   declarations: [
     UserPanelComponent,
     ProfileComponent,
     MessageComponent,
-    InstagramComponent
+    InstagramComponent,
+    BankInfoComponent
   ],
   providers: [
     UserPanelService

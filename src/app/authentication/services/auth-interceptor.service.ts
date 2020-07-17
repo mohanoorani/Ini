@@ -7,33 +7,34 @@ import {
 import { AuthService } from './auth.service';
 import { Observable, of } from 'rxjs';
 import { AlertifyService } from '@app/shared/services';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
   private authToken: string = '-';
-  constructor(private auth: AuthService, private alertify: AlertifyService) { }
+  constructor(private authService: AuthService, private alertify: AlertifyService, private route : Router) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    debugger;
-    if (this.auth.isLoggedIn()) {
-      this.authToken = this.auth.getAuthorizationHeaderValue();
+
+    if (this.authService.isLoggedIn()) {
+      this.authToken = this.authService.getAuthorizationHeaderValue();
     }
 
-    const authReq = req.clone({ setHeaders: { Authorization: this.authToken } });
-
-    // send cloned request with header to the next handler.
-    //return next.handle(authReq);
+    const authReq = req.clone({ setHeaders: { Authorization: 'bearer ' + this.authToken } });
 
     return next.handle(authReq).pipe(
       catchError((err: any) => {
-
+debugger;
         if (err && err instanceof HttpErrorResponse && err.status === 403)
           this.alertify.error('شما دسترسی لازم به عملیات مورد نظر ندارید.');
-        else if (err && err instanceof HttpErrorResponse && err.status === 401)
-          this.alertify.error('نام کاربری یا رمز عبور اشتباه است');
+        else if (err && err instanceof HttpErrorResponse && err.status === 401) {
+          this.authService.signOut();
+          this.alertify.error('لطفا مجدد وارد سایت شوید');
+          this.route.navigate(['/']);
+        }
         else if (err)
-          this.alertify.error(err.error.error);
+          this.alertify.error(err.error);
         else
           return of(err);
       }));
