@@ -9,7 +9,9 @@ import { Influencer } from '../../models/influencer';
 export class AppInfluencerListComponent implements OnInit {
 
   @Input() InfluencerList: Influencer[] = []
+  @Input() cssClass: string = 'col-md-3';
   showEmptyRow: boolean = false;
+
   constructor() { }
 
   ngOnInit() {

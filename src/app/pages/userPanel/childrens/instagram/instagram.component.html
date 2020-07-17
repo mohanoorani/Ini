@@ -1,6 +1,6 @@
 <div *ngIf="isListView">
   <input type="button" class="btn btn-info" value="افزودن حساب اینستاگرام" (click)="addAccount()">
-  <app-influencer-list [InfluencerList]="influencerList"></app-influencer-list>
+  <app-influencer-list [InfluencerList]="influencerList" [cssClass]="'col-md-4'"></app-influencer-list>
 </div>
 
 <div *ngIf="!isListView">

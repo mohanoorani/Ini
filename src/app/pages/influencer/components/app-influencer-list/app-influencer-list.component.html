@@ -1,5 +1,5 @@
 <div class="global-container">
-    <div class="parentbox fadeInUp col-md-3 col-xs-12" *ngFor="let influencer of InfluencerList">
+    <div class="parentbox fadeInUp {{cssClass}} col-xs-12" *ngFor="let influencer of InfluencerList">
         <div class="profile">
             <app-single-influencer [influencer]="influencer">
             </app-single-influencer>
