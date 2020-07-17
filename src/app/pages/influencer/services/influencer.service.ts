@@ -17,6 +17,11 @@ export class InfluencerService {
       {InstagramID : null, InstagramPageTypeID: categoryId, UserID: null});
   }
 
+  public GetByInstagramId(id: string): Observable<Influencer[]> {
+    return this.httpClient.post<Influencer[]>(environment.baseUrl + "/sp/business/GetInstagramProfileInfo",
+      {InstagramID : id, InstagramPageTypeID: null, UserID: null});
+  }
+
   public GetById(id: number): Observable<Influencer> {
     return this.httpClient.get<Influencer>(environment.baseUrl + "/api/Influencer/CustomerInfluencerList");
   }

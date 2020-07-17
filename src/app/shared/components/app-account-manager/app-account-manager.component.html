@@ -1,7 +1,6 @@
 <div class="accountitems">
-    <a style="cursor:pointer;" onclick="onOpenLoginAndRegisterClicked(this)" inital-page="0" class="signin-btn menuitem"
+    <a style="cursor:pointer;" onclick="onOpenLoginAndRegisterClicked()" class="signin-btn menuitem"
         *ngIf="!userDetail">ورود / عضویت</a>
-
 
     <div class="dropdown show" *ngIf="userDetail">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
@@ -20,5 +19,4 @@
             </a>
         </div>
     </div>
-
 </div>

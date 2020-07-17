@@ -7,7 +7,7 @@ import { InfluencerComponent } from './pages/single/influencer.component';
 const routes: Routes = [
   {path:'',component:InfluencerListComponent},
   {path:':id',component:InfluencerListComponent},
-  {path:'detail/:id/:title',component:InfluencerComponent},
+  {path:'detail/:id',component:InfluencerComponent},
   {path:'search/:value',component: InfluencerSearchComponent}
 ];
 

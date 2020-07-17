@@ -16,9 +16,7 @@ export class AccountManagerComponent {
   }
 
   manageAuthView() {
-    setInterval(() => {
-      this.getUserInfo();
-    }, 500);
+    setInterval(() => {this.getUserInfo();}, 500);
   }
 
   logOut() {
@@ -32,6 +30,6 @@ export class AccountManagerComponent {
   getUserInfo() {
     var userInfo = this.authService.getUserInfo();
 
-    this.userDetail = userInfo == null ? "" : userInfo.name;
+    this.userDetail = userInfo == null ? "" : userInfo.firstName + " " + userInfo.lastName;
   }
 }

@@ -1,8 +1,10 @@
-<a class="add-button" >
+<a class="add-button">
     <img src="../assets/Content/Images/Instagram-Verify-Icon.png" class="instaverify" *ngIf="influencer?.IsVerified" />
 </a>
 <div class="profile-picture big-profile-picture">
-    <img width="150px" alt="{{influencer?.ProfileName}}" src="{{influencer?.ProfilePicUrl}}">
+    <a [routerLink]="['/influencers/detail', influencer?.InstagramID]">
+        <img width="150px" alt="{{influencer?.ProfileName}}" src="{{influencer?.ProfilePicUrl}}">
+    </a>
 </div>
 <h1 class="user-name">{{influencer?.ProfileName}}</h1>
 <ul class="profile-options horizontal-list">

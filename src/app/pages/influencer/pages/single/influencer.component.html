@@ -1,6 +1,62 @@
-<div class="tm-section shop-page-area bg-white tm-padding-section">
-    <div class="container">
-        
-        <app-influencer-detail #influencerDetail></app-influencer-detail>
+<div class="global-container">
+    <div class="row text-center" style="margin:-20px auto 10px auto;">
+
+        <button class="btn btn-primary" onclick="openCreateRequestModel()">
+            <span class="fa fa-handshake-o"></span> شروع درخواست
+        </button>
     </div>
+
+    <div class="col-md-2 col-xs-12" style="margin: 0 0 20px 20px;">
+        <img src="../assets/Content/Images/Instagram-Verify-Icon.png" class="instaverify"
+            *ngIf="influencer?.IsVerified" />
+        <img class="instagramprofileimg" [src]="influencer?.ProfilePicUrl">
+    </div>
+
+    <div class="col-md-3 col-xs-12 influencerdetail">
+        <label>
+            <i class="fa fa-instagram"></i>
+            نام اینستاگرامی: <span>{{influencer?.InstagramID}}</span>
+        </label>
+        <label>
+            <i class="fa fa-user"></i>
+            نام: <span>{{influencer?.ProfileName}}</span>
+        </label>
+        <label>
+            <i class="fa fa-list-alt"></i>
+            دسته بندی: <span>{{influencer?.InstagramPageTypeTitle}}</span>
+        </label>
+
+    </div>
+
+    <div class="col-md-3 col-xs-12 influencerdetail">
+        <label>
+            <i class="fa fa-users"></i>
+            تعداد فالوور: <span>{{influencer?.FollowersCount | number}}</span>
+        </label>
+        <label>
+            <i class="fa fa-envelope-open"></i>
+            تعداد پست: <span>{{influencer?.PostsCount | number}}</span>
+        </label>
+        <label>
+            <i class="fa fa-users"></i>
+            تعداد فالویینگ: <span>{{influencer?.FollowingCount | number}}</span>
+        </label>
+    </div>
+
+    <div class="col-md-3 col-xs-12 influencerdetail">
+        <label>
+            <i class="fa fa-heart"></i>
+            میانگین تعداد لایک: <span>{{influencer?.AvrageLikeCount | number}}</span>
+        </label>
+        <label>
+            <i class="fa fa-eye"></i>
+            میانگین ویو: <span>{{influencer?.AvrageViewCount | number}}</span>
+        </label>
+        <label>
+            <i class="fa fa-comment"></i>
+            میانگین کامنت: <span>{{influencer?.AvrageCommentCount | number}}</span>
+        </label>
+    </div>
+
+    <app-create-request [instagramId]="influencer?.InstagramID"></app-create-request>
 </div>

@@ -1,0 +1,52 @@
+<div class="modal fade" id="RequestModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"
+                style="background-color: #ffffff !important;border-bottom-width: 0px; display:block;">
+                <button style="color:red" type="button" class="close" data-dismiss="modal"
+                    aria-hidden="true">&times;</button>
+                <label class="requestmodalheader">
+                    درخواست به: <span>{{instagramId}}</span>
+                </label>
+
+            </div>
+            <div class="modal-body" style="padding:20px;min-height: 250px;">
+
+                <label class="alert alert-warning" *ngIf="!instagramsId">
+                    حساب اینستاگرامی برای شما ثبت نشده است. لطفا از قسمت پروفایل کاربری > حساب اینستاگرام، اقدام به
+                    افزودن حساب نمایید.
+                </label>
+
+                <form #createrequest="ngForm" name="createrequest" novalidate (ngSubmit)="submitForm()">
+                    <input type="hidden" name="destinationInstagramID" [(ngModel)]="request.DestinationInstagramID" />
+
+                    <div class="form-group">
+                        <label for="origininstagramid">حساب اینستاگرام:</label>
+                        <select class="form-control" id="origininstagramid" name="origininstagramid"
+                            [(ngModel)]="request.OriginInstagramID" #origininstagramid="ngModel" required
+                            [ngClass]="{'alert alert-danger': origininstagramid.invalid && (origininstagramid.dirty || origininstagramid.touched)}">
+                            <option *ngFor="let instagramId of instagramsId" [value]="instagramId.InstagramID">
+                                {{instagramId.InstagramID}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="checkbox" class="form-check-input" name="presenceOnSite" id="presenceOnSite">
+                        <label class="form-check-label" for="presenceOnSite">نیاز به حضور فیزیکی</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">توضیحات:</label>
+                        <textarea type="text" class="form-control" id="description" name="description"
+                            [(ngModel)]="request.Description" #description="ngModel" required
+                            [ngClass]="{'alert alert-danger': description.invalid && (description.dirty || description.touched)}">
+                        </textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success" value="ذخیره" [disabled]="!createrequest.valid" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

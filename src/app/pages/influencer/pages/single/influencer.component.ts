@@ -1,19 +1,32 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { InfluencerService } from '../../services/influencer.service';
+import { Influencer } from '../../models/influencer';
 
 @Component({
   selector: 'app-influencer',
   templateUrl: './influencer.component.html',
   styleUrls: ['./influencer.component.css']
 })
+
 export class InfluencerComponent implements OnInit {
 
-  influencerId: number;
+  instagramId: string;
+  influencer: Influencer = new Influencer();
 
-  constructor(private route: ActivatedRoute) {
+  constructor(
+    private route: ActivatedRoute,
+    private titleService: Title,
+    private influenserService: InfluencerService) {
   }
 
   ngOnInit() {
-    this.influencerId = this.route.snapshot.params['id'];
+    this.instagramId = this.route.snapshot.params['id'];
+    this.titleService.setTitle(this.instagramId);
+
+    this.influenserService.GetByInstagramId(this.instagramId).subscribe((res: Influencer[]) => {
+      this.influencer = res[0];
+    });
   }
 }

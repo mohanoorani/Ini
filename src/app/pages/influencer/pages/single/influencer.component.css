@@ -1,0 +1,26 @@
+.influencerdetail {
+    margin-top: 23px;
+}
+
+.influencerdetail label {
+    width: 100%;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.influencerdetail label span {
+    font-size: 14px;
+}
+
+.influencerdetail label i {
+    color: #646ea6;
+    font-size: 21px;
+}
+
+.instagramprofileimg {
+    margin-bottom: 10px;
+    width: 150px;
+    height: 150px;
+    border: 5px solid #464d79;
+    border-radius: 100%;
+}
