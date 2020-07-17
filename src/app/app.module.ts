@@ -9,10 +9,13 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { ContactUsService } from './pages/contactus/services/contactus.service';
 import { AuthService, AuthInterceptor } from './authentication/services';
+import { AppCreateRequestComponent } from './pages/request/components/app-create-request/app-create-request.component';
+import { RequestService } from './pages/request/services/request.service';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AppCreateRequestComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,7 @@ import { AuthService, AuthInterceptor } from './authentication/services';
     AlertifyService,
     ContactUsService,
     AuthService,
+    RequestService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
