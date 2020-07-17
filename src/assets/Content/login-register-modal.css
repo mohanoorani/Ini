@@ -101,28 +101,28 @@
 }
 
 #AccountModal .select-register-box a {
-	border: 1px solid #cc0daf;
+	border: 1px solid #EC407A;
 	padding: 6px 32px;
 	margin: -5px;
 }
 
 #AccountModal .select-register-box a:first-child {
 	border-top-right-radius: 20px;
-	background: #cc0daf;
+	background: #EC407A;
 	color: #fff;
 	border-bottom-right-radius: 20px;
 }
 
 #AccountModal .select-register-box a:last-child {
 	border-top-left-radius: 20px;
-	color: #cc0daf;
+	color: #EC407A;
 	border-bottom-left-radius: 20px;
 	margin: 0;
 }
 
 #AccountModal .account-page .refresh-captcha {
 	font-size: 30px;
-	color: #cc0daf;
+	color: #EC407A;
 	position: relative;
 	top: 15px !important;
 	cursor: pointer;

@@ -1,274 +1,252 @@
 <app-login-form></app-login-form>
 
 <h1 class="visually-hidden text-center" style="direction:rtl">
-    راه حل جامع کاریابی و استخدام
+  راه حل جامع کاریابی و استخدام
 </h1>
 
 <div class="row nav-row">
-    <nav id="custom-nav" class="navbar navbar-inverse navbar-fixed-top isActiveFair">
+  <nav id="custom-nav" class="navbar navbar-inverse navbar-fixed-top isActiveFair">
 
-        <div class="container-fluid">
+    <div class="container-fluid">
 
-            <div class="navbar-header guest-mode">
-                <div class="col-xs-6 first-header-section">
-                    <ul class="nav navbar-nav navbar-left visible-xs visible-sm">
-                        <li class="active">
+      <div class="navbar-header guest-mode">
+        <div class="col-xs-6 first-header-section">
+          <ul class="nav navbar-nav navbar-left visible-xs visible-sm">
+            <li class="active">
 
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-12 col-xs-6 second-header-section">
-                    <a class="navbar-brand" href="/" alt="لوگوی جاب ویژن">
-                        <img src="../assets/Content/Images/inisito.png" alt="لوگوی جاب ویژن" />
-                    </a>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jvNavbar">
-                        <span class="icon-bar togglable-collapse"></span>
-                        <span class="icon-bar togglable-collapse"></span>
-                        <span class="icon-bar togglable-collapse"></span>
-                        <i class="fa fa-remove togglable-collapse hidden"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="collapse navbar-collapse guest-mode" id="jvNavbar">
-                <ul class="nav navbar-nav navbar-left hidden-xs hidden-sm ">
-                    <li class="active">
-                        <app-account-manager></app-account-manager>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a [routerLink]="['/']">صفحه نخست</a></li>
-                    <li><a [routerLink]="['/categories']">دسته بندی</a></li>
-                    <li><a [routerLink]="['/influencers']">اینفلوئنسر</a></li>
-                </ul>
-            </div>
-
-
-            <input type="hidden" id="jvLog_UserId" />
+            </li>
+          </ul>
         </div>
-    </nav>
+        <div class="col-md-12 col-xs-6 second-header-section">
+          <a class="navbar-brand" href="/" alt="لوگوی اینیسیتو">
+            <img src="../assets/Content/Images/inisito.png" alt="لوگوی اینیسیتو" />
+          </a>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jvNavbar">
+            <span class="icon-bar togglable-collapse"></span>
+            <span class="icon-bar togglable-collapse"></span>
+            <span class="icon-bar togglable-collapse"></span>
+            <i class="fa fa-remove togglable-collapse hidden"></i>
+          </button>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse guest-mode" id="jvNavbar">
+        <ul class="nav navbar-nav navbar-left hidden-xs hidden-sm ">
+          <li class="active">
+            <app-account-manager></app-account-manager>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a [routerLink]="['/']">صفحه نخست</a></li>
+          <li><a [routerLink]="['/categories']">دسته بندی</a></li>
+          <li><a [routerLink]="['/influencers']">اینفلوئنسر</a></li>
+        </ul>
+      </div>
 
-    <div class="container">
 
-
-        <router-outlet></router-outlet>
-
-
-
-        <div id="xs-Media" class="visible-xs"></div>
-        <div id="overlayHomeLoading"></div>
-
-
+      <input type="hidden" id="jvLog_UserId" />
     </div>
+  </nav>
+
+  <div class="container">
+
+
+    <router-outlet></router-outlet>
+
+
+
+    <div id="xs-Media" class="visible-xs"></div>
+    <div id="overlayHomeLoading"></div>
+
+
+  </div>
 </div>
 
 
 <div class="row footer-row first-footer Hide-screen">
-    <div class="col-sm-4 third-section">
-        <div class="col-sm-12">
-            <img src="../assets/Content/Images/logo-job-vision.png" alt="لوگوی جاب ویژن JobVision">
-        </div>
+  <div class="col-sm-4 third-section">
+    <div class="col-sm-12">
+      <img src="../assets/Content/Images/inisito.png" alt="لوگوی اینیسیتو Inisito">
+    </div>
 
-        <div class="col-sm-12 copyright-container">
-            <p class="copyright">Copyright © 2016 Jobvision co. All rights reserved.</p>
-        </div>
-        <div class="col-sm-12 social-links">
-            <a href="https://www.instagram.com/job_vision" target="_blank">
-                <img class="btn-social" src="../assets/Content/Images/instagram.png"
-                    alt="صفحه اینستاگرام جاب ویژن Instagram JobVision">
-            </a>
-            <a href="https://www.telegram.me/jobvision" target="_blank">
-                <img class="btn-social" src="../assets/Content/Images/maintelegram.png"
-                    alt="کانال تلگرام جاب ویژن Telegram JobVision">
-            </a>
-            <a href="http://www.aparat.com/jobvision" target="_blank">
-                <img class="btn-social" src="../assets/Content/Images/aparat.png" alt="آپارت جاب ویژن Aparat JobVision">
-            </a>
-            <a href="https://www.linkedin.com/company/13213221?trk=tyah&amp;trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A13213221%2Cidx%3A2-4-5%2CtarId%3A1477291719870%2Ctas%3Ajob%20vision"
-                target="_blank">
-                <img class="btn-social" src="../assets/Content/Images/MainLinkedIn.png"
-                    alt="صفحه لینکداین جاب ویژن Linked-in JobVision">
-            </a>
-            <a href="https://twitter.com/JobVision_ir?s=09" target="_blank">
-                <img class="btn-social" src="../assets/Content/Images/Twitter.png"
-                    alt="صفحه توییتر جاب ویژن Twitter JobVision">
-            </a>
-        </div>
+    <div class="col-sm-12 copyright-container">
+      <p class="copyright">Copyright © 2019 Inisito co. All rights reserved.</p>
+    </div>
+    <div class="col-sm-12 social-links">
+      <a href="https://www.instagram.com/Inisito_com" target="_blank">
+        <img class="btn-social" src="../assets/Content/Images/instagram.png"
+             alt="صفحه اینستاگرام اینیسیتو Instagram Inisito">
+      </a>
+      <a href="https://www.telegram.me/Inisito_com" target="_blank">
+        <img class="btn-social" src="../assets/Content/Images/maintelegram.png"
+             alt="کانال تلگرام اینیسیتو Telegram Inisito">
+      </a>
+      <a href="http://www.aparat.com/Inisito_com" target="_blank">
+        <img class="btn-social" src="../assets/Content/Images/aparat.png" alt="آپارت اینیسیتو Aparat JobVision">
+      </a>
+      <a href="https://www.linkedin.com/company/Inisito_com"
+         target="_blank">
+        <img class="btn-social" src="../assets/Content/Images/MainLinkedIn.png"
+             alt="صفحه لینکداین اینیسیتو Linked-in Inisito">
+      </a>
+      <a href="https://twitter.com/JobVision_ir?s=09" target="_blank">
+        <img class="btn-social" src="../assets/Content/Images/Twitter.png"
+             alt="صفحه توییتر اینیسیتو Twitter Inisito">
+      </a>
+    </div>
+
+  </div>
+  <div class="col-sm-4 second-section">
+    <p class="footer-text"> اینیستو بعنوان اولین ارائه دهنده خدمات اینفلوئنسر مارکتینگ از سال ۹۸ در حال فعالیت فعال در حوزه کسب و کار های اینترنتی میباشد </p>
+    <p class="footer-text">
+      در ایران توجه به نیاز و کمبود بازار امروزی قصد داریم سیستمی یکپارچه و تخصصی در زمینه های کاری مختلف در اختیار عموم مردم قرار دهیم تا با استفاده از مکانیزم راحت و قابل اعتماد ما بتوانند کسب و کار خود را گسترش و به مخاطبانشان در بستر اینستاگرام معرفی کنند.
+    </p>
+    <div class="col-xs-12 clearfix visible-xs contactLink-xs">
+      <div class="col-xs-4">
+        <a class="footer-button" href='/home/PrivacyPolicy'>قوانین و مقررات</a>
+      </div>
+      <div class="col-xs-4">
+        <a class="footer-button" href='/home/ContactUs'>تماس با ما</a>
+      </div>
+      <div class="col-xs-4">
+        <a class="footer-button" href='/home/FAQ'>سوالات متداول</a>
+      </div>
 
     </div>
-    <div class="col-sm-4 second-section">
-        <p class="footer-text"> جاب ویژن بعنوان اولین ارائه دهنده بسته جامع خدمات کاریابی و استخدام، تجربه برگزاری
-            موفق ادوار مختلف نمایشگاه کار دانشگاه شریف و نمایشگاه کار ایران را در کارنامه کاری خود دارد. </p>
-        <p class="footer-text">
-            سیستم هوشمند انطباق، رزومه ساز دو زبانه و استاندارد، تست‌های خودشناسی و همکاری با معتبرترین سازمانها
-            برای استخدام از ویژگی‌های متمایز جاب ویژن است. دسترسی به طیف وسیعی از آگهی‌های استخدام برای کارجویان و
-            نیز بانک منحصربفردی از رزومه ها برای کارفرمایان از دیگر خدمات جاب‌ویژن می باشد.
-        </p>
-        <div class="col-xs-12 clearfix visible-xs contactLink-xs">
-            <div class="col-xs-4">
-                <a class="footer-button" href='/home/PrivacyPolicy'>قوانین و مقررات</a>
-            </div>
-            <div class="col-xs-4">
-                <a class="footer-button" href='/home/ContactUs'>تماس با ما</a>
-            </div>
-            <div class="col-xs-4">
-                <a class="footer-button" href='/home/FAQ'>سوالات متداول</a>
-            </div>
+  </div>
+  <div class="col-sm-4 first-section hidden-xs">
 
-        </div>
+    <div class="col-xs-12">
+      <div class="col-xs-6">
+        <a class="footer-button" href='/home/Employee'>اینیسیتو برای کسب و کارها</a>
+      </div>
+      <div class="col-xs-6">
+        <a class="footer-button" href='/home/PrivacyPolicy'>قوانین و مقررات</a>
+      </div>
     </div>
-    <div class="col-sm-4 first-section hidden-xs">
-
-        <div class="col-xs-12">
-            <div class="col-xs-6">
-                <a class="footer-button" href='/home/Employee'>جاب ویژن برای کارجو</a>
-            </div>
-            <div class="col-xs-6">
-                <a class="footer-button" href='/home/PrivacyPolicy'>قوانین و مقررات</a>
-            </div>
-        </div>
-        <div class="col-xs-12">
-            <div class="col-xs-6">
-                <a class="footer-button" href='/home/Employer'>جاب ویژن برای کارفرما</a>
-            </div>
-            <div class="col-xs-6">
-                <a class="footer-button" href='/home/FAQ'>سوالات متداول</a>
-            </div>
-        </div>
-        <div class="col-xs-12">
-            <div class="col-xs-6">
-                <a class="footer-button" href='/Assessments/Home'>ارزیابی فردی</a>
-            </div>
-            <div class="col-xs-6">
-                <a class="footer-button" href='/home/ContactUs'>تماس با ما</a>
-            </div>
-        </div>
+    <div class="col-xs-12">
+      <div class="col-xs-6">
+        <a class="footer-button" href='/home/Employer'>اینیسیتو برای اینفلوئنسرها</a>
+      </div>
+      <div class="col-xs-6">
+        <a class="footer-button" href='/home/FAQ'>سوالات متداول</a>
+      </div>
     </div>
-</div>
-<div class="row footer-row second-footer Hide-screen">
-    <div class="col-sm-4 second-section">
-        <p class="footer-text">
-            جاب ویژن از سوی معاونت علمی و فناوری ریاست جمهوری بعنوان یک <strong> محصول دانش بنیان</strong> شناخته
-            شده است.
-            <br />
-            <br />
-            دارای مجوز رسمی کاریابی الکترونیکی از وزارت کار، تعاون و رفاه اجتماعی
-        </p>
+    <div class="col-xs-12">
+      <div class="col-xs-6">
+        <a class="footer-button" href='/Assessments/Home'>ارزیابی فردی</a>
+      </div>
+      <div class="col-xs-6">
+        <a class="footer-button" href='/home/ContactUs'>تماس با ما</a>
+      </div>
     </div>
-    <div class="col-sm-4 second-section text-center" style="direction:ltr;">
-
-    </div>
-    <div class="col-sm-4 second-section">
-
-        <div class="pull-right">
-            <span class="advertise-section">جاب ویژن توسط سرورهای اختصاصی <strong>پارس پک</strong> پشتیبانی
-                می‌شود.</span>
-        </div>
-        <div class="col-md-12">
-
-        </div>
-    </div>
+  </div>
 </div>
 
 <div class="jv-pre-loader" style="direction :rtl;" data-prevent="no" data-preventshow="no">
 
 
-    <img class="transparent-image" src="../assets/Content/oie_14123859s9fjJLiD.gif" width="64" alt="جاب ویژن" />
+  <img class="transparent-image" src="../assets/Content/oie_14123859s9fjJLiD.gif" width="64" alt="اینیسیتو" />
 </div>
 
 <div id="jobpost-creation-language-selection" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="background-color: #ffffff !important">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            </div>
-            <div class="modal-body" style="text-align: center;">
-                <p style="direction: rtl;">
-                    تمایل دارید فرصت شغلی خود را به چه زبانی ثبت کنید ؟
-                </p>
-            </div>
-            <div class="text-center" style="text-align: center;">
-                <button id="english-language-submit" type="button" class="btn newJobPostSubmit">انگلیسی</button>
-                <button id="persian-language-submit" type="button" class="btn newJobPostSubmit">فارسی</button>
-                <br />
-                <br />
-                <label id="notCompletedFa" style="color: black; display: none; font-size: small; ">برای ثبت فرصت
-                    شغلی فارسی باید ابتدا پروفایل فارسی خود را تکمیل نمایید</label>
-                <label id="notCompletedEn" style="color: black; display: none; font-size: small;">برای ثبت فرصت شغلی
-                    انگلیسی باید ابتدا پروفایل انگلیسی خود را تکمیل نمایید</label>
-                <br />
-                <div class="row" style="display: inline-block">
-                    <a id="CreateProfile" class="btn btn-warning col-md-12"
-                        style="color: white; display: none;border-radius: 20px;background-color: #f0ad4e"
-                        href='/EmployerProfile/CreateOrEdit'>تکمیل پروفایل</a>
-                </div>
-
-            </div>
-            <br />
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #ffffff !important">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <p style="direction: rtl;">
+          تمایل دارید فرصت شغلی خود را به چه زبانی ثبت کنید ؟
+        </p>
+      </div>
+      <div class="text-center" style="text-align: center;">
+        <button id="english-language-submit" type="button" class="btn newJobPostSubmit">انگلیسی</button>
+        <button id="persian-language-submit" type="button" class="btn newJobPostSubmit">فارسی</button>
+        <br />
+        <br />
+        <label id="notCompletedFa" style="color: black; display: none; font-size: small; ">
+          برای ثبت فرصت
+          شغلی فارسی باید ابتدا پروفایل فارسی خود را تکمیل نمایید
+        </label>
+        <label id="notCompletedEn" style="color: black; display: none; font-size: small;">
+          برای ثبت فرصت شغلی
+          انگلیسی باید ابتدا پروفایل انگلیسی خود را تکمیل نمایید
+        </label>
+        <br />
+        <div class="row" style="display: inline-block">
+          <a id="CreateProfile" class="btn btn-warning col-md-12"
+             style="color: white; display: none;border-radius: 20px;background-color: #f0ad4e"
+             href='/EmployerProfile/CreateOrEdit'>تکمیل پروفایل</a>
         </div>
+
+      </div>
+      <br />
     </div>
+  </div>
 </div>
 <div class="modal fade" id="errorModal" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
+  <div class="modal-dialog">
+    <div class="modal-content">
 
-            <div class="modal-header" style="background-color: #ebebeb !important">
-                <span id="errormessageheholder" style="float: right;font-size: 16px;font-weight: 500;"></span>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <div class="modal-header" style="background-color: #ebebeb !important">
+        <span id="errormessageheholder" style="float: right;font-size: 16px;font-weight: 500;"></span>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
-            </div>
+      </div>
 
-            <div class="modal-body text-center">
-                <p style="font-size: small;direction:rtl">
-                    <span id="errocodeholder"></span>
-                </p>
-            </div>
-        </div>
+      <div class="modal-body text-center">
+        <p style="font-size: small;direction:rtl">
+          <span id="errocodeholder"></span>
+        </p>
+      </div>
     </div>
+  </div>
 </div>
 <div class="modal fade" id="flyerpwa" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content col-xs-12">
-            <div class="modal-header" style="background-color: #ffffff !important">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  <div class="modal-dialog">
+    <div class="modal-content col-xs-12">
+      <div class="modal-header" style="background-color: #ffffff !important">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
-            </div>
-            <div class="modal-body text-center col-xs-12">
+      </div>
+      <div class="modal-body text-center col-xs-12">
 
-                <p> کارجوی عزیز اگه میخوای تجربه بهتری از کار با جاب ویژن داشته باشی دکمه اون رو تو گوشیت داشته باش
-                </p>
-                <p style="direction:rtl">
-                    برای اینکار بعد از کلیک روی دکمه نصب تو کادری که باز میشه روی گزینه ADD کلیک کن تا آیکنش رو تو
-                    دسکتاپت داشته باشی
-                </p>
-                <button class="add-button btn btn-success" style="border-radius:25px;">نصب جاب ویژن</button>
+        <p>
+          کارجوی عزیز اگه میخوای تجربه بهتری از کار با اینیسیتو داشته باشی دکمه اون رو تو گوشیت داشته باش
+        </p>
+        <p style="direction:rtl">
+          برای اینکار بعد از کلیک روی دکمه نصب تو کادری که باز میشه روی گزینه ADD کلیک کن تا آیکنش رو تو
+          دسکتاپت داشته باشی
+        </p>
+        <button class="add-button btn btn-success" style="border-radius:25px;">نصب اینیسیتو</button>
 
-            </div>
-            <br />
-        </div>
+      </div>
+      <br />
     </div>
+  </div>
 </div>
 <div class="modal fade" id="buycvsearchmodal" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header" style="background-color: #ffffff !important">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #ffffff !important">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
-            </div>
-            <div class="modal-body">
-                <p class="text-center">
-                    چنانچه پیش از خرید بسته، نیاز به مشاهده دموی این پنل دارید، با شماره های زیر تماس بگیرید.
+      </div>
+      <div class="modal-body">
+        <p class="text-center">
+          چنانچه پیش از خرید بسته، نیاز به مشاهده دموی این پنل دارید، با شماره های زیر تماس بگیرید.
 
-                    <!-- <p class="phoneNumber text-center bold">44979556</p>
-              <p class="phoneNumber text-center bold">44077920</p> -->
-                </p>
-                <p class="text-center" style="font-size: medium; direction: rtl">
-                    برای فعال سازی پنل جستجوی رزومه، بسته مورد نظر را خریداری کنید.
-                </p>
-                <div class="text-center" style="background-color: #ffffff !important; text-align: center !important">
-                    <a class="btn  confirmJobPost" href='/EmployerProfile/Packages'>خرید بسته</a>
-                </div>
-            </div>
-            <br />
+          <!-- <p class="phoneNumber text-center bold">44979556</p>
+          <p class="phoneNumber text-center bold">44077920</p> -->
+        </p>
+        <p class="text-center" style="font-size: medium; direction: rtl">
+          برای فعال سازی پنل جستجوی رزومه، بسته مورد نظر را خریداری کنید.
+        </p>
+        <div class="text-center" style="background-color: #ffffff !important; text-align: center !important">
+          <a class="btn  confirmJobPost" href='/EmployerProfile/Packages'>خرید بسته</a>
         </div>
+      </div>
+      <br />
     </div>
+  </div>
 </div>
