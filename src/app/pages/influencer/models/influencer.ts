@@ -3,9 +3,9 @@ import { Image } from "./image";
 export class Influencer {
     _UserId: number
     InstagramID: string
-    AverageCommentCount: number
-    AverageLikeCount: number
-    AverageViewCount: number
+    AvrageCommentCount: number
+    AvrageLikeCount: number
+    AvrageViewCount: number
     FollowersCount: number
     FollowingCount: number
     ProfileName: string
