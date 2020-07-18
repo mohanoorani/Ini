@@ -13,7 +13,7 @@
             $('#overlayHomeLoading').css('display', 'block');
         }
         function loadEmployeeImage() {
-            var src = '/Employee-Part.jpg';
+            var src = '/1.jpg';
             employeeImage = document.createElement('img');
             employeeImage.onload = function () {
                 if (employerImage.complete) {
@@ -28,7 +28,7 @@
             employeeImage.src = src;
         }
         function loadEmployerImage() {
-            var src = '/Employer-Part.jpg';
+            var src = '/2.jpg';
             employerImage = document.createElement('img');
             employerImage.onload = function () {
                 if (employeeImage.complete) {

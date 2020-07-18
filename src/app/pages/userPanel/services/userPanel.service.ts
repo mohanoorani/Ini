@@ -103,8 +103,8 @@ export class UserPanelService {
       });
   }
 
-  public GetAllRequest(requestCode, requestId): Observable<Influencer[]> {
-    return this.httpClient.post<Influencer[]>(environment.baseUrl + "/sp/business/GetRequests",
+  public GetAllRequests(requestCode: any, requestId: any): Observable<Request[]> {
+    return this.httpClient.post<Request[]>(environment.baseUrl + "/sp/business/GetRequests",
       {RequestCode : requestCode, RequestId: requestId, UserID: this.userId});
   }
 }

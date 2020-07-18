@@ -7,4 +7,12 @@ export class Request {
     IsContent: boolean
     FileID: number
     Description: string
+    FilePath: string
+    PersianTitle: string
+    OriginUserID: number
+    DestinationUserID: string
+    RequestCode: number
+    Price: number
+    FullNameOriginUser: string
+    FullNameDestinationUser: string
 }

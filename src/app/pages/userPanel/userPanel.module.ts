@@ -12,6 +12,8 @@ import { ProfileComponent } from './childrens/profile/profile.component';
 import { BankInfoComponent } from './childrens/bankinfo/bankinfo.component';
 import { InfluencerModule } from '../influencer/influencer.module';
 import { PaymentInfoComponent } from './childrens/paymentinfo/paymentinfo.component';
+import { RequestListComponent } from './childrens/request/pages/list/instagram/requestlist.component';
+import { AppRequestListComponent } from './childrens/request/components/app-request-list/app-request-list.component';
 
 @NgModule({
   imports: [
@@ -28,7 +30,9 @@ import { PaymentInfoComponent } from './childrens/paymentinfo/paymentinfo.compon
     MessageComponent,
     InstagramComponent,
     BankInfoComponent,
-    PaymentInfoComponent
+    PaymentInfoComponent,
+    RequestListComponent,
+    AppRequestListComponent
   ],
   providers: []
 })
