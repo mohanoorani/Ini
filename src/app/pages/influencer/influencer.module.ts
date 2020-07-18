@@ -11,6 +11,7 @@ import { AppSingleInfluencerComponent } from './components/app-single-influencer
 import { UserPanelService } from '../userPanel/services/userPanel.service';
 import { FormsModule } from '@angular/forms';
 import { InfluencerSearchComponent } from './pages/search/search.component';
+import { AppCreateRequestComponent } from './components/app-create-request/app-create-request.component';
 
 @NgModule({
   declarations:
@@ -19,7 +20,8 @@ import { InfluencerSearchComponent } from './pages/search/search.component';
       InfluencerComponent,
       InfluencerSearchComponent,
       AppInfluencerListComponent,
-      AppSingleInfluencerComponent
+      AppSingleInfluencerComponent,
+      AppCreateRequestComponent
     ],
   imports: [
     CommonModule,
@@ -27,7 +29,7 @@ import { InfluencerSearchComponent } from './pages/search/search.component';
     InfluencerRoutingModule,
     FormsModule
   ],
-  providers: [InfluencerService, UserPanelService],
+  providers: [InfluencerService],
   exports: [
     AppInfluencerListComponent,
     AppSingleInfluencerComponent

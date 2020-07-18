@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Influencer } from '../../../../../influencer/models/influencer';
+import { Influencer } from '../../models/influencer';
 import { UserPanelService } from '@app/pages/userPanel/services/userPanel.service';
-import { Request } from '../../models/request';
+import { Request } from '../../../userPanel/childrens/request/models/request';
 import { AlertifyService } from '@app/shared/services';
 import * as $ from 'jquery';
 
@@ -23,6 +23,7 @@ export class AppCreateRequestComponent implements OnInit {
     private alertifyService: AlertifyService) { }
 
   ngOnInit() {
+    debugger;
     this.getInstagramsId();
     
     this.resetForm();

@@ -9,13 +9,12 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { ContactUsService } from './pages/contactus/services/contactus.service';
 import { AuthService, AuthInterceptor } from './authentication/services';
-import { AppCreateRequestComponent } from './pages/userPanel/childrens/request/components/app-create-request/app-create-request.component';
+import { AppCreateRequestComponent } from './pages/influencer/components/app-create-request/app-create-request.component';
 import { UserPanelService } from './pages/userPanel/services/userPanel.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AppCreateRequestComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
