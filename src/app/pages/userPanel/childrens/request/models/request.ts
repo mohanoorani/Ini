@@ -1,4 +1,4 @@
-export class CreateRequest {
+export class Request {
     OriginInstagramID: string
     DestinationInstagramID: string
     PresenceOnSite: boolean

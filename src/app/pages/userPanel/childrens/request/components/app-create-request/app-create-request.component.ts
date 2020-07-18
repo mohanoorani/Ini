@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Influencer } from '../../../influencer/models/influencer';
+import { Influencer } from '../../../../../influencer/models/influencer';
 import { UserPanelService } from '@app/pages/userPanel/services/userPanel.service';
-import { CreateRequest } from '../../models/createrequest';
-import { RequestService } from '../../services/request.service';
+import { Request } from '../../models/request';
 import { AlertifyService } from '@app/shared/services';
 import * as $ from 'jquery';
 
@@ -16,11 +15,10 @@ export class AppCreateRequestComponent implements OnInit {
 
   @Input() instagramId: string;
   instagramsId: Influencer[] = [];
-  request: CreateRequest = new CreateRequest();
+  request: Request = new Request();
   selectedFile: File;
 
   constructor(
-    private requestService: RequestService,
     private userPanelService: UserPanelService,
     private alertifyService: AlertifyService) { }
 
@@ -39,7 +37,7 @@ export class AppCreateRequestComponent implements OnInit {
   fileChange(files: FileList) {
 
     if (files && files[0].size > 0) {
-      this.requestService.UplodaAttachment(files[0]).subscribe((res: any) => {
+      this.userPanelService.UplodaAttachment(files[0]).subscribe((res: any) => {
 
         this.request.FileID = res.fileId;
 
@@ -59,7 +57,7 @@ export class AppCreateRequestComponent implements OnInit {
 
     this.request.DestinationInstagramID = this.instagramId;
     
-    this.requestService.CreateRequest(this.request).subscribe((res: any) => {
+    this.userPanelService.CreateRequest(this.request).subscribe((res: any) => {
       this.alertifyService.success('درخواست با موفقیت ذخیره شد');
       
       $('#RequestModal').hide();

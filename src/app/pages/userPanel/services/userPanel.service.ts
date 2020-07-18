@@ -8,6 +8,7 @@ import { Influencer } from '@app/pages/influencer/models/influencer';
 import { Bank } from '../models/bank';
 import { UserAccountInfo } from '../models/useraccountInfo';
 import { Payment } from '../models/payment';
+import { Request } from '../childrens/request/models/request';
 
 @Injectable()
 export class UserPanelService {
@@ -65,7 +66,7 @@ export class UserPanelService {
   public VerifyInstagramProfile(instagramId: string): Observable<any> {
 
     return this.httpClient.post<any>(
-      "http://inisito.com:888/api/auth/SendVerificationCodeDirectMessage", { Username: instagramId });
+      environment.baseUrl + "/auth/SendVerificationCodeDirectMessage", { Username: instagramId });
   }
 
   public ConfirmInstagramVerificationCode(instagramId: string, code: number): Observable<any> {
@@ -76,5 +77,34 @@ export class UserPanelService {
   public GetAllAccounts(): Observable<Influencer[]> {
     return this.httpClient.post<Influencer[]>(environment.baseUrl + "/sp/business/GetInstagramProfileInfo",
       {InstagramID : null, InstagramPageTypeID: null, UserID: this.userId});
+  }
+
+  public UplodaAttachment(file: File): Observable<any> {
+    let formData = new FormData();
+
+    if (file !== undefined) {
+      formData.append("File", file, file.name);
+      return this.httpClient.post<any>(environment.baseUrl + "/file/upload", formData);
+    }
+  }
+
+  public CreateRequest(model: Request): Observable<Request[]> {
+    return this.httpClient.post<Request[]>(environment.baseUrl + "/sp/business/StartRequest",
+      {
+        OriginUserID: this.userId,
+        OriginInstagramID: model.OriginInstagramID,
+        DestinationInstagramID: model.DestinationInstagramID,
+        PresenceOnSite: model.PresenceOnSite,
+        IsStory: model.IsStory,
+        IsPost: model.IsPost,
+        IsCOntent: model.IsContent,
+        FileID: model.FileID,
+        Description: model.Description
+      });
+  }
+
+  public GetAllRequest(requestCode, requestId): Observable<Influencer[]> {
+    return this.httpClient.post<Influencer[]>(environment.baseUrl + "/sp/business/GetRequests",
+      {RequestCode : requestCode, RequestId: requestId, UserID: this.userId});
   }
 }

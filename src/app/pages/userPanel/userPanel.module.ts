@@ -30,8 +30,6 @@ import { PaymentInfoComponent } from './childrens/paymentinfo/paymentinfo.compon
     BankInfoComponent,
     PaymentInfoComponent
   ],
-  providers: [
-    UserPanelService
-  ]
+  providers: []
 })
 export class UserPanelModule {}
