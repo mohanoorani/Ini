@@ -9,17 +9,18 @@
 <h1 class="user-name">{{influencer?.ProfileName}}</h1>
 <ul class="profile-options horizontal-list">
     <li style="border-left: none;">
-        <a class="comments">
-            <p><span class="icon fa fa-envelope-open scnd-font-color"></span>{{influencer?.PostsCount | number}}</p>
-        </a></li>
+        <a class="comments" data-toggle="tooltip" title="Likes">
+            <p><span class="icon fa fa-heart scnd-font-color"></span>{{influencer?.AvrageLikeCount | number}}</p>
+        </a>
+    </li>
     <li>
-        <a class="views">
-            <p><span class="icon fa fa-user scnd-font-color"></span>{{influencer?.FollowingCount | number}}</p>
+        <a class="views" data-toggle="tooltip" title="Posts">
+            <p><span class="icon fa fa-envelope-open scnd-font-color"></span>{{influencer?.PostsCount | number}}</p>
         </a>
     </li>
     <li style="width:34%">
-        <a class="likes">
-            <p><span class="icon fa fa-user scnd-font-color"></span>{{influencer?.FollowersCount | number}}</p>
+        <a class="likes" data-toggle="tooltip" title="Followers">
+            <p><span class="icon fa fa-users scnd-font-color"></span>{{influencer?.FollowersCount | number}}</p>
         </a>
     </li>
 </ul>

@@ -1,1 +1,24 @@
+<!-- درخواست های ارائه شده
 <app-request-list [requests]="requests"></app-request-list>
+درخواست های من
+<app-request-list [requests]="myRequests"></app-request-list> -->
+
+
+<div id="exTab1">
+    <ul class="nav nav-pills" style="margin-bottom: 10px;">
+        <li class="active">
+            <a href="#1a" data-toggle="tab">درخواست های ارائه شده</a>
+        </li>
+        <li><a href="#2a" data-toggle="tab">درخواست های من</a>
+        </li>
+    </ul>
+
+    <div class="tab-content clearfix">
+        <div class="tab-pane active" id="1a">
+            <app-request-list [requests]="requests"></app-request-list>
+        </div>
+        <div class="tab-pane" id="2a">
+            <app-request-list [requests]="myRequests"></app-request-list>
+        </div>
+    </div>
+</div>

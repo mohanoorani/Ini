@@ -8,7 +8,6 @@ import { InfluencerComponent } from './pages/single/influencer.component';
 import { InfluencerService } from './services/influencer.service';
 import { AppInfluencerListComponent } from './components/app-influencer-list/app-influencer-list.component';
 import { AppSingleInfluencerComponent } from './components/app-single-influencer/app-single-influencer.component';
-import { InfluencerSearchComponent } from './pages/search/search.component';
 import { UserPanelService } from '../userPanel/services/userPanel.service';
 import { FormsModule } from '@angular/forms';
 
@@ -17,7 +16,6 @@ import { FormsModule } from '@angular/forms';
     [
       InfluencerListComponent,
       InfluencerComponent,
-      InfluencerSearchComponent,
       AppInfluencerListComponent,
       AppSingleInfluencerComponent
     ],

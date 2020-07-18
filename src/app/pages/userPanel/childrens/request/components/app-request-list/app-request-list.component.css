@@ -1,15 +1,17 @@
-.requestmodalheader {
-    font-size: 16px;
+.requestbox {
+    /* border: 1px solid gray; */
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 2px #9e9e9e;
+    float: left;
 }
 
-.requestmodalheader span {
-    font-size: 14px;
+.requestbox label{
+    width: 100%;
+    font-size: 13px;
 }
 
-.form-check-label {
-    vertical-align: middle;
-}
-
-.form-check-input {
-    margin: 4px;
+.requestbox label span{
+    font-size: 11px;
 }

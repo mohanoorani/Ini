@@ -45,7 +45,7 @@
 }
 
 h1 {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .profile-description {
@@ -70,7 +70,11 @@ h1 {
 
 .profile-options li {
     border-left: 1px solid #1f253d;
-    font-size: 13px;
+    font-size: 12px;
+}
+
+.profile-options li .icon {
+    font-size: 14px;
 }
 
 .profile-options li a {
@@ -231,4 +235,8 @@ ul {
 
 .isntagrambottom {
     margin-left: 10px;
+}
+
+h2 {
+    font-size: 22px;
 }

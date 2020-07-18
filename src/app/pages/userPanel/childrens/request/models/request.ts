@@ -15,4 +15,5 @@ export class Request {
     Price: number
     FullNameOriginUser: string
     FullNameDestinationUser: string
+    PersianRTime: string
 }

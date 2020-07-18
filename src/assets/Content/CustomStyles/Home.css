@@ -209,7 +209,7 @@ div#introClipBox_menu, div#introClipBox_display_button, img#introClipBox_logo {
 }
 
 .rightImage-part .pic-side img {
-  width: 80%;
+  width: 70%;
 }
 
 .selfAssessment-part.rightImage-part .pic-side img {
@@ -261,7 +261,6 @@ img.mob {
   display: flex;
   direction: rtl;
   padding: 0 20px;
-  margin-bottom: 20px;
 }
 
 .leftImage-part .desc-side {
@@ -316,7 +315,7 @@ img.mob {
 }
 
 .leftImage-part .pic-side img {
-  width: 80%;
+  width: 70%;
 }
 
 .jVIsForYou {

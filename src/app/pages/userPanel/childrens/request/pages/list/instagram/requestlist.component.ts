@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AlertifyService } from '@app/shared/services';
 import { UserPanelService } from '@app/pages/userPanel/services/userPanel.service';
 import { Request } from '../../../models/request';
+import { forEach } from '@angular/router/src/utils/collection';
+import { AuthService } from '@app/authentication/services';
 
 @Component({
   selector: 'app-request-com',
@@ -11,7 +13,8 @@ import { Request } from '../../../models/request';
 export class RequestListComponent implements OnInit {
 
   requests: Request[] = [];
-  constructor(private userPanelService: UserPanelService, private alertifyService: AlertifyService) { }
+  myRequests: Request[] = [];
+  constructor(private userPanelService: UserPanelService, private authService: AuthService) { }
 
   ngOnInit() {
     this.getAllRequests();
@@ -19,8 +22,14 @@ export class RequestListComponent implements OnInit {
 
   getAllRequests() {
     this.userPanelService.GetAllRequests(null, null).subscribe((res: Request[]) => {
-      this.requests = res;
-      console.log(res);
+      var userId = this.authService.getUserInfo().id;
+
+      res.forEach(request => {
+        if (request.OriginUserID == userId)
+          this.myRequests.push(request);
+        else
+          this.requests.push(request);
+      });
     });
   }
 }

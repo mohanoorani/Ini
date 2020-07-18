@@ -1,3 +1,48 @@
-<ul>
-    <li *ngFor="let request of requests">{{request.OriginInstagramID}}</li>
-</ul>
+<div class="row requestbox col-md-12 col-xs-12" *ngFor="let request of requests">
+    <div class="col-md-4 col-xs-12">
+        <label>
+            کد درخواست:
+            <span>{{request.RequestCode}}</span>
+        </label>
+        <label *ngIf="userId == request.DestinationUserID">
+            اینستاگرام درخواست کننده:
+            <span>{{request.OriginInstagramID}}</span>
+        </label>
+        <label *ngIf="userId == request.OriginUserID">
+            درخواست به:
+            <span>{{request.DestinationInstagramID}}</span>
+        </label>
+
+        <label>
+            نام کاربر:
+            <span *ngIf="userId == request.DestinationUserID">{{request.FullNameOriginUser}}</span>
+            <span *ngIf="userId == request.OriginUserID">{{request.FullNameDestinationUser}}</span>
+        </label>
+    </div>
+
+    <div class="col-md-4 col-xs-12 text-center">
+        <label>
+            تبلیغ به صورت پست:
+            <span>{{request.IsPost? 'بلی': 'خیر'}}</span>
+        </label>
+        <label>
+            تبلیغ به صورت استوری:
+            <span>{{request.IsStory? 'بلی': 'خیر'}}</span>
+        </label>
+        <label>
+            دارای محتوا
+            {{request.IsContent? 'می باشد': 'نمی باشد'}}
+        </label>
+    </div>
+
+    <div class="col-md-3 col-xs-12 pull-left text-left">
+        <label>
+            وضعیت:
+            <span>{{request.PersianTitle}}</span>
+        </label>
+        <label>
+            تاریخ درخواست:
+            <span>{{request.PersianRTime}}</span>
+        </label>
+    </div>
+</div>

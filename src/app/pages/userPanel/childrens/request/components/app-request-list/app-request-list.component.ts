@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Request } from '../../models/request';
+import { AuthService } from '@app/authentication/services';
 
 @Component({
   selector: 'app-request-list',
@@ -10,8 +11,10 @@ import { Request } from '../../models/request';
 export class AppRequestListComponent implements OnInit {
 
   @Input() requests: Request[] = [];
-
-  constructor() { }
+  userId: number;
+  constructor(authService: AuthService) {
+    this.userId = authService.getUserInfo().id;
+   }
 
   ngOnInit() {
   }

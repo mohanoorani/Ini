@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Influencer } from '../../models/influencer';
 
 @Component({
@@ -10,11 +10,9 @@ export class AppInfluencerListComponent implements OnInit {
 
   @Input() InfluencerList: Influencer[] = []
   @Input() cssClass: string = 'col-md-3';
-  showEmptyRow: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
-    setTimeout(() => this.showEmptyRow = true, 700);
   }
 }

@@ -48,7 +48,7 @@
               "src/assets/Scripts/HomePage.js",
               "src/assets/Scripts/HomePage2.js",
               "src/assets/Scripts/slick.min.js",
-              "src/assets/Scripts/login-and-register-script.js"
+              "src/assets/Scripts/app.js"
             ],
             "es5BrowserSupport": true
           },
