@@ -3,7 +3,6 @@
 }
 
 function openCreateRequestModel() {
-	debugger;
 	$('#RequestModal').modal({ "backdrop": "static" });
 }
 
