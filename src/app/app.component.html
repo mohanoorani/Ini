@@ -30,16 +30,22 @@
         </div>
       </div>
       <div class="collapse navbar-collapse guest-mode" id="jvNavbar">
+
         <ul class="nav navbar-nav navbar-left hidden-xs hidden-sm ">
           <li class="active">
             <app-account-manager></app-account-manager>
           </li>
         </ul>
+
         <ul class="nav navbar-nav navbar-right">
           <li><a [routerLink]="['/']">صفحه نخست</a></li>
           <li><a [routerLink]="['/categories']">دسته بندی</a></li>
           <li><a [routerLink]="['/influencers']">اینفلوئنسر</a></li>
         </ul>
+
+        <input type="text" class="searchbox" [(ngModel)]="searchValue"
+          (keyup.enter)="search()" placeholder="جستجوی نام، حساب اینستاگرام">
+
       </div>
 
 
@@ -74,31 +80,32 @@
     <div class="col-sm-12 social-links">
       <a href="https://www.instagram.com/Inisito_com" target="_blank">
         <img class="btn-social" src="../assets/Content/Images/instagram.png"
-             alt="صفحه اینستاگرام اینیسیتو Instagram Inisito">
+          alt="صفحه اینستاگرام اینیسیتو Instagram Inisito">
       </a>
       <a href="https://www.telegram.me/Inisito_com" target="_blank">
         <img class="btn-social" src="../assets/Content/Images/maintelegram.png"
-             alt="کانال تلگرام اینیسیتو Telegram Inisito">
+          alt="کانال تلگرام اینیسیتو Telegram Inisito">
       </a>
       <a href="http://www.aparat.com/Inisito_com" target="_blank">
         <img class="btn-social" src="../assets/Content/Images/aparat.png" alt="آپارت اینیسیتو Aparat JobVision">
       </a>
-      <a href="https://www.linkedin.com/company/Inisito_com"
-         target="_blank">
+      <a href="https://www.linkedin.com/company/Inisito_com" target="_blank">
         <img class="btn-social" src="../assets/Content/Images/MainLinkedIn.png"
-             alt="صفحه لینکداین اینیسیتو Linked-in Inisito">
+          alt="صفحه لینکداین اینیسیتو Linked-in Inisito">
       </a>
       <a href="https://twitter.com/JobVision_ir?s=09" target="_blank">
-        <img class="btn-social" src="../assets/Content/Images/Twitter.png"
-             alt="صفحه توییتر اینیسیتو Twitter Inisito">
+        <img class="btn-social" src="../assets/Content/Images/Twitter.png" alt="صفحه توییتر اینیسیتو Twitter Inisito">
       </a>
     </div>
 
   </div>
   <div class="col-sm-4 second-section">
-    <p class="footer-text"> اینیستو بعنوان اولین ارائه دهنده خدمات اینفلوئنسر مارکتینگ از سال ۹۸ در حال فعالیت فعال در حوزه کسب و کار های اینترنتی میباشد </p>
+    <p class="footer-text"> اینیستو بعنوان اولین ارائه دهنده خدمات اینفلوئنسر مارکتینگ از سال ۹۸ در حال فعالیت فعال در
+      حوزه کسب و کار های اینترنتی میباشد </p>
     <p class="footer-text">
-      در ایران توجه به نیاز و کمبود بازار امروزی قصد داریم سیستمی یکپارچه و تخصصی در زمینه های کاری مختلف در اختیار عموم مردم قرار دهیم تا با استفاده از مکانیزم راحت و قابل اعتماد ما بتوانند کسب و کار خود را گسترش و به مخاطبانشان در بستر اینستاگرام معرفی کنند.
+      در ایران توجه به نیاز و کمبود بازار امروزی قصد داریم سیستمی یکپارچه و تخصصی در زمینه های کاری مختلف در اختیار عموم
+      مردم قرار دهیم تا با استفاده از مکانیزم راحت و قابل اعتماد ما بتوانند کسب و کار خود را گسترش و به مخاطبانشان در
+      بستر اینستاگرام معرفی کنند.
     </p>
     <div class="col-xs-12 clearfix visible-xs contactLink-xs">
       <div class="col-xs-4">
@@ -175,8 +182,8 @@
         <br />
         <div class="row" style="display: inline-block">
           <a id="CreateProfile" class="btn btn-warning col-md-12"
-             style="color: white; display: none;border-radius: 20px;background-color: #f0ad4e"
-             href='/EmployerProfile/CreateOrEdit'>تکمیل پروفایل</a>
+            style="color: white; display: none;border-radius: 20px;background-color: #f0ad4e"
+            href='/EmployerProfile/CreateOrEdit'>تکمیل پروفایل</a>
         </div>
 
       </div>

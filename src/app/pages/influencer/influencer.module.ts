@@ -10,12 +10,14 @@ import { AppInfluencerListComponent } from './components/app-influencer-list/app
 import { AppSingleInfluencerComponent } from './components/app-single-influencer/app-single-influencer.component';
 import { UserPanelService } from '../userPanel/services/userPanel.service';
 import { FormsModule } from '@angular/forms';
+import { InfluencerSearchComponent } from './pages/search/search.component';
 
 @NgModule({
   declarations:
     [
       InfluencerListComponent,
       InfluencerComponent,
+      InfluencerSearchComponent,
       AppInfluencerListComponent,
       AppSingleInfluencerComponent
     ],

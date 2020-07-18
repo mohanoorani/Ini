@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.addRouterHandlerForScrollTop();
-  
+
   }
 
   addRouterHandlerForScrollTop() {
@@ -26,5 +26,9 @@ export class AppComponent implements OnInit {
       }
       window.scrollTo(0, 0);
     });
+  }
+  
+  search() {
+    this.router.navigate(['influencers/search/' + this.searchValue]);
   }
 }
