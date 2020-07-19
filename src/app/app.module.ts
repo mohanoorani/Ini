@@ -11,6 +11,7 @@ import { ContactUsService } from './pages/contactus/services/contactus.service';
 import { AuthService, AuthInterceptor } from './authentication/services';
 import { AppCreateRequestComponent } from './pages/influencer/components/app-create-request/app-create-request.component';
 import { UserPanelService } from './pages/userPanel/services/userPanel.service';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,8 +31,9 @@ import { UserPanelService } from './pages/userPanel/services/userPanel.service';
     AuthService,
     UserPanelService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
