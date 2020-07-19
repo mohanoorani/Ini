@@ -559,9 +559,6 @@ div.companyLogo img {
   .slider-row>.button-part {
     margin: 10px 0 70px 0;
   }
-  #jobVisionPlus {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 450px) {
