@@ -1,5 +1,5 @@
 <div class="row requestbox col-md-12 col-xs-12" *ngFor="let request of requests">
-    <div class="col-md-4 col-xs-12">
+    <div class="col-md-5 col-xs-12">
         <label>
             کد درخواست:
             <span>{{request.RequestCode}}</span>
@@ -16,22 +16,22 @@
         <label>
             نام کاربر:
             <span *ngIf="userId == request.DestinationUserID">{{request.FullNameOriginUser}}</span>
-            <span *ngIf="userId == request.OriginUserID">{{request.FullNameDestinationUser}}</span>
+            <span *ngIf="userId != request.DestinationUserID">{{request.FullNameDestinationUser}}</span>
         </label>
     </div>
 
-    <div class="col-md-4 col-xs-12 text-center">
+    <div class="col-md-4 col-xs-12">
         <label>
-            تبلیغ به صورت پست:
-            <span>{{request.IsPost? 'بلی': 'خیر'}}</span>
+            <span [class]="request.IsPost ? 'fa fa-check' : 'fa fa-ban'"></span>
+            پست
         </label>
         <label>
-            تبلیغ به صورت استوری:
-            <span>{{request.IsStory? 'بلی': 'خیر'}}</span>
+            <span [class]="request.IsStory ? 'fa fa-check' : 'fa fa-ban'"></span>
+             استوری
         </label>
         <label>
-            دارای محتوا
-            {{request.IsContent? 'می باشد': 'نمی باشد'}}
+            <span [class]="request.IsContent ? 'fa fa-check' : 'fa fa-ban'"></span>
+            محتوا
         </label>
     </div>
 
