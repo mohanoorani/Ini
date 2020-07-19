@@ -103,7 +103,6 @@
 
             //$('.jv-pre-loader').hide();
             $(document).ajaxSend(function () {
-                //debugger;
                 if ($('.jv-pre-loader').attr('data-preventshow') == "no") {
                     $(".container").addClass('overlay');
                     $('.jv-pre-loader').show();

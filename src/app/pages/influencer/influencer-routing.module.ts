@@ -5,10 +5,10 @@ import { InfluencerComponent } from './pages/single/influencer.component';
 import { InfluencerSearchComponent } from './pages/search/search.component';
 
 const routes: Routes = [
-  {path:'',component:InfluencerListComponent},
-  {path:':id',component:InfluencerListComponent},
-  {path:'detail/:id',component:InfluencerComponent},
-  {path:'search/:query',component:InfluencerSearchComponent}
+  { path: 'list', component: InfluencerListComponent },
+  { path: ':id', component: InfluencerListComponent },
+  { path: 'detail/:id', component: InfluencerComponent },
+  { path: 'search/:query', component: InfluencerSearchComponent }
 ];
 
 @NgModule({

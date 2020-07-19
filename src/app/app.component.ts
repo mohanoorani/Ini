@@ -10,7 +10,6 @@ import { Category } from './pages/category/models/category';
 export class AppComponent implements OnInit {
 
   searchValue: string = "";
-  categories: Category[];
 
   constructor(private router: Router) { }
 

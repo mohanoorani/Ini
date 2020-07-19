@@ -10,8 +10,7 @@ import { RequestListComponent } from "./childrens/request/pages/list/instagram/r
 
 const userPanelRoute: Routes = [
   {
-    path: '',
-    component: UserPanelComponent,
+    path: '', component: UserPanelComponent,
     children: [
       { path: '', redirectTo: 'profile' },
       { path: 'profile', component: ProfileComponent },
@@ -25,11 +24,7 @@ const userPanelRoute: Routes = [
 ]
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(
-      userPanelRoute,
-    )
-
-  ]
+  imports: [RouterModule.forChild(userPanelRoute)],
+  exports: [RouterModule]
 })
 export class UserPanelRouteModule { }

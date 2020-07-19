@@ -30,7 +30,6 @@ export class UserPanelService {
   }
 
   public SaveUserAccountInfo(accountInfo: UserAccountInfo): Observable<any> {
-    debugger;
     return this.httpClient.post<any>(
       environment.baseUrl + "/sp/uac/UpdateAccountInfo", 
       { 

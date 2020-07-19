@@ -23,7 +23,6 @@ export class AppCreateRequestComponent implements OnInit {
     private alertifyService: AlertifyService) { }
 
   ngOnInit() {
-    debugger;
     this.getInstagramsId();
     
     this.resetForm();
