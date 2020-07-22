@@ -6,7 +6,8 @@ import { MessageComponent } from "./childrens/message/message.component";
 import { InstagramComponent } from "./childrens/instagram/instagram.component";
 import { BankInfoComponent } from "./childrens/bankinfo/bankinfo.component";
 import { PaymentInfoComponent } from "./childrens/paymentinfo/paymentinfo.component";
-import { RequestListComponent } from "./childrens/request/pages/list/requestlist.component";
+import { RequestListComponent } from "./childrens/request/pages/list/request-list.component";
+import { SingleRequestComponent } from "./childrens/request/pages/single/single-request.component";
 
 const userPanelRoute: Routes = [
   {
@@ -18,7 +19,8 @@ const userPanelRoute: Routes = [
       { path: 'instagram', component: InstagramComponent },
       { path: 'bankinfo', component: BankInfoComponent },
       { path: 'paymentinfo', component: PaymentInfoComponent },
-      { path: 'requests', component: RequestListComponent }
+      { path: 'requests', component: RequestListComponent },
+      { path: 'requests/:id', component: SingleRequestComponent }
     ]
   }
 ]

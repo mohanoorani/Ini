@@ -1,4 +1,5 @@
 export class Request {
+    ID: number
     OriginInstagramID: string
     DestinationInstagramID: string
     PresenceOnSite: boolean

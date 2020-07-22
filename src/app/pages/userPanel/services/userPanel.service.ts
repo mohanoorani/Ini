@@ -9,6 +9,7 @@ import { Bank } from '../models/bank';
 import { UserAccountInfo } from '../models/useraccountInfo';
 import { Payment } from '../models/payment';
 import { Request } from '../childrens/request/models/request';
+import { RequestHistory } from '../childrens/request/models/requesthistory';
 
 @Injectable()
 export class UserPanelService {
@@ -31,18 +32,18 @@ export class UserPanelService {
 
   public SaveUserAccountInfo(accountInfo: UserAccountInfo): Observable<any> {
     return this.httpClient.post<any>(
-      environment.baseUrl + "/sp/uac/UpdateAccountInfo", 
-      { 
+      environment.baseUrl + "/sp/uac/UpdateAccountInfo",
+      {
         UserID: this.userId,
-        AccountNo: accountInfo.AccountNo, 
-        CartNo: accountInfo.CartNo, 
-        IBAN: accountInfo.Iban, 
+        AccountNo: accountInfo.AccountNo,
+        CartNo: accountInfo.CartNo,
+        IBAN: accountInfo.Iban,
         _BankID: +accountInfo._BankID
       });
   }
 
   public GetBanks(): Observable<Bank[]> {
-    return this.httpClient.post<Bank[]>(environment.baseUrl + "/sp/common/getbanks", { });
+    return this.httpClient.post<Bank[]>(environment.baseUrl + "/sp/common/getbanks", {});
   }
 
   public GetPaymentsInfo(): Observable<Payment[]> {
@@ -75,7 +76,7 @@ export class UserPanelService {
 
   public GetAllAccounts(): Observable<Influencer[]> {
     return this.httpClient.post<Influencer[]>(environment.baseUrl + "/sp/business/GetInstagramProfileInfo",
-      {InstagramID : null, InstagramPageTypeID: null, UserID: this.userId});
+      { InstagramID: null, InstagramPageTypeID: null, UserID: this.userId });
   }
 
   public UplodaAttachment(file: File): Observable<any> {
@@ -104,6 +105,16 @@ export class UserPanelService {
 
   public GetAllRequests(requestCode: any, requestId: any): Observable<Request[]> {
     return this.httpClient.post<Request[]>(environment.baseUrl + "/sp/business/GetRequests",
-      {RequestCode : requestCode, RequestId: requestId, UserID: this.userId});
+      { RequestCode: requestCode, RequestId: requestId, UserID: this.userId });
+  }
+
+  public GetRequest(requestId: number): Observable<Request> {
+    return this.httpClient.post<Request>(environment.baseUrl + "/sp/business/GetRequest",
+      { RequestId: requestId, UserId: this.userId });
+  }
+
+  public GetRequestHistory(requestId: number): Observable<RequestHistory[]> {
+    return this.httpClient.post<RequestHistory[]>(environment.baseUrl + "/sp/business/GetRequestHistory",
+      { RequestId: requestId, UserId: this.userId });
   }
 }

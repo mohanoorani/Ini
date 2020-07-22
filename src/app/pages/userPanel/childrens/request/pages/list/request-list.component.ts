@@ -5,8 +5,8 @@ import { AuthService } from '@app/authentication/services';
 
 @Component({
   selector: 'app-request-com',
-  templateUrl: './requestlist.component.html',
-  styleUrls: ['./requestlist.component.css']
+  templateUrl: './request-list.component.html',
+  styleUrls: ['./request-list.component.css']
 })
 export class RequestListComponent implements OnInit {
 

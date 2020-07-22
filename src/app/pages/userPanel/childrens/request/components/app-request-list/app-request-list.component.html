@@ -44,5 +44,8 @@
             تاریخ درخواست:
             <span>{{request.PersianRTime}}</span>
         </label>
+        <label>
+            <a [routerLink]="['../requests', request.ID]">مشاهده جزئیات</a> 
+        </label>
     </div>
 </div>

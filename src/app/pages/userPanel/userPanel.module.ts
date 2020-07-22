@@ -12,7 +12,9 @@ import { BankInfoComponent } from './childrens/bankinfo/bankinfo.component';
 import { InfluencerModule } from '../influencer/influencer.module';
 import { PaymentInfoComponent } from './childrens/paymentinfo/paymentinfo.component';
 import { AppRequestListComponent } from './childrens/request/components/app-request-list/app-request-list.component';
-import { RequestListComponent } from './childrens/request/pages/list/requestlist.component';
+import { RequestListComponent } from './childrens/request/pages/list/request-list.component';
+import { AppRequestHistoryComponent } from './childrens/request/components/app-request-history/app-request-history.component';
+import { SingleRequestComponent } from './childrens/request/pages/single/single-request.component';
 
 @NgModule({
   imports: [
@@ -31,7 +33,9 @@ import { RequestListComponent } from './childrens/request/pages/list/requestlist
     BankInfoComponent,
     PaymentInfoComponent,
     RequestListComponent,
-    AppRequestListComponent
+    SingleRequestComponent,
+    AppRequestListComponent,
+    AppRequestHistoryComponent
   ],
   providers: [],
   exports: []
