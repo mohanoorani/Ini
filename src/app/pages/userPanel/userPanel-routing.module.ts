@@ -6,7 +6,7 @@ import { MessageComponent } from "./childrens/message/message.component";
 import { InstagramComponent } from "./childrens/instagram/instagram.component";
 import { BankInfoComponent } from "./childrens/bankinfo/bankinfo.component";
 import { PaymentInfoComponent } from "./childrens/paymentinfo/paymentinfo.component";
-import { RequestListComponent } from "./childrens/request/pages/list/instagram/requestlist.component";
+import { RequestListComponent } from "./childrens/request/pages/list/requestlist.component";
 
 const userPanelRoute: Routes = [
   {

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertifyService } from '@app/shared/services';
 import { UserPanelService } from '@app/pages/userPanel/services/userPanel.service';
-import { Request } from '../../../models/request';
-import { forEach } from '@angular/router/src/utils/collection';
+import { Request } from '../../models/request';
 import { AuthService } from '@app/authentication/services';
 
 @Component({

@@ -1,5 +1,5 @@
 <div class="global-container">
-    <div class="menu-box block">
+    <div class="menu-box block col-md-3 col-xs-12">
         <ul class="menu-box-menu">
             <li>
                 <a class="menu-box-tab" [routerLink]="['profile']" routerLinkActive="activeprofilemenu">
@@ -17,14 +17,10 @@
                 <a class="menu-box-tab" [routerLink]="['requests']" routerLinkActive="activeprofilemenu">
                     <span class="icon fa fa-cube scnd-font-color"></span>درخواست ها
                 </a>
-                <!-- <a class="menu-box-tab" [routerLink]="['message']" routerLinkActive="activeprofilemenu">
-                    <span class="icon fa fa-envelope scnd-font-color"></span>پیام ها
-                    <div class="menu-box-number">24</div>
-                </a> -->
             </li>
         </ul>
     </div>
-    <div class="userprofile">
+    <div class="userprofile col-md-9 col-xs-12">
         <router-outlet></router-outlet>
     </div>
 </div>
