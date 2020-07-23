@@ -10,24 +10,27 @@ import { AuthService } from '@app/authentication/services';
 })
 export class RequestListComponent implements OnInit {
 
+  userId: number;
   requests: Request[] = [];
   myRequests: Request[] = [];
   constructor(private userPanelService: UserPanelService, private authService: AuthService) { }
 
   ngOnInit() {
+    this.userId = this.authService.getUserInfo().id;
+
     this.getAllRequests();
   }
 
   getAllRequests() {
-    this.userPanelService.GetAllRequests(null, null).subscribe((res: Request[]) => {
-      var userId = this.authService.getUserInfo().id;
-
+    this.userPanelService.GetAllRequests(this.userId, null, null).subscribe((res: Request[]) => {
+      
       res.forEach(request => {
-        if (request.OriginUserID == userId)
+        if (request.OriginUserID == this.userId)
           this.myRequests.push(request);
         else
           this.requests.push(request);
       });
+
     });
   }
 }

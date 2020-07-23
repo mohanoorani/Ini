@@ -20,7 +20,7 @@ const userPanelRoute: Routes = [
       { path: 'bankinfo', component: BankInfoComponent },
       { path: 'paymentinfo', component: PaymentInfoComponent },
       { path: 'requests', component: RequestListComponent },
-      { path: 'requests/:id', component: SingleRequestComponent }
+      { path: 'requests/:requestCode', component: SingleRequestComponent }
     ]
   }
 ]

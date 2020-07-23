@@ -6,14 +6,15 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-single-request',
+  selector: 'single-request',
   templateUrl: './single-request.component.html',
   styleUrls: ['./single-request.component.css']
 })
 export class SingleRequestComponent implements OnInit {
 
   request: Request = new Request();
-  requestId: number;
+  requestCode: string;
+  userId: string;
 
   constructor(
     private userPanelService: UserPanelService,
@@ -22,13 +23,17 @@ export class SingleRequestComponent implements OnInit {
     private titleService: Title) { }
 
   ngOnInit() {
-    this.requestId = this.route.snapshot.params['id'];
-    //this.getARequest();
+    this.requestCode = this.route.snapshot.params['requestCode'];
+    this.userId = this.authService.getUserInfo().id;
+    this.getARequest();
   }
 
   getARequest() {
-    this.userPanelService.GetRequest(this.requestId).subscribe((res: Request) => {
-
+    
+    this.userPanelService.GetAllRequests(null, this.requestCode, null).subscribe((res: Request[]) => {
+      this.request = res[0];
+      
+      console.log(this.request);
     });
   }
 }

@@ -16,7 +16,7 @@ export class UserPanelService {
 
   userId: number;
 
-  constructor(private httpClient: HttpClient, private authService: AuthService) {
+  constructor(private httpClient: HttpClient, authService: AuthService) {
     this.userId = authService.getUserInfo().id;
   }
 
@@ -79,6 +79,11 @@ export class UserPanelService {
       { InstagramID: null, InstagramPageTypeID: null, UserID: this.userId });
   }
 
+  public GetAccount(isntagramId: string): Observable<Influencer[]> {
+    return this.httpClient.post<Influencer[]>(environment.baseUrl + "/sp/business/GetInstagramProfileInfo",
+      { InstagramID: isntagramId, InstagramPageTypeID: null, UserID: null });
+  }
+
   public UplodaAttachment(file: File): Observable<any> {
     let formData = new FormData();
 
@@ -103,14 +108,9 @@ export class UserPanelService {
       });
   }
 
-  public GetAllRequests(requestCode: any, requestId: any): Observable<Request[]> {
+  public GetAllRequests(userId: number, requestCode: any, requestId: any): Observable<Request[]> {
     return this.httpClient.post<Request[]>(environment.baseUrl + "/sp/business/GetRequests",
-      { RequestCode: requestCode, RequestId: requestId, UserID: this.userId });
-  }
-
-  public GetRequest(requestId: number): Observable<Request> {
-    return this.httpClient.post<Request>(environment.baseUrl + "/sp/business/GetRequest",
-      { RequestId: requestId, UserId: this.userId });
+      { RequestCode: requestCode, RequestId: requestId, UserID: userId });
   }
 
   public GetRequestHistory(requestId: number): Observable<RequestHistory[]> {

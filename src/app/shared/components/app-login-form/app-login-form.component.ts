@@ -71,7 +71,7 @@ export class AppLoginFormComponent {
       $('#AccountModal').hide();
       $('.modal-backdrop').remove();
 
-      this.route.navigate(['userpanel']);
+      this.route.navigate(['userpanel/profile']);
       this.alertifyService.success(`${res.user.firstName} ${res.user.lastName} عزیز خوش آمدید`);
 
     });

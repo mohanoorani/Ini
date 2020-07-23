@@ -15,6 +15,7 @@ import { AppRequestListComponent } from './childrens/request/components/app-requ
 import { RequestListComponent } from './childrens/request/pages/list/request-list.component';
 import { AppRequestHistoryComponent } from './childrens/request/components/app-request-history/app-request-history.component';
 import { SingleRequestComponent } from './childrens/request/pages/single/single-request.component';
+import { AppRequestDetailComponent } from './childrens/request/components/app-request-detail/app-request-detail.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { SingleRequestComponent } from './childrens/request/pages/single/single-
     RequestListComponent,
     SingleRequestComponent,
     AppRequestListComponent,
-    AppRequestHistoryComponent
+    AppRequestHistoryComponent,
+    AppRequestDetailComponent
   ],
   providers: [],
   exports: []

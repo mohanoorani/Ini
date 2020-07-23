@@ -1,0 +1,45 @@
+<div class="col-md-4 col-xs-12">
+    <h5>کد درخواست: {{request?.RequestCode}}</h5>
+</div>
+<div class="col-md-4 col-xs-12">
+    <h5>وضعیت:{{request?.PersianTitle}}</h5>
+</div>
+<div class="col-md-4 col-xs-12">
+    <h5>تاریخ درخواست:{{request?.PersianRTime}}</h5>
+</div>
+
+<hr class="col-md-11">
+
+<div class="col-md-5 col-xs-12">
+    <label>
+        نام کاربر:
+        <span *ngIf="userId == request.DestinationUserID">{{request.FullNameOriginUser}}</span>
+        <span *ngIf="userId != request.DestinationUserID">{{request.FullNameDestinationUser}}</span>
+    </label>
+</div>
+
+<div class="col-md-2 col-xs-12">
+    <span [class]="request?.IsPost ? 'fa fa-check' : 'fa fa-ban'"></span>
+    پست
+</div>
+<div class="col-md-2 col-xs-12">
+    <span [class]="request?.IsStory ? 'fa fa-check' : 'fa fa-ban'"></span>
+    استوری
+</div>
+<div class="col-md-3 col-xs-12">
+    <span [class]="request?.IsContent ? 'fa fa-check' : 'fa fa-ban'"></span>
+    دارای محتوا
+</div>
+
+<div class="col-md-12">
+
+    <div class="col-md-4 col-xs-12 text-center">
+        اینستاگرام درخواست کننده:
+        <app-single-influencer [influencer]='originInstagramPage'></app-single-influencer>
+    </div>
+
+    <div class="col-md-4 col-xs-12">
+        درخواست به اینستاگرام:
+        <app-single-influencer [influencer]='destinationInstagramPage'></app-single-influencer>
+    </div>
+</div>
