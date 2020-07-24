@@ -214,6 +214,7 @@ ul {
     padding: 20px 25px 20px 0 !important;
     box-shadow: -9px -2px #646ea6;
     border-radius: 5px;
+    min-height: 400px;
 }
 
 .block {

@@ -1,4 +1,8 @@
-<div id="exTab1">
+<app-request-detail [request]='request'></app-request-detail>
+
+<app-request-history [requestId]= "request?.ID"></app-request-history>
+
+<!-- <div id="exTab1">
     <ul class="nav nav-pills" style="margin-bottom: 20px;">
         <li class="nav-item nav-link active">
             <a href="#requestDetail" data-toggle="tab">جزئیات </a>
@@ -16,8 +20,4 @@
             <app-request-history [requestId]= "request?.ID"></app-request-history>
         </div>
     </div>
-</div>
-
-
-
-
+</div>-->

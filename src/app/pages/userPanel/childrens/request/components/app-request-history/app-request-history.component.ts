@@ -14,6 +14,7 @@ export class AppRequestHistoryComponent implements OnInit {
   @Input() requestId: number;
   userId: number;
   histories: RequestHistory[] = [];
+  startChat: boolean = false;
 
   constructor(
     private userPanelService: UserPanelService, 
@@ -22,6 +23,7 @@ export class AppRequestHistoryComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.getRequestHistory();
   }
 
@@ -32,5 +34,16 @@ export class AppRequestHistoryComponent implements OnInit {
     });
   }
 
+  toggleChat() {
+    var element = document.getElementsByClassName('glyphicon glyphicon-plus')[0];
+
+    if(element){
+      element.setAttribute('class','glyphicon glyphicon-minus');
+    }
+    else{
+      element = document.getElementsByClassName('glyphicon glyphicon-minus')[0];
+      element.setAttribute('class','glyphicon glyphicon-plus');
+    }
+  }
 
 }
