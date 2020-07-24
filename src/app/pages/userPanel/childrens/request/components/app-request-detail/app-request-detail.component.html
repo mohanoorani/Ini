@@ -10,7 +10,7 @@
 
 <hr class="col-md-11">
 
-<div class="col-md-5 col-xs-12">
+<div class="col-md-4 col-xs-12">
     <label>
         نام کاربر:
         <span *ngIf="userId == request.DestinationUserID">{{request.FullNameOriginUser}}</span>
@@ -26,20 +26,40 @@
     <span [class]="request?.IsStory ? 'fa fa-check' : 'fa fa-ban'"></span>
     استوری
 </div>
-<div class="col-md-3 col-xs-12">
+<div class="col-md-4 col-xs-12">
     <span [class]="request?.IsContent ? 'fa fa-check' : 'fa fa-ban'"></span>
     دارای محتوا
+
+    <div *ngIf="request?.IsContent" class="downloadattachment">
+        <a (click)="downloadAttachment()">(دانلود)</a>
+    </div>
 </div>
 
-<div class="col-md-12">
+<div class="col-md-12 col-xs-12 requestdescription">
+    <label>
+        توضیحات: 
+        <span>{{request.Description}}</span>
+    </label>
+</div>
 
-    <div class="col-md-4 col-xs-12 text-center">
-        اینستاگرام درخواست کننده:
+<hr class="col-md-11">
+
+<div class="col-md-12 instagrampage">
+
+    <div class="col-md-5 col-xs-12 text-center">
+        <label>
+            اینستاگرام درخواست کننده
+        </label>
+        
         <app-single-influencer [influencer]='originInstagramPage'></app-single-influencer>
     </div>
 
-    <div class="col-md-4 col-xs-12">
-        درخواست به اینستاگرام:
+    <div class="col-md-5 col-xs-12 text-center">
+        <label>
+            درخواست به اینستاگرام
+        </label>
+
         <app-single-influencer [influencer]='destinationInstagramPage'></app-single-influencer>
     </div>
+
 </div>

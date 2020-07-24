@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { AuthService } from '@app/authentication/services';
 import { environment } from '@env/environment.prod';
 import { Influencer } from '@app/pages/influencer/models/influencer';
@@ -10,6 +10,7 @@ import { UserAccountInfo } from '../models/useraccountInfo';
 import { Payment } from '../models/payment';
 import { Request } from '../childrens/request/models/request';
 import { RequestHistory } from '../childrens/request/models/requesthistory';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class UserPanelService {
@@ -92,6 +93,10 @@ export class UserPanelService {
       return this.httpClient.post<any>(environment.baseUrl + "/file/upload", formData);
     }
   }
+
+  public downloadAttachment(fileName: string): Observable<Blob> {
+    return this.httpClient.get(environment.baseUrl + "/file/download/" + fileName, { responseType: 'blob' });
+ }
 
   public CreateRequest(model: Request): Observable<Request[]> {
     return this.httpClient.post<Request[]>(environment.baseUrl + "/sp/business/StartRequest",

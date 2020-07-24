@@ -32,8 +32,6 @@ export class SingleRequestComponent implements OnInit {
     
     this.userPanelService.GetAllRequests(null, this.requestCode, null).subscribe((res: Request[]) => {
       this.request = res[0];
-      
-      console.log(this.request);
     });
   }
 }

@@ -16,3 +16,20 @@ label span{
     font-size: 15px !important;
     color: green;
 }
+
+.instagrampage label{
+    margin: 20px 0 10px 0;
+    color: #ec407a;
+}
+
+.requestdescription {
+    margin-top: 15px;
+}
+
+.downloadattachment {
+    display: inline-block;
+}
+
+.downloadattachment a {
+    cursor: pointer;
+}

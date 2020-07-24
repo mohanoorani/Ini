@@ -19,10 +19,18 @@ export class AppRequestDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    var interval = setInterval(() => {
 
-    this.getOriginInstagramPage();
-    this.getDestinationInstagramPage();
+      if (this.request.OriginInstagramID) {
 
+        console.log(this.request);
+        this.getOriginInstagramPage();
+        this.getDestinationInstagramPage();
+
+        clearInterval(interval);
+      }
+
+    }, 500);
 
   }
 
@@ -35,6 +43,15 @@ export class AppRequestDetailComponent implements OnInit {
   getDestinationInstagramPage() {
     this.userPanelService.GetAccount(this.request.DestinationInstagramID).subscribe((res: Influencer[]) => {
       this.destinationInstagramPage = res[0];
+    });
+  }
+
+  downloadAttachment() {
+    this.userPanelService.downloadAttachment(this.request.FileName).subscribe((res: Blob) => {
+     
+      const url= window.URL.createObjectURL(res);
+
+      window.open(url);
     });
   }
 }

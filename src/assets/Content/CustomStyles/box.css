@@ -238,3 +238,11 @@ ul {
 h2 {
     font-size: 22px;
 }
+
+.emptyrow {
+    height: 50px;
+    padding: 15px;
+    border: 2px dotted #337ab7;
+    text-align: center;
+    width: 98%;
+}

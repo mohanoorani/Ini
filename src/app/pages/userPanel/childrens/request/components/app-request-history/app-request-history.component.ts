@@ -13,6 +13,7 @@ export class AppRequestHistoryComponent implements OnInit {
 
   @Input() requestId: number;
   userId: number;
+  histories: RequestHistory[] = [];
 
   constructor(
     private userPanelService: UserPanelService, 
@@ -26,7 +27,8 @@ export class AppRequestHistoryComponent implements OnInit {
 
   getRequestHistory() {
     this.userPanelService.GetRequestHistory(this.requestId).subscribe((res: RequestHistory[]) => {
-        console.log(res);
+      this.histories = res;
+      console.log(res);
     });
   }
 
