@@ -17,7 +17,6 @@ export class SitemapComponent implements OnInit {
 
     this.sitemapService.get().subscribe(res => {
       
-      console.log(res);
       this.sitemap = res;
     })
   }

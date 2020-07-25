@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Request } from '../../models/request';
 import { Influencer } from '@app/pages/influencer/models/influencer';
 import { UserPanelService } from '@app/pages/userPanel/services/userPanel.service';
+import { AuthService } from '@app/authentication/services';
 
 @Component({
   selector: 'app-request-detail',
@@ -14,8 +15,10 @@ export class AppRequestDetailComponent implements OnInit {
   @Input() request: Request = new Request();
   originInstagramPage: Influencer = new Influencer();
   destinationInstagramPage: Influencer = new Influencer();
+  userId: string;
 
-  constructor(private userPanelService: UserPanelService) {
+  constructor(private userPanelService: UserPanelService, authService: AuthService) {
+    this.userId = authService.getUserInfo().id;
   }
 
   ngOnInit() {
@@ -23,7 +26,6 @@ export class AppRequestDetailComponent implements OnInit {
 
       if (this.request.OriginInstagramID) {
 
-        console.log(this.request);
         this.getOriginInstagramPage();
         this.getDestinationInstagramPage();
 

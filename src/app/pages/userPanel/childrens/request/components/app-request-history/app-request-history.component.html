@@ -1,7 +1,7 @@
 <div class="col-md-4 col-xs-12 collapsepanel">
     <div class="panel panel-primary">
         <div class="panel-heading" id="accordion">
-            <span class="glyphicon glyphicon-comment"></span> پیام های این درخواست
+            <span class="glyphicon glyphicon-comment" style="margin-left: 10px;"></span> پیام های این درخواست
             <div class="btn-group pull-left">
                 <a type="button" class="btn btn-default btn-xs" data-toggle="collapse" href="#collapseOne"
                     (click)="toggleChat()">
@@ -13,36 +13,24 @@
         <div class="panel-collapse collapse" id="collapseOne">
             <div class="panel-body">
                 <ul class="chat" style="direction: ltr;">
-                    <li class="right clearfix">
-                        <span class="chat-img pull-right">
-                            <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
+
+                    <li [class]="history._UserID == userId ? 'right clearfix': 'left clearfix'"
+                        *ngFor="let history of histories">
+                        <span class="{{history._UserID == userId ? 'pull-right': 'pull-left'}} chat-img col-md-2 col-xs-3">
+                            <img [src]="history.ProfilePicUrl" alt="{{history.InstagramID}}"
+                                data-toggle="tooltip" title="{{history.InstagramID}}" class="img-circle" />
                         </span>
-                        <div class="chat-body clearfix">
+                        <div class="chat-body clearfix col-md-10 col-xs-9">
                             <div class="header">
-                                <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins
-                                    ago</small>
-                                <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                                <small [class]="history._UserID == userId ? 'text-muted': 'pull-right text-muted'">
+                                    <span class="glyphicon glyphicon-time"></span>
+                                    {{history.PersianRTime}}
+                                </small>
+                                <small [class]="history._UserID == userId ? 'pull-right primary-font': 'primary-font'">
+                                    {{history.FullName}}</small>
                             </div>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum
-                                ornare
-                                dolor, quis ullamcorper ligula sodales.
-                            </p>
-                        </div>
-                    </li>
-                    <li class="left clearfix">
-                        <span class="chat-img pull-left">
-                            <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
-                        </span>
-                        <div class="chat-body clearfix">
-                            <div class="header">
-                                <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                                    <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum
-                                ornare
-                                dolor, quis ullamcorper ligula sodales.
+                                {{history.Comment}}
                             </p>
                         </div>
                     </li>
@@ -50,10 +38,12 @@
             </div>
             <div class="panel-footer">
                 <div class="input-group">
-                    <input id="btn-input" type="text" class="form-control input-sm"
-                        placeholder="Type your message here..." />
+                    <input id="btn-input" type="text" class="form-control input-sm" [(ngModel)]="comment"
+                        placeholder="متن پیام ..." />
                     <span class="input-group-btn">
-                        <button class="btn btn-warning btn-sm" id="btn-chat">Send</button>
+                        <button class="btn btn-warning btn-sm" id="btn-chat" (click)="sendComment()">
+                            <span class="fa {{sendingComment? 'fa-spinner fa-spin': 'fa-arrow-circle-left'}}"></span>
+                        </button>
                     </span>
                 </div>
             </div>

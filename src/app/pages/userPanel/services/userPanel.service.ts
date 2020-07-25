@@ -96,7 +96,7 @@ export class UserPanelService {
 
   public downloadAttachment(fileName: string): Observable<Blob> {
     return this.httpClient.get(environment.baseUrl + "/file/download/" + fileName, { responseType: 'blob' });
- }
+  }
 
   public CreateRequest(model: Request): Observable<Request[]> {
     return this.httpClient.post<Request[]>(environment.baseUrl + "/sp/business/StartRequest",
@@ -118,8 +118,13 @@ export class UserPanelService {
       { RequestCode: requestCode, RequestId: requestId, UserID: userId });
   }
 
-  public GetRequestHistory(requestId: number): Observable<RequestHistory[]> {
+  public GetRequestHistory(requestId: number, userId: number): Observable<RequestHistory[]> {
     return this.httpClient.post<RequestHistory[]>(environment.baseUrl + "/sp/business/GetRequestHistory",
-      { RequestId: requestId, UserId: this.userId });
+      { RequestId: requestId, UserId: userId });
+  }
+
+  public SendHistoryMessage(requestId: number, userId: number, comment: string): Observable<any> {
+    return this.httpClient.post<RequestHistory[]>(environment.baseUrl + "/sp/business/UpdateRequestHistory",
+      { RequestId: requestId, UserId: userId, Comment: comment });
   }
 }
