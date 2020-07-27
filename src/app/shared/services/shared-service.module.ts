@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UtilityService,HttpService } from './index';
+import { UtilityService } from './index';
 import { AlertifyService } from './alertify.service';
 
 
@@ -10,7 +10,8 @@ import { AlertifyService } from './alertify.service';
     CommonModule
   ],
   providers:[
-     UtilityService,HttpService,AlertifyService
+     UtilityService,
+     AlertifyService
   ]
 })
 export class SharedServiceModule {}

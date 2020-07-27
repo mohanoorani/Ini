@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AlertifyService } from '@app/shared/services';
 import { LoginService } from './Services/LoginService';
 import { AuthService } from '@app/authentication/services';
-import {  Router } from '@angular/router';
+import { Router } from '@angular/router';
 import * as $ from 'jquery';
 
 @Component({
@@ -15,6 +15,7 @@ export class AppLoginFormComponent {
   mobileNumber: string = "";
   verifyCode: string = "";
   isCodeView: boolean;
+  @ViewChild('addcode') CodeEl: ElementRef;
 
   constructor(
     private alertifyService: AlertifyService,
@@ -50,6 +51,9 @@ export class AppLoginFormComponent {
       }
 
       this.isCodeView = true;
+
+      setTimeout(() => this.CodeEl.nativeElement.focus());
+
     });
   }
 

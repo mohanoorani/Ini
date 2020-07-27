@@ -33,8 +33,8 @@
                                             <label class="control-label" for="mobileNumber">تلفن همراه:</label>
                                         </div>
                                         <div class="col-xs-12 ">
-                                            <input class="form-control" data-val="true" name="mobileNumber"
-                                                type="text" [(ngModel)]="mobileNumber" />
+                                            <input class="form-control" data-val="true" name="mobileNumber" id="mobileNumber"
+                                                type="text" [(ngModel)]="mobileNumber" (keyup.enter)="login()"/>
                                         </div>
                                         <br />
                                     </div>
@@ -51,7 +51,7 @@
                                         </div>
                                         <div class="col-xs-12 ">
                                             <input class="form-control" data-val="true" name="verifyCode"
-                                                type="text" [(ngModel)]="verifyCode" />
+                                                type="text" [(ngModel)]="verifyCode" #addcode (keyup.enter)="ConfirmCode()"/>
                                         </div>
                                         <br />
                                     </div>

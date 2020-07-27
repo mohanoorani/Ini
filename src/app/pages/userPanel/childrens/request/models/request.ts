@@ -17,4 +17,5 @@ export class Request {
     FullNameOriginUser: string
     FullNameDestinationUser: string
     PersianRTime: string
+    _RequestStatusID: number
 }

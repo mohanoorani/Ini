@@ -1,5 +1,9 @@
 ﻿function onOpenLoginAndRegisterClicked() {
 	$('#AccountModal').modal({ "backdrop": "static" });
+
+	setTimeout(() => {
+		$('#mobileNumber').focus();
+	}, 500);
 }
 
 function openCreateRequestModel() {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from '@app/authentication/services';
 import { UserPanelService } from '@app/pages/userPanel/services/userPanel.service';
 import { RequestHistory } from '../../models/requesthistory';
@@ -18,15 +18,16 @@ export class AppRequestHistoryComponent implements OnInit {
   startChat: boolean = false;
   comment: string;
   sendingComment: boolean = false;
-
+  @ViewChild('commentBox') commentBoxElement: ElementRef;
+  
   constructor(
     private userPanelService: UserPanelService,
     private alertifyService: AlertifyService,
-    authService: AuthService) {
-    this.userId = authService.getUserInfo().id;
-  }
+    private authService: AuthService) {}
 
   ngOnInit() {
+    this.userId = this.authService.getUserInfo().id;
+   
     this.getRequestHistory();
 
     // setInterval(() => this.getRequestHistory(), 10000);
@@ -35,7 +36,6 @@ export class AppRequestHistoryComponent implements OnInit {
   getRequestHistory() {
     this.userPanelService.GetRequestHistory(this.requestId, null).subscribe((res: RequestHistory[]) => {
       this.histories = res;
-      console.log(res);
     });
   }
 
@@ -67,5 +67,7 @@ export class AppRequestHistoryComponent implements OnInit {
       element = document.getElementsByClassName('glyphicon glyphicon-minus')[0];
       element.setAttribute('class', 'glyphicon glyphicon-plus');
     }
+
+    setTimeout(() => this.commentBoxElement.nativeElement.focus());
   }
 }

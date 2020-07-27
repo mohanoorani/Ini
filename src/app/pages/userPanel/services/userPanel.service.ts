@@ -115,16 +115,21 @@ export class UserPanelService {
 
   public GetAllRequests(userId: number, requestCode: any, requestId: any): Observable<Request[]> {
     return this.httpClient.post<Request[]>(environment.baseUrl + "/sp/business/GetRequests",
-      { RequestCode: requestCode, RequestId: requestId, UserID: userId });
+      { RequestCode: requestCode, RequestID: requestId, UserID: userId });
   }
 
   public GetRequestHistory(requestId: number, userId: number): Observable<RequestHistory[]> {
     return this.httpClient.post<RequestHistory[]>(environment.baseUrl + "/sp/business/GetRequestHistory",
-      { RequestId: requestId, UserId: userId });
+      { RequestID: requestId, UserID: userId });
   }
 
   public SendHistoryMessage(requestId: number, userId: number, comment: string): Observable<any> {
     return this.httpClient.post<RequestHistory[]>(environment.baseUrl + "/sp/business/UpdateRequestHistory",
-      { RequestId: requestId, UserId: userId, Comment: comment });
+      { RequestID: requestId, UserID: userId, Comment: comment });
+  }
+
+  public UpdateRequestPrice(requestId: number, price: string): Observable<any> {
+    return this.httpClient.post<any>(environment.baseUrl + "/sp/business/UpdateRequestPrice",
+      { RequestID: requestId, Price: price });
   }
 }

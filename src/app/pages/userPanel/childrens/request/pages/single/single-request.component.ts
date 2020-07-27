@@ -25,6 +25,8 @@ export class SingleRequestComponent implements OnInit {
   ngOnInit() {
     this.requestCode = this.route.snapshot.params['requestCode'];
     this.userId = this.authService.getUserInfo().id;
+    this.titleService.setTitle(`اطلاعات درخواست ${this.requestCode}`);
+    
     this.getARequest();
   }
 

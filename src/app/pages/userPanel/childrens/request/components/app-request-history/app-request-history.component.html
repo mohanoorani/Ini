@@ -39,7 +39,7 @@
             <div class="panel-footer">
                 <div class="input-group">
                     <input id="btn-input" type="text" class="form-control input-sm" [(ngModel)]="comment"
-                        placeholder="متن پیام ..." />
+                        placeholder="متن پیام ..." #commentBox (keyup.enter)="sendComment()"/>
                     <span class="input-group-btn">
                         <button class="btn btn-warning btn-sm" id="btn-chat" (click)="sendComment()">
                             <span class="fa {{sendingComment? 'fa-spinner fa-spin': 'fa-arrow-circle-left'}}"></span>

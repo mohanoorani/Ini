@@ -134,7 +134,7 @@
 	direction: ltr;
 	text-align: right;
 	font-size: 16px;
-	padding: 1px 12px 6px 12px;
+	padding: 6px 12px 6px 12px;
 }
 
 #AccountModal .account-page input[type=text]::-webkit-input-placeholder {

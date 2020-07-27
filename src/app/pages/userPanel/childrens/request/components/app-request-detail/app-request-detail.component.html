@@ -44,6 +44,27 @@
 
 <hr class="col-md-11">
 
+
+<div class="col-md-12 col-xs-12" *ngIf="request._RequestStatusID == 2">
+    <div class="col-md-5 col-xs-8 form-inline">
+        قیمت پیشنهادی: 
+        <input type="text" class="form-control" [(ngModel)]="userPrice"/>
+    </div>
+    
+    <div class="col-md-2 col-xs-4">
+        <input type="button" class="btn btn-primary" value="ثبت" (click)="setPrice()">
+    </div>
+    
+    <div class="col-md-1 col-xs-3">
+        <button class="btn btn-primary" >
+            <span class="fa fa-check" style="color: green;"></span>
+            تایید درخواست
+        </button>
+    </div>
+</div>
+
+<hr class="col-md-11">
+
 <div class="col-md-12 instagrampage">
 
     <div class="col-md-5 col-xs-12 text-center">

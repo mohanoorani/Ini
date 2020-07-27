@@ -28,16 +28,6 @@
                                     <input type="text" placeholder="تلفن همراه" name="MobileNumber"
                                         [(ngModel)]="contactItem.MobileNumber">
                                 </div>
-                                <div class="tm-form-field tm-form-fieldhalf">
-                                    <input type="file" #uploader id="fileuploader" class="form-control"
-                                        (change)="fileChange(uploader.files)" style="display: none">
-
-                                    <a class="btn btn-warning" style="display: block;padding: 12px"
-                                        onclick="$('#fileuploader').click()">
-                                        <i class="fa fa-upload"></i>
-                                        انتخاب فایل پیوست
-                                    </a>
-                                </div>
                                 <div class="tm-form-field">
                                     <textarea type="text" placeholder="توضیحات" rows="3" name="Description"
                                         [(ngModel)]="contactItem.Description"></textarea>
