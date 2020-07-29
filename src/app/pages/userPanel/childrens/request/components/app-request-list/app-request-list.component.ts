@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Request } from '../../models/request';
+import { Component, Input } from '@angular/core';
+import { Request } from '@app/pages/userPanel/models/request';
 import { AuthService } from '@app/authentication/services';
 
 @Component({
@@ -8,16 +8,11 @@ import { AuthService } from '@app/authentication/services';
   styleUrls: ['./app-request-list.component.css']
 })
 
-export class AppRequestListComponent implements OnInit {
+export class AppRequestListComponent{
 
   @Input() requests: Request[] = [];
   userId: number;
   constructor(authService: AuthService) {
     this.userId = authService.getUserInfo().id;
-   }
-
-  ngOnInit() {
   }
-
-
 }

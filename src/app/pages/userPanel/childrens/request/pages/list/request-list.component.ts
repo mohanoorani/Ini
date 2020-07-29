@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserPanelService } from '@app/pages/userPanel/services/userPanel.service';
-import { Request } from '../../models/request';
+import { Request } from '@app/pages/userPanel/models/request';
 import { AuthService } from '@app/authentication/services';
 
 @Component({
@@ -13,6 +13,8 @@ export class RequestListComponent implements OnInit {
   userId: number;
   requests: Request[] = [];
   myRequests: Request[] = [];
+  totalUnreadMessage: {myRequests, requests} = { myRequests: 0, requests: 0 };
+
   constructor(private userPanelService: UserPanelService, private authService: AuthService) { }
 
   ngOnInit() {
@@ -23,14 +25,19 @@ export class RequestListComponent implements OnInit {
 
   getAllRequests() {
     this.userPanelService.GetAllRequests(this.userId, null, null).subscribe((res: Request[]) => {
-      
+
       res.forEach(request => {
-        if (request.OriginUserID == this.userId)
+        if (request.OriginUserID == this.userId) {
           this.myRequests.push(request);
-        else
+          this.totalUnreadMessage.myRequests += request.UnreadMessageCount;
+        }
+        else {
           this.requests.push(request);
+          this.totalUnreadMessage.requests += request.UnreadMessageCount;
+        }
       });
 
+      console.log(this.requests);
     });
   }
 }

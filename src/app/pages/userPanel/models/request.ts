@@ -18,4 +18,5 @@ export class Request {
     FullNameDestinationUser: string
     PersianRTime: string
     _RequestStatusID: number
+    UnreadMessageCount: number
 }

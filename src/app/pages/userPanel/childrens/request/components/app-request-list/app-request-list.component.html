@@ -3,6 +3,9 @@
         <label>
             کد درخواست:
             <span>{{request.RequestCode}}</span>
+            <span *ngIf="request?.UnreadMessageCount > 0" class="badge badge-danger" style="margin-right: 10px;">
+                {{request?.UnreadMessageCount}} پیام نخوانده
+            </span>
         </label>
         <label>
             اینستاگرام درخواست کننده:
@@ -27,7 +30,11 @@
         </label>
         <label>
             <span [class]="request.IsStory ? 'fa fa-check' : 'fa fa-ban'"></span>
-             استوری
+            استوری
+        </label>
+        <label>
+            <span [class]="request.PresenceOnSite ? 'fa fa-check' : 'fa fa-ban'"></span>
+            حضور فیریکی
         </label>
         <label>
             <span [class]="request.IsContent ? 'fa fa-check' : 'fa fa-ban'"></span>
@@ -45,7 +52,9 @@
             <span>{{request.PersianRTime}}</span>
         </label>
         <label>
-            <a [routerLink]="['../requests', request.RequestCode]">مشاهده جزئیات</a> 
+            <a [routerLink]="['../requests', request.RequestCode]">
+                مشاهده جزئیات
+            </a>
         </label>
     </div>
 </div>

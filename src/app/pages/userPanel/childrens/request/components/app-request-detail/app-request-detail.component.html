@@ -1,11 +1,16 @@
 <div class="col-md-4 col-xs-12">
-    <h5>کد درخواست: {{request?.RequestCode}}</h5>
+    <label>
+        کد درخواست: {{request?.RequestCode}}
+        <span *ngIf="request?.UnreadMessageCount > 0" class="badge badge-danger" style="font-size: 11px;">
+            {{request?.UnreadMessageCount}} پیام نخوانده
+        </span>
+    </label>
 </div>
 <div class="col-md-4 col-xs-12">
-    <h5>وضعیت:{{request?.PersianTitle}}</h5>
+    <h5>تاریخ درخواست: {{request?.PersianRTime}}</h5>
 </div>
-<div class="col-md-4 col-xs-12">
-    <h5>تاریخ درخواست:{{request?.PersianRTime}}</h5>
+<div class="col-md-4 col-xs-12 {{request?._RequestStatusID == 3 ? 'greencolor' : ''}}">
+    <h5>وضعیت: {{request?.PersianTitle}}</h5>
 </div>
 
 <hr class="col-md-11">
@@ -18,15 +23,19 @@
     </label>
 </div>
 
-<div class="col-md-2 col-xs-12">
+<div class="col-md-2 col-xs-6">
     <span [class]="request?.IsPost ? 'fa fa-check' : 'fa fa-ban'"></span>
     پست
 </div>
-<div class="col-md-2 col-xs-12">
+<div class="col-md-2 col-xs-6">
     <span [class]="request?.IsStory ? 'fa fa-check' : 'fa fa-ban'"></span>
     استوری
 </div>
-<div class="col-md-4 col-xs-12">
+<div class="col-md-2 col-xs-6">
+    <span [class]="request?.PresenceOnSite ? 'fa fa-check' : 'fa fa-ban'"></span>
+    حضور فیریکی
+</div>
+<div class="col-md-2 col-xs-6">
     <span [class]="request?.IsContent ? 'fa fa-check' : 'fa fa-ban'"></span>
     دارای محتوا
 
@@ -37,29 +46,26 @@
 
 <div class="col-md-12 col-xs-12 requestdescription">
     <label>
-        توضیحات: 
+        توضیحات:
         <span>{{request.Description}}</span>
     </label>
 </div>
 
 <hr class="col-md-11">
 
+<div class="col-md-12 col-xs-12">
+    <div class="col-md-12 col-xs-12 form-inline">
+        قیمت پیشنهادی (تومان):
+        <input type="text" class="form-control" [(ngModel)]="request.Price"
+            [disabled]="request?._RequestStatusID > 3 || request?.OriginUserID == userId" />
 
-<div class="col-md-12 col-xs-12" *ngIf="request._RequestStatusID == 2">
-    <div class="col-md-5 col-xs-8 form-inline">
-        قیمت پیشنهادی: 
-        <input type="text" class="form-control" [(ngModel)]="userPrice"/>
-    </div>
-    
-    <div class="col-md-2 col-xs-4">
-        <input type="button" class="btn btn-primary" value="ثبت" (click)="setPrice()">
-    </div>
-    
-    <div class="col-md-1 col-xs-3">
-        <button class="btn btn-primary" >
-            <span class="fa fa-check" style="color: green;"></span>
-            تایید درخواست
-        </button>
+        <input type="button" class="btn btn-primary" value="ثبت و تایید درخواست" style="margin-right: 12px;"
+            *ngIf="request?._RequestStatusID < 4 && request?.OriginUserID != userId"
+            onclick="return confirm('اطمینان دارید؟');" (click)="setPriceAndConfirm($event)">
+
+        <input type="button" class="btn btn-primary" value="تایید قیمت" style="margin-right: 12px;"
+            *ngIf="request?._RequestStatusID == 3 && request?.OriginUserID == userId"
+            onclick="return confirm('اطمینان دارید؟');" (click)="OriginConfirm($event)">
     </div>
 </div>
 
@@ -71,7 +77,7 @@
         <label>
             اینستاگرام درخواست کننده
         </label>
-        
+
         <app-single-influencer [influencer]='originInstagramPage'></app-single-influencer>
     </div>
 

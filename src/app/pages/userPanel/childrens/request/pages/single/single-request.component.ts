@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserPanelService } from '@app/pages/userPanel/services/userPanel.service';
-import { Request } from '../../models/request';
 import { AuthService } from '@app/authentication/services';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { Request } from '@app/pages/userPanel/models/request';
 
 @Component({
   selector: 'single-request',
@@ -27,12 +27,12 @@ export class SingleRequestComponent implements OnInit {
     this.userId = this.authService.getUserInfo().id;
     this.titleService.setTitle(`اطلاعات درخواست ${this.requestCode}`);
     
-    this.getARequest();
+    this.getAllRequest();
   }
 
-  getARequest() {
+  getAllRequest() {
     
-    this.userPanelService.GetAllRequests(null, this.requestCode, null).subscribe((res: Request[]) => {
+    this.userPanelService.GetAllRequests(+this.userId, this.requestCode, null).subscribe((res: Request[]) => {
       this.request = res[0];
     });
   }

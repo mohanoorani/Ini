@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from '@app/authentication/services';
 import { UserPanelService } from '@app/pages/userPanel/services/userPanel.service';
-import { RequestHistory } from '../../models/requesthistory';
+import { RequestHistory } from '../../../../models/requesthistory';
 import { AlertifyService } from '@app/shared/services';
 
 @Component({
@@ -15,39 +15,41 @@ export class AppRequestHistoryComponent implements OnInit {
   @Input() requestId: number;
   userId: number;
   histories: RequestHistory[] = [];
-  startChat: boolean = false;
+  historyLoaded: boolean = false;
   comment: string;
   sendingComment: boolean = false;
   @ViewChild('commentBox') commentBoxElement: ElementRef;
-  
+
   constructor(
     private userPanelService: UserPanelService,
-    private alertifyService: AlertifyService,
-    private authService: AuthService) {}
+    private authService: AuthService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.userId = this.authService.getUserInfo().id;
-   
-    this.getRequestHistory();
 
-    // setInterval(() => this.getRequestHistory(), 10000);
+    var interval = setInterval(() => {
+      if (this.requestId) {
+        this.getRequestHistory();
+        clearInterval(interval);
+      }
+    }, 1000);
   }
 
   getRequestHistory() {
-    this.userPanelService.GetRequestHistory(this.requestId, null).subscribe((res: RequestHistory[]) => {
+    this.userPanelService.GetRequestHistory(this.requestId, this.userId).subscribe((res: RequestHistory[]) => {
       this.histories = res;
+      this.historyLoaded;
     });
   }
 
   sendComment() {
-    this.comment = this.comment.trim();
-
-    if (!this.comment) {
-      this.alertifyService.error('متن پیام را وارد نمایید')
+    if (!this.comment && this.comment == '') {
       return;
     }
 
+    this.comment = this.comment.trim();
     this.sendingComment = true;
+
     this.userPanelService.SendHistoryMessage(this.requestId, this.userId, this.comment).subscribe(() => {
 
       this.getRequestHistory();

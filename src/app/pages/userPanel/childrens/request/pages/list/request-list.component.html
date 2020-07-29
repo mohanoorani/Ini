@@ -1,9 +1,16 @@
 <div id="exTab1">
     <ul class="nav nav-pills" style="margin-bottom: 20px;">
         <li class="active">
-            <a href="#requests" data-toggle="tab">درخواست های ارائه شده</a>
+            <a href="#requests" data-toggle="tab">
+                درخواست های ارائه شده
+                <span class="badge badge-light">{{totalUnreadMessage.requests}}</span>
+            </a>
         </li>
-        <li><a href="#myReuqsts" data-toggle="tab">درخواست های من</a>
+        <li>
+            <a href="#myReuqsts" data-toggle="tab">
+                درخواست های من
+                <span class="badge badge-light">{{totalUnreadMessage.myRequests}}</span>
+            </a>
         </li>
     </ul>
 

@@ -10,7 +10,7 @@ export class AlertifyService {
   constructor() {
     alertify.defaults.glossary.ok = 'بلی';
     alertify.defaults.glossary.cancel = 'بستن';
-    alertify.defaults.glossary.title = 'علوم راهبردی ایده';
+    alertify.defaults.glossary.title = 'Inisito';
     alertify.defaults.theme.ok = 'btn btn-primary';
     alertify.defaults.theme.cancel = 'btn btn-warning';
 
@@ -30,16 +30,16 @@ export class AlertifyService {
       ;
   }
 
-  deleteConfirm(message: string, callBack: () => any, cancelCallBack?: () => any) {
+  deleteConfirm(message: string, callBack: () => any) {
 
     alertify.confirm(message, function (e) {
 
       if (e) {
         callBack();
       }
-      else{
-        cancelCallBack();
-      }
+      // else{
+      //   cancelCallBack();
+      // }
 
     });
 

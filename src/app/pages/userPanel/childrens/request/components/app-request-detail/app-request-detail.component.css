@@ -33,3 +33,7 @@ label span{
 .downloadattachment a {
     cursor: pointer;
 }
+
+.greencolor {
+    color: green;
+}

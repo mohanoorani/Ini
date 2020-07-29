@@ -8,9 +8,8 @@ import { Influencer } from '@app/pages/influencer/models/influencer';
 import { Bank } from '../models/bank';
 import { UserAccountInfo } from '../models/useraccountInfo';
 import { Payment } from '../models/payment';
-import { Request } from '../childrens/request/models/request';
-import { RequestHistory } from '../childrens/request/models/requesthistory';
-import { map, catchError } from 'rxjs/operators';
+import { RequestHistory } from '../models/requesthistory';
+import { Request } from '../models/request';
 
 @Injectable()
 export class UserPanelService {
@@ -128,8 +127,18 @@ export class UserPanelService {
       { RequestID: requestId, UserID: userId, Comment: comment });
   }
 
-  public UpdateRequestPrice(requestId: number, price: string): Observable<any> {
+  public UpdateRequestPrice(requestId: number, price: number): Observable<any> {
     return this.httpClient.post<any>(environment.baseUrl + "/sp/business/UpdateRequestPrice",
-      { RequestID: requestId, Price: price });
+      { RequestID: requestId, Price: price.toString() });
+  }
+
+  public PublisherAccept(requestId: number): Observable<any> {
+    return this.httpClient.post<any>(environment.baseUrl + "/sp/business/UpdateRequestStatus_PublisherAccept",
+      { RequestID: requestId });
+  }
+
+  public SideAccept(requestId: number): Observable<any> {
+    return this.httpClient.post<any>(environment.baseUrl + "/sp/business/UpdateRequestStatus_SidesAccept",
+      { RequestID: requestId });
   }
 }

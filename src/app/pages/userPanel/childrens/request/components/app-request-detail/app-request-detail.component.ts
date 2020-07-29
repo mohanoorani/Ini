@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Request } from '../../models/request';
+import { Request } from '@app/pages/userPanel/models/request';
 import { Influencer } from '@app/pages/influencer/models/influencer';
 import { UserPanelService } from '@app/pages/userPanel/services/userPanel.service';
 import { AuthService } from '@app/authentication/services';
@@ -17,7 +17,7 @@ export class AppRequestDetailComponent implements OnInit {
   originInstagramPage: Influencer = new Influencer();
   destinationInstagramPage: Influencer = new Influencer();
   userId: string;
-  userPrice: string;
+  isPriceSet: boolean;
 
   constructor(
     private userPanelService: UserPanelService,
@@ -31,6 +31,8 @@ export class AppRequestDetailComponent implements OnInit {
     var interval = setInterval(() => {
 
       if (this.request.OriginInstagramID) {
+
+        this.isPriceSet = this.request.Price && this.request.Price > 0;
 
         console.log(this.request);
         this.getOriginInstagramPage();
@@ -64,15 +66,45 @@ export class AppRequestDetailComponent implements OnInit {
     });
   }
 
-  setPrice() {
-    
-    if (!this.userPrice || isNaN(Number(this.userPrice)) || Number(this.userPrice) < 10000) {
+  setPriceAndConfirm(event: any) {
+    if (!event.returnValue)
+      return;
+
+    if (!this.request.Price || isNaN(Number(this.request.Price)) || Number(this.request.Price) < 0) {
       this.alertifyService.error('قیمت پیشنهادی را به درستی وارد کنید');
       return;
     }
 
-    this.userPanelService.UpdateRequestPrice(this.request.ID, this.userPrice).subscribe(() => {
-        this.alertifyService.success('قیمت با موفقیت ثبت گردید');
+    this.userPanelService.UpdateRequestPrice(this.request.ID, this.request.Price).subscribe(() => {
+      this.userPanelService.PublisherAccept(this.request.ID).subscribe(() => {
+
+        this.alertifyService.success('تایید با موفقیت انجام شد');
+        this.isPriceSet = false;
+
+        this.setRequestAsPublisherAccepted();
+      });
     });
   }
+
+  setRequestAsPublisherAccepted() {
+    this.request.PersianTitle = 'تایید انتشار دهنده';
+    this.request._RequestStatusID = 3;
+  }
+
+  OriginConfirm(event: any) {
+    if (!event.returnValue)
+      return;
+
+    this.userPanelService.SideAccept(this.request.ID).subscribe((res) => {
+      this.alertifyService.success('تایید شما با موفقیت انجام شد. لطفا مبلغ را از طریق درگاه پرداخت نمایید');
+
+      this.setRequestAsSideAccepted();
+    });
+  }
+
+  setRequestAsSideAccepted() {
+    this.request.PersianTitle = 'تایید درخواست کننده';
+    this.request._RequestStatusID = 4;
+  }
+
 }
