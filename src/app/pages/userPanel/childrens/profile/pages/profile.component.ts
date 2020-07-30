@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user';
-import { UserPanelService } from '../../services/userPanel.service';
 import { AlertifyService } from '@app/shared/services';
+import { User } from '@app/pages/userPanel/models/user';
+import { UserPanelService } from '@app/pages/userPanel/services/userPanel.service';
 
 @Component({
   selector: 'app-profile',

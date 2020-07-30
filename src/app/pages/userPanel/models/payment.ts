@@ -5,7 +5,7 @@ export class Payment{
     OriginInstagramID: string
     DestinationInstagramID: string
     Amount: number
-    Comission: number
+    Commission: number
     FinalAmount: number
     TerminalCode: string
     PaymentTime: string

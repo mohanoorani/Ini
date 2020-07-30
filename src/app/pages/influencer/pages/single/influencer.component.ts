@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { InfluencerService } from '../../services/influencer.service';
 import { Influencer } from '../../models/influencer';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-influencer',
@@ -28,5 +29,10 @@ export class InfluencerComponent implements OnInit {
     this.influenserService.GetByInstagramId(this.instagramId).subscribe((res: Influencer[]) => {
       this.influencer = res[0];
     });
+  }
+
+  openModal() {
+    // $('#RequestModal').modal({ "backdrop": "static" });
+    
   }
 }

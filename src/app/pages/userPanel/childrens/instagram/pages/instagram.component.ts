@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserPanelService } from '../../services/userPanel.service';
-import { AlertifyService } from '@app/shared/services';
 import { Influencer } from '@app/pages/influencer/models/influencer';
+import { UserPanelService } from '@app/pages/userPanel/services/userPanel.service';
+import { AlertifyService } from '@app/shared/services';
 
 @Component({
   selector: 'app-instagram',

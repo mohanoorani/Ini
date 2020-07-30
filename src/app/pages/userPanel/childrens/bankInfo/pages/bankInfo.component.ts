@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { UserPanelService } from '../../services/userPanel.service';
-import { AlertifyService } from '@app/shared/services';
-import { Bank } from '../../models/bank';
-import { UserAccountInfo } from '../../models/useraccountInfo';
+import { Component, OnInit } from "@angular/core";
+import { UserAccountInfo } from "@app/pages/userPanel/models/useraccountInfo";
+import { Bank } from "@app/pages/userPanel/models/bank";
+import { UserPanelService } from "@app/pages/userPanel/services/userPanel.service";
+import { AlertifyService } from "@app/shared/services";
 
 @Component({
   selector: 'app-bankinfo',

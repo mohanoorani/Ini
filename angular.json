@@ -26,28 +26,18 @@
             ],
             "styles": [
               "src/assets/Content/site-css.css",
-              "src/assets/Content/bootstrap-and-rtl.css",
+              "node_modules/bootstrap_rtl/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.min.css",
               "node_modules/alertifyjs/build/css/alertify.min.css",
-              "src/assets/Content/add-ons-css.css",
-              "src/assets/Content/circle-css.css",
-              "src/assets/Content/animate-css.css",
               "src/assets/Content/CustomStyles/NewLayout-css.css",
-              "src/assets/Content/login-register-modal.css",
-              "src/assets/Content/slick/slick-Slider-css.css",
               "src/assets/Content/CustomStyles/Home.css",
               "src/assets/Content/CustomStyles/box.css"
             ],
             "scripts": [
-              "src/assets/Scripts/jquery.js",
+              "node_modules/jquery/dist/jquery.min.js",
               "src/assets/Scripts/jqueryval.js",
-              "src/assets/Scripts/bootstrap-rtl.js",
+              "node_modules/bootstrap_rtl/dist/js/bootstrap.min.js",
               "node_modules/alertifyjs/build/alertify.min.js",
-              "src/assets/Scripts/wow.min.js",
-              "src/assets/Scripts/Cookie.js",
-              "src/assets/Scripts/HomePage.js",
-              "src/assets/Scripts/HomePage2.js",
-              "src/assets/Scripts/slick.min.js",
               "src/assets/Scripts/app.js"
             ],
             "es5BrowserSupport": true

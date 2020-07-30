@@ -38,6 +38,8 @@ export class AppRequestHistoryComponent implements OnInit {
   getRequestHistory() {
     this.userPanelService.GetRequestHistory(this.requestId, this.userId).subscribe((res: RequestHistory[]) => {
       this.histories = res;
+      
+      console.log(this.histories)
     });
   }
 
