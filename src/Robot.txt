@@ -3,4 +3,3 @@ Sitemap: http://Inisito.com/sitemap.xml
 Disallow: /sitemap/
 Allow: /product/
 Allow: /category/
-Allow: /contactus/

@@ -6,7 +6,6 @@ const routes: Routes = [
   { path: 'userpanel', loadChildren: './pages/userPanel/userPanel.module#UserPanelModule' },
   { path: 'influencers', loadChildren: './pages/influencer/influencer.module#InfluencerModule' },
   { path: 'categories', loadChildren: './pages/category/category.module#CategoryModule' },
-  { path: 'contactus', loadChildren: './pages/contactus/contactus.module#ContactUsModule' },
   { path: '**', loadChildren: './pages/notfound/notfound.module#NotFoundModule' },
 ];
 

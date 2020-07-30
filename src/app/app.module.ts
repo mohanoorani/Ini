@@ -7,9 +7,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AlertifyService } from './shared/services';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
-import { ContactUsService } from './pages/contactus/services/contactus.service';
 import { AuthService, AuthInterceptor } from './authentication/services';
-import { AppCreateRequestComponent } from './pages/influencer/components/app-create-request/app-create-request.component';
 import { UserPanelService } from './pages/userPanel/services/userPanel.service';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
@@ -27,7 +25,6 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
   ],
   providers: [
     AlertifyService,
-    ContactUsService,
     AuthService,
     UserPanelService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

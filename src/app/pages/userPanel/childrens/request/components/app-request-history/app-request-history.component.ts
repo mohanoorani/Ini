@@ -15,7 +15,6 @@ export class AppRequestHistoryComponent implements OnInit {
   @Input() requestId: number;
   userId: number;
   histories: RequestHistory[] = [];
-  historyLoaded: boolean = false;
   comment: string;
   sendingComment: boolean = false;
   @ViewChild('commentBox') commentBoxElement: ElementRef;
@@ -33,12 +32,12 @@ export class AppRequestHistoryComponent implements OnInit {
         clearInterval(interval);
       }
     }, 1000);
+
   }
 
   getRequestHistory() {
     this.userPanelService.GetRequestHistory(this.requestId, this.userId).subscribe((res: RequestHistory[]) => {
       this.histories = res;
-      this.historyLoaded;
     });
   }
 
