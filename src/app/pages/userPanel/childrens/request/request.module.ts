@@ -9,6 +9,7 @@ import { RequestRoutingModule } from './request-routing.module';
 import { InfluencerModule } from '@app/pages/influencer/influencer.module';
 import { FormsModule } from '@angular/forms';
 import { AppRequestDetailComponent } from './components/app-request-detail/app-request-detail.component';
+import { TimePastPipe } from './pipes/timePast.pipe';
 
 @NgModule({
   declarations:
@@ -17,7 +18,8 @@ import { AppRequestDetailComponent } from './components/app-request-detail/app-r
       SingleRequestComponent,
       AppRequestListComponent,
       AppRequestHistoryComponent,
-      AppRequestDetailComponent
+      AppRequestDetailComponent,
+      TimePastPipe
     ],
   imports: [
     CommonModule,

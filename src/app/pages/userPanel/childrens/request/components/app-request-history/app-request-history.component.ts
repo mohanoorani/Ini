@@ -33,13 +33,29 @@ export class AppRequestHistoryComponent implements OnInit {
       }
     }, 1000);
 
+    setInterval(() => this.getRequestHistory(), 5000);
   }
 
   getRequestHistory() {
+
     this.userPanelService.GetRequestHistory(this.requestId, this.userId).subscribe((res: RequestHistory[]) => {
-      this.histories = res;
-      
-      console.log(this.histories)
+      if (this.histories && this.histories.length == 0){
+        this.histories = res;
+        this.scrollEnd();
+      }
+
+      else if (this.histories.length < res.length) {
+        res.forEach(element => {
+
+          var notExistsChat = this.histories.find(i => i.ID == element.ID);
+
+          if (!notExistsChat){
+            this.histories.push(element);
+            this.scrollEnd();
+          }
+        });
+      }
+
     });
   }
 
@@ -71,6 +87,18 @@ export class AppRequestHistoryComponent implements OnInit {
       element.setAttribute('class', 'glyphicon glyphicon-plus');
     }
 
-    setTimeout(() => this.commentBoxElement.nativeElement.focus());
+    this.scrollEnd();
+    setTimeout(() => {
+      this.commentBoxElement.nativeElement.focus()
+    });
   }
+
+  scrollEnd() {
+    var chatBody = document.getElementsByClassName('panel-body')[0];
+
+    setTimeout(() => chatBody.scrollTo(20, chatBody.scrollHeight));
+  }
+
+
+
 }

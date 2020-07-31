@@ -21,10 +21,10 @@
                                 data-toggle="tooltip" title="{{history.InstagramID}}" class="img-circle" />
                         </span>
                         <div class="chat-body clearfix col-md-10 col-xs-9">
-                            <div class="header">
-                                <small [class]="history._UserID == userId ? 'text-muted': 'pull-right text-muted'">
+                            <div class="header" style="direction: rtl;">
+                                <small [class]="history._UserID == userId ? 'text-muted timepast': 'pull-right text-muted timepast'" >
                                     <span class="glyphicon glyphicon-time"></span>
-                                    {{history.PersianRTime}}
+                                    {{history.RTime | timePast}}
                                 </small>
                                 <small [class]="history._UserID == userId ? 'pull-right primary-font': 'primary-font'">
                                     {{history.FullName}}</small>
