@@ -270,7 +270,11 @@ h2 {
 .alertify-notifier .ajs-message .ajs-close {
     top: 2px;
     left: 3px;
+    right: inherit;
     background-color: inherit;
+}
+.alertify-notifier.ajs-left .ajs-message {
+    left: 270px !important;
 }
 
 .badge-danger{

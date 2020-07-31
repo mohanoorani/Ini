@@ -1,8 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AlertifyService } from '@app/shared/services';
 import { LoginService } from './Services/LoginService';
-import { AuthService } from '@app/authentication/services';
 import { Router } from '@angular/router';
+import { AuthService } from '@app/authentication/services/auth.service';
 import * as $ from 'jquery';
 
 @Component({
@@ -75,7 +75,13 @@ export class AppLoginFormComponent {
       $('#AccountModal').hide();
       $('.modal-backdrop').remove();
 
-      this.route.navigate(['userpanel/profile']);
+      var url = this.route.url;
+      
+      if (url == '/')
+        this.route.navigate(['userpanel/profile']);
+      else
+        this.route.navigate([url]);
+
       this.alertifyService.success(`${res.user.firstName} ${res.user.lastName} عزیز خوش آمدید`);
 
     });

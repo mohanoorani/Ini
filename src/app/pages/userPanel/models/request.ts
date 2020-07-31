@@ -13,7 +13,7 @@ export class Request {
     OriginUserID: number
     DestinationUserID: string
     RequestCode: number
-    Price: number
+    Price: string
     FullNameOriginUser: string
     FullNameDestinationUser: string
     PersianRTime: string

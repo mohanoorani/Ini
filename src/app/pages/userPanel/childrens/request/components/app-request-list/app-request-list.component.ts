@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Request } from '@app/pages/userPanel/models/request';
-import { AuthService } from '@app/authentication/services';
+import { AuthService } from '@app/authentication/services/auth.service';
 
 @Component({
   selector: 'app-request-list',

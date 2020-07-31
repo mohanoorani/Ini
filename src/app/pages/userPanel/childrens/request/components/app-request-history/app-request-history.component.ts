@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { AuthService } from '@app/authentication/services';
+import { AuthService } from '@app/authentication/services/auth.service';
 import { UserPanelService } from '@app/pages/userPanel/services/userPanel.service';
 import { RequestHistory } from '../../../../models/requesthistory';
 import { AlertifyService } from '@app/shared/services';

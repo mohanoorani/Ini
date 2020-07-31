@@ -53,7 +53,7 @@ export class AuthService {
     return JSON.parse(user);
   }
 
-  signOut(): void {
+  logOut(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
   }

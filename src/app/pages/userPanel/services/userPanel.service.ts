@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { Observable, throwError } from 'rxjs';
-import { AuthService } from '@app/authentication/services';
+import { AuthService } from '@app/authentication/services/auth.service';
 import { environment } from '@env/environment.prod';
 import { Influencer } from '@app/pages/influencer/models/influencer';
 import { Bank } from '../models/bank';
@@ -14,10 +14,13 @@ import { Request } from '../models/request';
 @Injectable()
 export class UserPanelService {
 
-  userId: number;
+  userId: number = null;
 
   constructor(private httpClient: HttpClient, authService: AuthService) {
-    this.userId = authService.getUserInfo().id;
+    var userInfo = authService.getUserInfo();
+    
+    if (userInfo)
+      this.userId = userInfo.id;
   }
 
   public GetUserProfile(): Observable<User> {

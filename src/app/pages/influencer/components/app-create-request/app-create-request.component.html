@@ -20,7 +20,7 @@
                 <form #createrequest="ngForm" name="createrequest" novalidate (ngSubmit)="submitForm()">
                     <div class="form-group">
                         <label for="origininstagramid">حساب اینستاگرام جهت ارائه تبلیغ:</label>
-                        <select class="form-control" id="origininstagramid" name="origininstagramid"
+                        <select class="form-control" id="origininstagramid" name="origininstagramid" style="height: 40px;"
                             [(ngModel)]="request.OriginInstagramID" #origininstagramid="ngModel" required
                             [ngClass]="{'alert alert-danger': origininstagramid.invalid && (origininstagramid.dirty || origininstagramid.touched)}">
                             <option *ngFor="let instagramId of instagramsId" [value]="instagramId.InstagramID">

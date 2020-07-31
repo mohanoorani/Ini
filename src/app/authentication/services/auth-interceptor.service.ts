@@ -25,11 +25,11 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(authReq).pipe(
       catchError((err: any) => {
-debugger;
+        debugger;
         if (err && err instanceof HttpErrorResponse && err.status === 403)
           this.alertify.error('شما دسترسی لازم به عملیات مورد نظر ندارید.');
         else if (err && err instanceof HttpErrorResponse && err.status === 401) {
-          this.authService.signOut();
+          this.authService.logOut();
           this.alertify.error('لطفا مجدد وارد سایت شوید');
           this.route.navigate(['/']);
         }

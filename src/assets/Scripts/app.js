@@ -6,16 +6,6 @@
 	}, 500);
 }
 
-function openCreateRequestModel() {
-	$('#RequestModal').modal({ "backdrop": "static" });
-}
-
-$(document).ready(function () {
-	setInterval(() => {$('[data-toggle="tooltip"]').tooltip();}, 1000);
-});
-
-
-
 var isMobile = false;
 var employerImage, employeeImage;
 function hideHomeLoading() {
@@ -32,7 +22,7 @@ function showHomeLoading() {
 }
 
 function loadEmployeeImage() {
-	var src = '/1.jpg';
+	var src = '1.jpg';
 	employeeImage = document.createElement('img');
 	employeeImage.onload = function () {
 		if (employerImage.complete) {
@@ -48,7 +38,7 @@ function loadEmployeeImage() {
 }
 
 function loadEmployerImage() {
-	var src = '/2.jpg';
+	var src = '2.jpg';
 	employerImage = document.createElement('img');
 	employerImage.onload = function () {
 		if (employeeImage.complete) {

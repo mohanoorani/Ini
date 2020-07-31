@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { InfluencerService } from '../../services/influencer.service';
 import { Influencer } from '../../models/influencer';
-import * as $ from 'jquery';
+import { AuthService } from '@app/authentication/services/auth.service';
+import * as a from 'bootstrap';
 
 @Component({
   selector: 'app-influencer',
@@ -19,6 +20,7 @@ export class InfluencerComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private titleService: Title,
+    private authService: AuthService,
     private influenserService: InfluencerService) {
   }
 
@@ -31,8 +33,15 @@ export class InfluencerComponent implements OnInit {
     });
   }
 
-  openModal() {
-    // $('#RequestModal').modal({ "backdrop": "static" });
-    
+  openRequest() {
+    if (this.authService.isLoggedIn())
+      $('#RequestModal').modal({ "backdrop": "static" });
+    else {
+      $('#AccountModal').modal({ "backdrop": "static" });
+
+      setTimeout(() => {
+        $('#mobileNumber').focus();
+      }, 500);
+    }
   }
 }

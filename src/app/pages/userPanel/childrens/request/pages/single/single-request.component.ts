@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserPanelService } from '@app/pages/userPanel/services/userPanel.service';
-import { AuthService } from '@app/authentication/services';
+import { AuthService } from '@app/authentication/services/auth.service';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Request } from '@app/pages/userPanel/models/request';

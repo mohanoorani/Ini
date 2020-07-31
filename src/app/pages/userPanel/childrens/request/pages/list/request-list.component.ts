@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserPanelService } from '@app/pages/userPanel/services/userPanel.service';
 import { Request } from '@app/pages/userPanel/models/request';
-import { AuthService } from '@app/authentication/services';
+import { AuthService } from '@app/authentication/services/auth.service';
 
 @Component({
   selector: 'app-request-com',
@@ -13,7 +13,7 @@ export class RequestListComponent implements OnInit {
   userId: number;
   requests: Request[] = [];
   myRequests: Request[] = [];
-  totalUnreadMessage: {myRequests, requests} = { myRequests: 0, requests: 0 };
+  totalUnreadMessage: {myRequests: number, requests: number} = { myRequests: 0, requests: 0 };
 
   constructor(private userPanelService: UserPanelService, private authService: AuthService) { }
 

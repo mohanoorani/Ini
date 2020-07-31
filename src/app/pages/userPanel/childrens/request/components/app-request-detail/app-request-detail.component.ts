@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Request } from '@app/pages/userPanel/models/request';
 import { Influencer } from '@app/pages/influencer/models/influencer';
 import { UserPanelService } from '@app/pages/userPanel/services/userPanel.service';
-import { AuthService } from '@app/authentication/services';
+import { AuthService } from '@app/authentication/services/auth.service';
 import { AlertifyService } from '@app/shared/services';
 
 @Component({
@@ -32,17 +32,17 @@ export class AppRequestDetailComponent implements OnInit {
 
       if (this.request.OriginInstagramID) {
 
-        this.isPriceSet = this.request.Price && this.request.Price > 0;
+        this.isPriceSet = this.request.Price && +this.request.Price > 0;
 
         console.log(this.request);
         this.getOriginInstagramPage();
         this.getDestinationInstagramPage();
 
+        this.splitPriceWithComma();
         clearInterval(interval);
       }
 
     }, 500);
-
   }
 
   getOriginInstagramPage() {
@@ -70,12 +70,14 @@ export class AppRequestDetailComponent implements OnInit {
     if (!event.returnValue)
       return;
 
-    if (!this.request.Price || isNaN(Number(this.request.Price)) || Number(this.request.Price) < 0) {
+    var price = this.request.Price.replace(new RegExp(',', 'g'),'');
+
+    if (!price || isNaN(Number(price)) || Number(price) < 0) {
       this.alertifyService.error('قیمت پیشنهادی را به درستی وارد کنید');
       return;
     }
 
-    this.userPanelService.UpdateRequestPrice(this.request.ID, this.request.Price).subscribe(() => {
+    this.userPanelService.UpdateRequestPrice(this.request.ID, +price).subscribe(() => {
       this.userPanelService.PublisherAccept(this.request.ID).subscribe(() => {
 
         this.alertifyService.success('تایید با موفقیت انجام شد');
@@ -105,6 +107,21 @@ export class AppRequestDetailComponent implements OnInit {
   setRequestAsSideAccepted() {
     this.request.PersianTitle = 'تایید درخواست کننده';
     this.request._RequestStatusID = 4;
+  }
+
+
+  splitPriceWithComma() {
+
+    var val = this.request.Price;
+    val = val.replace(/[^0-9\.]/g, '');
+
+    if (val != "") {
+      var valArr = val.split('.');
+      valArr[0] = (parseInt(valArr[0], 10)).toLocaleString();
+      val = valArr.join('.');
+    }
+
+    this.request.Price = val;
   }
 
 }

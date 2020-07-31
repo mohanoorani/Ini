@@ -56,7 +56,7 @@
 <div class="col-md-12 col-xs-12">
     <div class="col-md-12 col-xs-12 form-inline">
         قیمت پیشنهادی (تومان):
-        <input type="text" class="form-control" [(ngModel)]="request.Price"
+        <input type="text" class="form-control" id="userPrice" [(ngModel)]="request.Price" (keyup)="splitPriceWithComma()"
             [disabled]="request?._RequestStatusID > 3 || request?.OriginUserID == userId" />
 
         <input type="button" class="btn btn-primary" value="ثبت و تایید درخواست" style="margin-right: 12px;"

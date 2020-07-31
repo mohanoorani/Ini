@@ -15,7 +15,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.addRouterHandlerForScrollTop();
+    this.registerTooltips();
+  }
 
+  registerTooltips() {
+    setInterval(() => {$('[data-toggle="tooltip"]').tooltip();}, 1000);
   }
 
   addRouterHandlerForScrollTop() {
