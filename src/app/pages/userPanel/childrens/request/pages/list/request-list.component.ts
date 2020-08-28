@@ -37,7 +37,6 @@ export class RequestListComponent implements OnInit {
         }
       });
 
-      console.log(this.requests);
     });
   }
 }

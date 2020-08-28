@@ -1,4 +1,5 @@
 export class Payment{
+    PaymentID: number    
     Rownumber: number
     RequestCode: string
     PaymentType: string
@@ -7,6 +8,7 @@ export class Payment{
     Amount: number
     Commission: number
     FinalAmount: number
+    PaymentCode: string
     TerminalCode: string
     PaymentTime: string
     IsDone: boolean

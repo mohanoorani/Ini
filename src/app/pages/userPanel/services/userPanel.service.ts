@@ -10,34 +10,39 @@ import { UserAccountInfo } from '../models/useraccountInfo';
 import { Payment } from '../models/payment';
 import { RequestHistory } from '../models/requesthistory';
 import { Request } from '../models/request';
+import { PaymentHistory } from '../models/paymenthistory';
 
 @Injectable()
 export class UserPanelService {
 
-  userId: number = null;
+  constructor(private httpClient: HttpClient, private authService: AuthService) {
+  }
 
-  constructor(private httpClient: HttpClient, authService: AuthService) {
-    var userInfo = authService.getUserInfo();
-    
+  getUserId() {
+    var userId = null;
+    var userInfo = this.authService.getUserInfo();
+
     if (userInfo)
-      this.userId = userInfo.id;
+      userId = userInfo.id;
+
+    return userId;
   }
 
   public GetUserProfile(): Observable<User> {
     return this.httpClient.post<User>(
-      environment.baseUrl + "/sp/uac/GetUserInfo", { UserID: this.userId });
+      environment.baseUrl + "/sp/uac/GetUserInfo", { UserID: this.getUserId() });
   }
 
   public GetUserAccountInfo(): Observable<UserAccountInfo[]> {
     return this.httpClient.post<UserAccountInfo[]>(
-      environment.baseUrl + "/sp/uac/GetAccountInfo", { UserID: this.userId });
+      environment.baseUrl + "/sp/uac/GetAccountInfo", { UserID: this.getUserId() });
   }
 
   public SaveUserAccountInfo(accountInfo: UserAccountInfo): Observable<any> {
     return this.httpClient.post<any>(
       environment.baseUrl + "/sp/uac/UpdateAccountInfo",
       {
-        UserID: this.userId,
+        UserID: this.getUserId(),
         AccountNo: accountInfo.AccountNo,
         CartNo: accountInfo.CartNo,
         IBAN: accountInfo.Iban,
@@ -49,15 +54,11 @@ export class UserPanelService {
     return this.httpClient.post<Bank[]>(environment.baseUrl + "/sp/common/getbanks", {});
   }
 
-  public GetPaymentsInfo(): Observable<Payment[]> {
-    return this.httpClient.post<Payment[]>(environment.baseUrl + "/sp/payment/GetPayments", { UserID: this.userId });
-  }
-
   public SaveUserProfile(user: User): Observable<null> {
     return this.httpClient.post<null>(
       environment.baseUrl + "/sp/uac/UpdateUserInfo",
       {
-        UserID: this.userId,
+        UserID: this.getUserId(),
         FirstName: user.FirstName,
         LastName: user.LastName,
         Email: user.Email,
@@ -79,7 +80,7 @@ export class UserPanelService {
 
   public GetAllAccounts(): Observable<Influencer[]> {
     return this.httpClient.post<Influencer[]>(environment.baseUrl + "/sp/business/GetInstagramProfileInfo",
-      { InstagramID: null, InstagramPageTypeID: null, UserID: this.userId });
+      { InstagramID: null, InstagramPageTypeID: null, UserID: this.getUserId() });
   }
 
   public GetAccount(isntagramId: string): Observable<Influencer[]> {
@@ -103,7 +104,7 @@ export class UserPanelService {
   public CreateRequest(model: Request): Observable<Request[]> {
     return this.httpClient.post<Request[]>(environment.baseUrl + "/sp/business/StartRequest",
       {
-        OriginUserID: this.userId,
+        OriginUserID: this.getUserId(),
         OriginInstagramID: model.OriginInstagramID,
         DestinationInstagramID: model.DestinationInstagramID,
         PresenceOnSite: model.PresenceOnSite,
@@ -143,5 +144,23 @@ export class UserPanelService {
   public SideAccept(requestId: number): Observable<any> {
     return this.httpClient.post<any>(environment.baseUrl + "/sp/business/UpdateRequestStatus_SidesAccept",
       { RequestID: requestId });
+  }
+
+  public SetStatusAsWaitForPayment(requestId: number): Observable<any> {
+    return this.httpClient.post<any>(environment.baseUrl + "/sp/business/UpdateRequestStatus_WaitingPayment",
+      { RequestID: requestId });
+  }
+
+  public GetPaymentUrl(requestId: number): Observable<string> {
+    return this.httpClient.get<string>(environment.baseUrl + "/payment/" + requestId);
+  }
+
+  public GetPayments(userId: number): Observable<Payment[]> {
+    return this.httpClient.post<Payment[]>(environment.baseUrl + "/sp/payment/GetPayments", { UserID: userId });
+  }
+
+  public GetPaymentHistory(paymentId: number, userId: number): Observable<PaymentHistory[]> {
+    return this.httpClient.post<PaymentHistory[]>(environment.baseUrl + "/sp/payment/GetPaymentHistory", 
+      { UserID: userId, PaymentID: paymentId });
   }
 }

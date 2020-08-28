@@ -21,9 +21,9 @@ export class AuthInterceptor implements HttpInterceptor {
       this.authToken = this.authService.getAuthorizationHeaderValue();
     }
 
-    const authReq = req.clone({ setHeaders: { Authorization: 'bearer ' + this.authToken } });
+    const request = req.clone({ setHeaders: { Authorization: 'bearer ' + this.authToken } });
 
-    return next.handle(authReq).pipe(
+    return next.handle(request).pipe(
       catchError((err: any) => {
         debugger;
         if (err && err instanceof HttpErrorResponse && err.status === 403)
@@ -39,7 +39,6 @@ export class AuthInterceptor implements HttpInterceptor {
           return of(err);
       }));
   }
-
 }
 
 

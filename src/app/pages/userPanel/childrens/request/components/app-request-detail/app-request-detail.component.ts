@@ -70,7 +70,7 @@ export class AppRequestDetailComponent implements OnInit {
     if (!event.returnValue)
       return;
 
-    var price = this.request.Price.replace(new RegExp(',', 'g'),'');
+    var price = this.request.Price.replace(new RegExp(',', 'g'), '');
 
     if (!price || isNaN(Number(price)) || Number(price) < 0) {
       this.alertifyService.error('قیمت پیشنهادی را به درستی وارد کنید');
@@ -97,10 +97,14 @@ export class AppRequestDetailComponent implements OnInit {
     if (!event.returnValue)
       return;
 
-    this.userPanelService.SideAccept(this.request.ID).subscribe((res) => {
-      this.alertifyService.success('تایید شما با موفقیت انجام شد. لطفا مبلغ را از طریق درگاه پرداخت نمایید');
+    this.userPanelService.SideAccept(this.request.ID).subscribe(() => {
 
-      this.setRequestAsSideAccepted();
+      this.userPanelService.SideAccept(this.request.ID).subscribe(() => {
+
+        this.alertifyService.success('تایید شما با موفقیت انجام شد. لطفا مبلغ را از طریق درگاه پرداخت نمایید');
+
+        this.setRequestAsSideAccepted();
+      });
     });
   }
 
@@ -124,4 +128,10 @@ export class AppRequestDetailComponent implements OnInit {
     this.request.Price = val;
   }
 
+  goToBank() {
+    this.userPanelService.GetPaymentUrl(this.request.ID).subscribe((res: any) => {
+      window.open(res.url);
+      // window.open(res.url,"_blank");
+    });
+  }
 }

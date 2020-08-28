@@ -76,13 +76,18 @@ export class AppLoginFormComponent {
       $('.modal-backdrop').remove();
 
       var url = this.route.url;
-      
+
       if (url == '/')
         this.route.navigate(['userpanel/profile']);
       else
         this.route.navigate([url]);
 
-      this.alertifyService.success(`${res.user.firstName} ${res.user.lastName} عزیز خوش آمدید`);
+      var name = '';
+      if (res.user && res.user.firstName)
+        name = `${res.user.firstName} ${res.user.lastName}`;
+
+      
+      this.alertifyService.success(`${name} عزیز خوش آمدید`);
 
     });
   }

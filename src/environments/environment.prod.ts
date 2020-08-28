@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  //baseUrl : 'http://37.152.181.29:81/api'
-  baseUrl : 'http://inisito.com:888/api'
+  baseUrl : 'http://localhost:5003/api'
+  //baseUrl : 'http://inisito.com:8881/api'
 };

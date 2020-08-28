@@ -13,6 +13,7 @@ export class BankInfoComponent implements OnInit {
 
   userInfo: UserAccountInfo = new UserAccountInfo();
   banks: Bank[] = [];
+  
   constructor(private userPanelService: UserPanelService, private alertifyService: AlertifyService) { }
 
   ngOnInit() {

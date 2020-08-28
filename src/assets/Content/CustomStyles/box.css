@@ -280,3 +280,21 @@ h2 {
 .badge-danger{
     background-color: #ec407a;
 }
+
+.paymentbox {
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    box-shadow: 2px 2px 2px #9e9e9e;
+    float: left;
+}
+
+.paymentbox label{
+    width: 100%;
+    font-size: 13px;
+}
+
+.paymentbox label span{
+    font-size: 11px;
+}

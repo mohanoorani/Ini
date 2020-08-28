@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { AuthService } from '@app/authentication/services/auth.service';
 import { UserPanelService } from '@app/pages/userPanel/services/userPanel.service';
 import { RequestHistory } from '../../../../models/requesthistory';
@@ -10,18 +10,23 @@ import { AlertifyService } from '@app/shared/services';
   styleUrls: ['./app-request-history.component.css']
 })
 
-export class AppRequestHistoryComponent implements OnInit {
+export class AppRequestHistoryComponent implements OnInit, OnDestroy {
 
   @Input() requestId: number;
   userId: number;
   histories: RequestHistory[] = [];
   comment: string;
   sendingComment: boolean = false;
+  intervalManager;
   @ViewChild('commentBox') commentBoxElement: ElementRef;
 
   constructor(
     private userPanelService: UserPanelService,
     private authService: AuthService) { }
+
+  ngOnDestroy(): void {
+    clearInterval(this.intervalManager);
+  }
 
   async ngOnInit() {
     this.userId = this.authService.getUserInfo().id;
@@ -33,13 +38,13 @@ export class AppRequestHistoryComponent implements OnInit {
       }
     }, 1000);
 
-    setInterval(() => this.getRequestHistory(), 5000);
+    this.intervalManager = setInterval(() => this.getRequestHistory(), 10000);
   }
 
   getRequestHistory() {
 
     this.userPanelService.GetRequestHistory(this.requestId, this.userId).subscribe((res: RequestHistory[]) => {
-      if (this.histories && this.histories.length == 0){
+      if (this.histories && this.histories.length == 0) {
         this.histories = res;
         this.scrollEnd();
       }
@@ -49,7 +54,7 @@ export class AppRequestHistoryComponent implements OnInit {
 
           var notExistsChat = this.histories.find(i => i.ID == element.ID);
 
-          if (!notExistsChat){
+          if (!notExistsChat) {
             this.histories.push(element);
             this.scrollEnd();
           }
@@ -77,14 +82,14 @@ export class AppRequestHistoryComponent implements OnInit {
   }
 
   toggleChat() {
-    var element = document.getElementsByClassName('glyphicon glyphicon-plus')[0];
+    var element = document.getElementsByClassName('glyphicon glyphicon-chevron-up')[0];
 
     if (element) {
-      element.setAttribute('class', 'glyphicon glyphicon-minus');
+      element.setAttribute('class', 'glyphicon glyphicon-chevron-down');
     }
     else {
-      element = document.getElementsByClassName('glyphicon glyphicon-minus')[0];
-      element.setAttribute('class', 'glyphicon glyphicon-plus');
+      element = document.getElementsByClassName('glyphicon glyphicon-chevron-down')[0];
+      element.setAttribute('class', 'glyphicon glyphicon-chevron-up');
     }
 
     this.scrollEnd();

@@ -1,0 +1,86 @@
+<div class="row paymentbox col-md-12 col-xs-12" *ngFor="let payment of payments">
+  <div class="col-md-4 col-xs-6">
+    <label>
+      کد درخواست:
+      <span>{{payment.RequestCode}}</span>
+    </label>
+  </div>
+
+  <div class="col-md-4 col-xs-6">
+    <label>
+      وضعیت:
+      <span>{{payment.PaymentType}}</span>
+    </label>
+  </div>
+
+  <div class="col-md-4 col-xs-6">
+    <label>
+      شماره پیگیری:
+      <span>{{payment.PaymentCode}}</span>
+    </label>
+  </div>
+
+  <div class="col-md-4 col-xs-6">
+    <label>
+      وضعیت:
+      <span>{{payment.PaymentType}}</span>
+    </label>
+  </div>
+
+  <div class="col-md-4 col-xs-6">
+    <label>
+      از کاربر:
+      <span>{{payment.OriginInstagramID}}</span>
+    </label>
+  </div>
+
+  <div class="col-md-4 col-xs-6">
+    <label>
+      به کاربر:
+      <span>{{payment.DestinationInstagramID}}</span>
+    </label>
+  </div>
+
+  <div class="col-md-4 col-xs-6">
+    <label>
+      پرداخت کل:
+      <span>{{payment.Amount | number}} تومان</span>
+    </label>
+  </div>
+
+  <div class="col-md-4 col-xs-6">
+    <label>
+      کمیسیون:
+      <span>{{payment.Commission | number}} تومان</span>
+    </label>
+  </div>
+
+  <div class="col-md-4 col-xs-6">
+    <label>
+      پرداختی ما:
+      <span>{{payment.FinalAmount | number}} تومان</span>
+    </label>
+  </div>
+
+  <div class="col-md-4 col-xs-6">
+    <label>
+      نهایی شده:
+      <span>{{payment.IsDone ? 'بلی' : 'خیر'}}</span>
+    </label>
+  </div>
+
+  <div class="col-md-4 col-xs-6">
+    <label>
+      زمان پرداخت:
+      <span>{{payment.PaymentTime}}</span>
+    </label>
+  </div>
+
+  <div class="col-md-4 col-xs-6">
+    <label>
+      <a [routerLink]="['./', payment.PaymentID]">
+        تاریخچه پرداخت
+      </a>
+    </label>
+  </div>
+</div>

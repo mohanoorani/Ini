@@ -11,7 +11,7 @@ const userPanelRoute: Routes = [
       { path: 'message', loadChildren: './childrens/message/message.module#MessageModule' },
       { path: 'instagram', loadChildren: './childrens/instagram/instagram.module#InstagramModule' },
       { path: 'bankinfo', loadChildren: './childrens/bankInfo/bankInfo.module#BankInfoModule' },
-      { path: 'paymentinfo', loadChildren: './childrens/paymentInfo/paymentInfo.module#PaymentInfoModule' },
+      { path: 'payments', loadChildren: './childrens/payment/payment.module#PaymentModule' },
       { path: 'requests', loadChildren: './childrens/request/request.module#RequestModule' }
     ]
   }

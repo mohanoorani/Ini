@@ -11,26 +11,22 @@ import * as $ from 'jquery';
   styleUrls: ['./app-create-request.component.css']
 })
 
-export class AppCreateRequestComponent implements OnInit {
+export class AppCreateRequestComponent{
 
-  @Input() instagramId: string;
-  instagramsId: Influencer[] = [];
+  instagramId: string;
+  currentUserInstagramsId: Influencer[] = [];
   request: Request = new Request();
   selectedFile: File;
 
-  constructor(
-    private userPanelService: UserPanelService,
-    private alertifyService: AlertifyService) { }
+  constructor(private userPanelService: UserPanelService,private alertifyService: AlertifyService) { }
 
-  ngOnInit() {
-    this.getInstagramsId();
-    
+  getInstagramsId(instagramId: string) {
+    this.instagramId = instagramId;
+
     this.resetForm();
-  }
 
-  getInstagramsId() {
     this.userPanelService.GetAllAccounts().subscribe((res: Influencer[]) => {
-      this.instagramsId = res;
+      this.currentUserInstagramsId = res;
     });
   }
 

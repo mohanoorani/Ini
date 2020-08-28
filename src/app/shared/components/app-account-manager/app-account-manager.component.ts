@@ -37,7 +37,12 @@ export class AccountManagerComponent {
 
     this.getUserInfo();
 
-    this.route.navigate(['/']);
+    var url = this.route.url;
+
+    if (url.toLowerCase().includes('userpanel'))
+      this.route.navigate(['/']);
+    else
+      this.route.navigate([url]);
 
     this.alertifyService.success('به امید دیدار مجدد');
   }

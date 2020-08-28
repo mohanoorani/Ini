@@ -6,7 +6,7 @@
     </a>
     <div class="profile-picture big-profile-picture">
         <a [routerLink]="['/influencers/detail', influencer?.InstagramID]">
-            <img width="150px" alt="{{influencer?.ProfileName}}" src="{{influencer?.ProfilePicUrl}}">
+            <img loading="lazy" width="150px" alt="{{influencer?.ProfileName}}" src="{{influencer?.ProfilePicUrl}}">
         </a>
     </div>
     <h1 class="user-name">{{influencer?.ProfileName}}</h1>
