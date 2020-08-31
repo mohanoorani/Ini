@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class AuthInterceptor implements HttpInterceptor {
 
   private authToken: string = '-';
-  constructor(private authService: AuthService, private alertify: AlertifyService, private route : Router) { }
+  constructor(private authService: AuthService, private alertify: AlertifyService, private route: Router) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -35,8 +35,9 @@ export class AuthInterceptor implements HttpInterceptor {
         }
         else if (err)
           this.alertify.error(err.error);
-        else
-          return of(err);
+
+
+        throw of(err);
       }));
   }
 }

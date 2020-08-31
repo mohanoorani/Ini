@@ -298,3 +298,19 @@ h2 {
 .paymentbox label span{
     font-size: 11px;
 }
+
+
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: #c5c5c5;
+}
+
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #646ea6 ;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #c5c5c5;
+}

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Influencer } from '@app/pages/influencer/models/influencer';
 import { UserPanelService } from '@app/pages/userPanel/services/userPanel.service';
 import { AlertifyService } from '@app/shared/services';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-instagram',
@@ -15,6 +16,8 @@ export class InstagramComponent implements OnInit {
   code: string;
   isCodeView: boolean
   isListView: boolean = true;
+  loading: boolean = false;
+
   constructor(private userPanelService: UserPanelService, private alertifyService: AlertifyService) { }
 
   ngOnInit() {
@@ -28,11 +31,11 @@ export class InstagramComponent implements OnInit {
   }
 
   addAccount() {
-    this.isListView = false; 
+    this.isListView = false;
   }
 
-   showList() {
-    this.isListView = true; 
+  showList() {
+    this.isListView = true;
   }
 
   verifyAccount() {
@@ -41,10 +44,18 @@ export class InstagramComponent implements OnInit {
       return;
     }
 
-    this.userPanelService.VerifyInstagramProfile(this.instagramId).subscribe((res: any) => {
-      this.isCodeView = true;
-      this.alertifyService.success('کد تایید به اینستاگرام شما دایرکت شد');
-    });
+    this.loading = true;
+
+    this.userPanelService.VerifyInstagramProfile(this.instagramId)
+      .pipe(catchError(() => {
+        this.loading = false;
+        return null;
+      }))
+      .subscribe(() => {
+        this.loading = false;
+        this.isCodeView = true;
+        this.alertifyService.success('کد تایید به اینستاگرام شما دایرکت شد');
+      });
   }
 
   verifyCode() {
